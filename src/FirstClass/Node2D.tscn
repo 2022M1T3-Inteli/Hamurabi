@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://red.png" type="Texture" id=1]
 [ext_resource path="res://blue.png" type="Texture" id=2]
 [ext_resource path="res://fundo.jpg" type="Texture" id=3]
 [ext_resource path="res://blue.gd" type="Script" id=4]
 [ext_resource path="res://march.mp3" type="AudioStream" id=5]
+[ext_resource path="res://red_body.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.2439, 29.2489 )
@@ -33,9 +34,7 @@ stream = ExtResource( 5 )
 
 [node name="red_body" type="KinematicBody2D" parent="."]
 position = Vector2( 779.79, 316.13 )
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource( 6 )
 
 [node name="red" type="Sprite" parent="red_body"]
 position = Vector2( -1.18216, -1.2063 )

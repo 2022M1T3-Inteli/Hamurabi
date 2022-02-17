@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Escolha.gd" type="Script" id=1]
 [ext_resource path="res://png-transparent-computer-icons-society-symbol-business-symbol-miscellaneous-text-social-group.png" type="Texture" id=2]
 [ext_resource path="res://png-transparent-dollar-sign-dollar-sign-united-states-dollar-green-dollar-symbol-text-logo-number.png" type="Texture" id=3]
+[ext_resource path="res://balao_fala-removebg-preview.png" type="Texture" id=4]
+[ext_resource path="res://acessora.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ButtonEscolha1" type="Button" parent="."]
-margin_left = 229.0
-margin_top = 253.0
-margin_right = 302.0
-margin_bottom = 322.0
+margin_left = 126.0
+margin_top = 260.0
+margin_right = 199.0
+margin_bottom = 329.0
 rect_pivot_offset = Vector2( 51, 36 )
 text = "<1"
 __meta__ = {
@@ -19,10 +21,10 @@ __meta__ = {
 }
 
 [node name="ButtonEscolha2" type="Button" parent="."]
-margin_left = 759.0
-margin_top = 253.0
-margin_right = 832.0
-margin_bottom = 322.0
+margin_left = 789.0
+margin_top = 254.0
+margin_right = 862.0
+margin_bottom = 323.0
 rect_pivot_offset = Vector2( 51, 36 )
 text = "2>"
 __meta__ = {
@@ -30,24 +32,11 @@ __meta__ = {
 }
 
 [node name="LabelConsequencia" type="Label" parent="."]
-margin_left = 335.0
-margin_top = 128.0
-margin_right = 687.0
-margin_bottom = 180.0
+margin_left = 162.0
+margin_top = 167.0
+margin_right = 514.0
+margin_bottom = 219.0
 text = "X coisa aconteceu."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LabelExplicacaoDecisao" type="Label" parent="."]
-margin_left = 386.0
-margin_top = 272.0
-margin_right = 649.0
-margin_bottom = 303.0
-text = "Você pode  tomar decisão 1 ou decisão 2
-"
 align = 1
 valign = 1
 __meta__ = {
@@ -85,14 +74,41 @@ scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 2 )
 
 [node name="ButtonProsseguir" type="Button" parent="."]
-margin_left = 449.0
-margin_top = 452.0
-margin_right = 580.0
-margin_bottom = 472.0
+margin_left = 421.0
+margin_top = 473.0
+margin_right = 552.0
+margin_bottom = 493.0
 text = "Prosseguir"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SpriteBalaoFala" type="Sprite" parent="."]
+position = Vector2( 565, 238 )
+scale = Vector2( 0.336, 0.304 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="LabelExplicacaoDecisao" type="Label" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 489.0
+margin_top = 185.0
+margin_right = 636.0
+margin_bottom = 268.0
+text = "Você pode
+tomar decisão 1
+ou decisão 2
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 486, 342 )
+scale = Vector2( 0.135, 0.131 )
+texture = ExtResource( 5 )
 
 [connection signal="pressed" from="ButtonEscolha1" to="." method="_on_ButtonEscolha1_pressed"]
 [connection signal="pressed" from="ButtonEscolha2" to="." method="_on_ButtonEscolha2_pressed"]

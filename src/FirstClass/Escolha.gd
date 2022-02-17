@@ -1,9 +1,9 @@
 extends Node2D
 
 #variável da progress bar de economia 
-var marcadorEconomia = 0
+var marcadorEconomia:int = 0
 #variável da progress bar social
-var marcadorSocial = 0
+var marcadorSocial:int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,6 +48,9 @@ func _on_ButtonEscolha1_pressed():
 	$ButtonEscolha1.hide()
 	$ButtonEscolha2.hide()
 	
+	$LabelExplicacaoDecisao.hide()
+	$SpriteBalaoFala.hide()
+	
 	#pass # levar a cena escolha 2
 
 #consequência escolha 2
@@ -63,6 +66,8 @@ func _on_ButtonEscolha2_pressed():
 	$ButtonEscolha1.hide()
 	$ButtonEscolha2.hide()
 	
+	$LabelExplicacaoDecisao.hide()
+	$SpriteBalaoFala.hide()
 	
 	pass # Replace with function body.
 
@@ -73,16 +78,23 @@ func _on_ButtonProsseguir_pressed():
 	
 	#se o jogador zerar algum marcador, chama a cena de impeachment
 	if marcadorEconomia == 0 or marcadorSocial == 0:
-		$LabelConsequencia.text = "perdeu"
+		$LabelConsequencia.text = "Um de seus marcadores chegou a zero! Perdeste"
 		$ButtonProsseguir.hide()
+		$LabelExplicacaoDecisao.hide()
+		
+		#tentativa de passar para outra scene
+		get_tree().change_scene("res://Impeachment.tscn")
 		
 		#chama cena de impeachment
 	else:
-		$LabelConsequencia.text = "prosseguir"
+		$LabelConsequencia.text = "Escolha sabiamente!"
 		#desbloquear os botões de escolha 
 		$ButtonEscolha1.show()
 		$ButtonEscolha2.show()
 		$ButtonProsseguir.hide()
+		
+		$LabelExplicacaoDecisao.show()
+		$SpriteBalaoFala.show()
 	
 	
 		#passa para outra cena
