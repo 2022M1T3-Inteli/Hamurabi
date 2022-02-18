@@ -8,7 +8,7 @@
 
 ## Nome do Grupo
 
-## Integrantes: <a href="">Alysson Cordeiro</a>, <a href="https://www.linkedin.com/in/felipe-saadi/">Felipe Saadi</a>, <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/">Felipe Sampaio</a>, <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/">Giovana Thomé</a>, <a href="www.linkedin.com/in/iago-tavares-b10244149">Iago Tavares</a>, <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/">Kathlyn Diwan</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/">Pedro Silva</a>
+## Integrantes: <a href="" target="_blank">Alysson Cordeiro</a>, <a href="https://www.linkedin.com/in/felipe-saadi/" target="_blank">Felipe Saadi</a>, <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/" target="_blank">Felipe Sampaio</a>, <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/" target="_blank">Giovana Thomé</a>, <a href="www.linkedin.com/in/iago-tavares-b10244149" target="_blank">Iago Tavares</a>, <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/" target="_blank">Kathlyn Diwan</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/" target="_blank">Pedro Silva</a>
 
 ## Descrição
 
