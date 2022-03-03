@@ -198,6 +198,10 @@ func _on_answer1_button_pressed():
 		economicIndicator = 0
 	if socialIndicator <= 0:
 		socialIndicator = 0
+	
+	#se algum dos indicadores é zerado, a cena de impeachment é chamada
+	if socialIndicator == 0 or economicIndicator == 0:
+		get_tree().change_scene("res://Impeachment.tscn")
 		
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
@@ -231,6 +235,11 @@ func _on_answer2_button_pressed():
 		economicIndicator = 0
 	if socialIndicator <= 0:
 		socialIndicator = 0
+		
+	#se algum dos indicadores é zerado, a cena de impeachment é chamada
+	if socialIndicator == 0 or economicIndicator == 0:
+		get_tree().change_scene("res://Impeachment.tscn")
+	
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
 	
@@ -263,6 +272,11 @@ func _on_answer3_button_pressed():
 		economicIndicator = 0
 	if socialIndicator <= 0:
 		socialIndicator = 0
+		
+	#se algum dos indicadores é zerado, a cena de impeachment é chamada
+	if socialIndicator == 0 or economicIndicator == 0:
+		get_tree().change_scene("res://Impeachment.tscn")
+	
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
 	
