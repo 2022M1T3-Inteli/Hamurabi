@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://World2.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/images.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/ambiente-trabalho.jpg" type="Texture" id=3]
+[ext_resource path="res://fundo escritorio.jpg" type="Texture" id=3]
+[ext_resource path="res://bank-2-64.png" type="Texture" id=4]
+[ext_resource path="res://social.png" type="Texture" id=5]
+[ext_resource path="res://book.png" type="Texture" id=6]
+[ext_resource path="res://circle-dashed-8-64.png" type="Texture" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -11,19 +15,23 @@
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0588235, 0.415686, 0.92549, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.270588, 0.780392, 0.313726, 1 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.909804, 0.32549, 0.32549, 1 )
-
 [node name="World2" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 512, 297 )
-scale = Vector2( 1.16023, 1.99667 )
+position = Vector2( 461, 303 )
+scale = Vector2( 1.25, 1.20158 )
 texture = ExtResource( 3 )
+
+[node name="Bank-2-64" type="Sprite" parent="background"]
+position = Vector2( -331.6, -226.369 )
+scale = Vector2( 0.65, 0.562089 )
+texture = ExtResource( 4 )
+
+[node name="Book" type="Sprite" parent="background"]
+position = Vector2( 405.3, -214.868 )
+scale = Vector2( 0.496876, 0.498857 )
+texture = ExtResource( 6 )
 
 [node name="title" type="Label" parent="."]
 margin_left = 411.0
@@ -102,30 +110,41 @@ __meta__ = {
 }
 
 [node name="economic_indicator" type="Label" parent="."]
-margin_left = 41.0
-margin_top = 31.0
-margin_right = 238.0
-margin_bottom = 50.0
+margin_left = 42.0
+margin_top = 58.0
+margin_right = 115.0
+margin_bottom = 77.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_styles/normal = SubResource( 4 )
-text = "Indicador Econômico:"
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="social_indicator" type="Label" parent="."]
-margin_left = 43.0
-margin_top = 59.0
-margin_right = 238.0
-margin_bottom = 77.0
+margin_left = 177.0
+margin_top = 55.0
+margin_right = 372.0
+margin_bottom = 73.0
+rect_scale = Vector2( 0.847771, 1.11985 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_styles/normal = SubResource( 5 )
-text = "Indicador Social:"
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Social" type="Sprite" parent="."]
+position = Vector2( 180.5, 29 )
+scale = Vector2( 0.640625, 0.59375 )
+texture = ExtResource( 5 )
+
+[node name="Circle-dashed-8-64" type="Sprite" parent="."]
+position = Vector2( 967, 44 )
+scale = Vector2( 1.28125, 1.17969 )
+texture = ExtResource( 7 )
 
 [connection signal="pressed" from="answer1_button" to="." method="_on_answer1_button_pressed"]
 [connection signal="pressed" from="answer2_button" to="." method="_on_answer2_button_pressed"]
