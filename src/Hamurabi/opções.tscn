@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Label" type="Label"]
+margin_left = 247.0
+margin_top = 124.0
+margin_right = 949.0
+margin_bottom = 514.0
+text = "O jogo consiste nas escolhas"
+__meta__ = {
+"_edit_use_anchors_": false
+}

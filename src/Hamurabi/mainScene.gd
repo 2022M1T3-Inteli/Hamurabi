@@ -6,4 +6,4 @@ func _ready():
 
 #função chamada após o nó timer terminar de esperar 4.5 segundos(muda para a próxima cena) 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://Menu.tscn")

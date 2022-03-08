@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Letras da Animação/8.png" type="Texture" id=1]
 [ext_resource path="res://AnimationPlayer.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Letras da Animação/5.png" type="Texture" id=8]
 [ext_resource path="res://Letras da Animação/6.png" type="Texture" id=9]
 [ext_resource path="res://Letras da Animação/7.png" type="Texture" id=10]
-[ext_resource path="res://tela preta.PNG" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -260,11 +259,6 @@ tracks/0/keys = {
 
 [node name="mainScene" type="Node2D"]
 script = ExtResource( 3 )
-
-[node name="TelaPreta" type="Sprite" parent="."]
-position = Vector2( 514.125, 303.313 )
-scale = Vector2( 1.69567, 1.17937 )
-texture = ExtResource( 11 )
 
 [node name="letterH" type="Sprite" parent="."]
 position = Vector2( 82, -78 )
