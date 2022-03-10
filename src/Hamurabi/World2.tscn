@@ -59,6 +59,7 @@ text = "A Consolidação das Leis do Trabalho, popularmente chamada de CLT, regu
 de relações individuais ou coletivas. 
 Ela foi decretada no Estado Novo – período autoritário da Era Vargas – em 1º de maio de 1943. 
 Essa legislação visa a proteger o trabalhador, a regular as relações de trabalho e criar o direito processual do trabalho."
+percent_visible = -0.00297619
 __meta__ = {
 "_edit_use_anchors_": false
 }
