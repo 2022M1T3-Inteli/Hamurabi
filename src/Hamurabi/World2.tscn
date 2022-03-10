@@ -19,7 +19,7 @@ bg_color = Color( 0.0588235, 0.415686, 0.92549, 1 )
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 461, 303 )
+position = Vector2( 475, 305 )
 scale = Vector2( 1.25, 1.20158 )
 texture = ExtResource( 3 )
 
@@ -146,6 +146,16 @@ position = Vector2( 967, 44 )
 scale = Vector2( 1.28125, 1.17969 )
 texture = ExtResource( 7 )
 
+[node name="Button" type="Button" parent="."]
+margin_left = 1007.0
+margin_top = 5.0
+margin_right = 1031.0
+margin_bottom = 25.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="answer1_button" to="." method="_on_answer1_button_pressed"]
 [connection signal="pressed" from="answer2_button" to="." method="_on_answer2_button_pressed"]
 [connection signal="pressed" from="answer3_button" to="." method="_on_answer3_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

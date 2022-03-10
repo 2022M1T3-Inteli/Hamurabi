@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://SairButton.gd" type="Script" id=2]
 [ext_resource path="res://ComoJogarButton.gd" type="Script" id=3]
+[ext_resource path="res://créditos.tscn" type="PackedScene" id=4]
 
 [node name="Menu" type="Control"]
 margin_left = 1.0
@@ -31,24 +32,26 @@ margin_right = 140.0
 margin_bottom = 20.0
 text = "Iniciar"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="ComoJogarButton" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
 margin_right = 140.0
 margin_bottom = 44.0
-text = "Opções"
+text = "Como jogar"
+script = ExtResource( 3 )
 
-[node name="ComoJogarButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
 margin_top = 48.0
 margin_right = 140.0
 margin_bottom = 68.0
-text = "Como jogar"
-script = ExtResource( 3 )
+text = "Opções"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
 margin_top = 72.0
 margin_right = 140.0
 margin_bottom = 92.0
 text = "Créditos"
+
+[node name="Label" parent="VBoxContainer/CreditsButton" instance=ExtResource( 4 )]
 
 [node name="SairButton" type="Button" parent="VBoxContainer"]
 margin_top = 96.0
@@ -59,4 +62,5 @@ script = ExtResource( 2 )
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ComoJogarButton" to="." method="_on_ComoJogarButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SairButton" to="." method="_on_SairButton_pressed"]

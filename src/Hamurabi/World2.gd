@@ -1,47 +1,16 @@
 extends Node2D
 
+#variáveis dos indicadores que variam de acordo com as escolhas 
 var economicIndicator = 50
 var socialIndicator = 50
 
 # Define a cena atual
 var actualScene = "scene1"
 
-# Cria um dicinário para guardar todos os valores de uma cena (a estrutura se repete várias vezes ao longo do código)
-var scene1 = {
-	"title": "O que é a CLT?",
-	"lawExplanation": "CLT é a lei que mantém o direito dos trabalhadores.",
-	"question": "O que fazer para manter os direitos dos trabalhadores?",
-	"answers": {
-		"answer1": {
-			"text": "Criar Lei CLT",
-			"indicators": {
-				"social": 5,
-				"economic": 5
-			},
-			"next": "scene2"
-		},
-		"answer2": {
-			"text": "Deixar o país sem lei dos trabalhadores",
-			"indicators": {
-				"social": -5,
-				"economic": -5
-			},
-			"next": "scene2"
-		},
-		"answer3": {
-			"text": "Criar outra lei",
-			"indicators": {
-				"social": 5,
-				"economic": -5
-			},
-			"next": "scene2"
-		}
-	},
-	"background": "background.jpg",
-	"image": "President.png"
-}
+# Cria um dicionário para guardar todos os valores de uma cena (a estrutura se repete várias vezes ao longo do código)
 
-var scene2 = {
+
+var scene1 = {
 	"title": "Separação ou concentração dos poderes",
 	"lawExplanation": "Enquanto presidente, você percebe que existem diversas funções a serem realizadas para o melhor desempenho da nação. ",
 	"question": "Dessa forma, quais métodos seriam mais eficientes para administrar o país??",
@@ -64,6 +33,40 @@ var scene2 = {
 		},
 		"answer3": {
 			"text": "Separar os poderes e cada poder terá uma função estatal",
+			"indicators": {
+				"social": 5,
+				"economic": -5
+			},
+			"next": "scene2"
+		}
+	},
+	"background": "background.jpg",
+	"image": "President.png"
+}
+
+var scene2 = {
+	"title": "O que é a CLT?",
+	"lawExplanation": "CLT é a lei que mantém o direito dos trabalhadores.",
+	"question": "O que fazer para manter os direitos dos trabalhadores?",
+	"answers": {
+		"answer1": {
+			"text": "Criar Lei CLT",
+			"indicators": {
+				"social": 5,
+				"economic": 5
+			},
+			"next": "scene3"
+		},
+		"answer2": {
+			"text": "Deixar o país sem lei dos trabalhadores",
+			"indicators": {
+				"social": -5,
+				"economic": -5
+			},
+			"next": "scene3"
+		},
+		"answer3": {
+			"text": "Criar outra lei",
 			"indicators": {
 				"social": 5,
 				"economic": -5
@@ -518,3 +521,7 @@ func _on_answer3_button_pressed():
 	$answer1_button.text = actualScene.answers.answer1.text
 	$answer2_button.text = actualScene.answers.answer2.text 
 	$answer3_button.text = actualScene.answers.answer3.text
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://Menu.tscn")

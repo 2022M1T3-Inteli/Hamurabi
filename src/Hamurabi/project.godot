@@ -14,6 +14,10 @@ config/name="Hamurabi"
 run/main_scene="res://mainScene.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+shapes/navigation/geometry_color=Color( 0.101961, 1, 0.513726, 0.4 )
+
 [display]
 
 window/size/width=1280

@@ -1,11 +1,26 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://exit.gd" type="Script" id=1]
 
 [node name="Label" type="Label"]
-margin_left = 247.0
-margin_top = 124.0
-margin_right = 949.0
-margin_bottom = 514.0
+margin_left = 241.0
+margin_top = 141.0
+margin_right = 943.0
+margin_bottom = 531.0
 text = "O jogo consiste nas escolhas"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="."]
+margin_left = 656.0
+margin_top = -35.0
+margin_right = 704.0
+margin_bottom = 6.0
+text = "X"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
