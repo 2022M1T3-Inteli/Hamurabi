@@ -3,6 +3,10 @@ extends Node2D
 #variáveis dos indicadores que variam de acordo com as escolhas 
 var economicIndicator = 50
 var socialIndicator = 50
+var qtd_cenas = 9
+var tempo_cena = 1460/qtd_cenas
+var daysMandact = 1460 
+
 
 # Define a cena atual
 var actualScene = "scene1"
@@ -19,7 +23,7 @@ var scene1 = {
 				"social": -10,
 				"economic": 5
 			},
-			"next": "scene3"
+			"next": "scene2"
 		},
 		"answer2": {
 			"text": "",
@@ -27,7 +31,7 @@ var scene1 = {
 				"social": 5,
 				"economic": -5
 			},
-			"next": "scene3"
+			"next": "scene2"
 		},
 		"answer3": {
 			"text": "Separar os poderes e cada poder terá uma função estatal",
@@ -39,7 +43,7 @@ var scene1 = {
 		}
 	},
 	"background": "background.jpg",
-	"image": "President.png"
+	"image": "President.png", 
 }
 
 var scene2 = {
@@ -352,6 +356,7 @@ func _ready():
 	# Iniciar os indicadores (50%)
 	$economic_indicator.text = String(50)
 	$social_indicator.text = String(50)
+	$days_mandact.text = String(1460)
 	
 	# Definir a cena atual
 	actualScene = scene1
@@ -375,6 +380,7 @@ func _ready():
 # Função chamada quando o jogador escolher a opção 1
 func _on_answer1_button_pressed():
 	# Atualiza o valor dos indicadores com base na escolha da cena
+	daysMandact -= tempo_cena 
 	economicIndicator += actualScene.answers.answer1.indicators.economic 
 	socialIndicator += actualScene.answers.answer1.indicators.social
 	if economicIndicator >= 100:
@@ -385,6 +391,8 @@ func _on_answer1_button_pressed():
 		economicIndicator = 0
 	if socialIndicator <= 0:
 		socialIndicator = 0
+	if daysMandact <= 0:
+		daysMandact = 0
 	
 	#se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
@@ -392,6 +400,7 @@ func _on_answer1_button_pressed():
 		
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
+	$days_mandact.text = String(daysMandact)
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 		# Verifica qual cena é a próxima com base na resposta da cena atual
@@ -430,6 +439,7 @@ func _on_answer1_button_pressed():
 # Função chamada quando o jogador escolher a opção 2
 func _on_answer2_button_pressed():
 	# Atualiza o valor dos indicadores com base na escolha da cena
+	daysMandact -= tempo_cena 
 	economicIndicator += actualScene.answers.answer2.indicators.economic 
 	socialIndicator += actualScene.answers.answer2.indicators.social
 	if economicIndicator >= 100:
@@ -440,6 +450,8 @@ func _on_answer2_button_pressed():
 		economicIndicator = 0
 	if socialIndicator <= 0:
 		socialIndicator = 0
+	if socialIndicator <= 0:
+		socialIndicator = 0
 		
 	#se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
@@ -447,6 +459,7 @@ func _on_answer2_button_pressed():
 	
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
+	$days_mandact.text = String(daysMandact)
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 	# Verifica qual cena é a próxima com base na resposta da cena atual
@@ -485,6 +498,7 @@ func _on_answer2_button_pressed():
 # Função chamada quando o jogador escolher a opção 3
 func _on_answer3_button_pressed():
 	# Atualiza o valor dos indicadores com base na escolha da cena
+	daysMandact -= tempo_cena 
 	economicIndicator += actualScene.answers.answer3.indicators.economic
 	socialIndicator += actualScene.answers.answer3.indicators.social
 	if economicIndicator >= 100:
@@ -495,6 +509,8 @@ func _on_answer3_button_pressed():
 		economicIndicator = 0
 	if socialIndicator <= 0:
 		socialIndicator = 0
+	if socialIndicator <= 0:
+		socialIndicator = 0
 		
 	#se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
@@ -502,6 +518,7 @@ func _on_answer3_button_pressed():
 	
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
+	$days_mandact.text = String(daysMandact)
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 		# Verifica qual cena é a próxima com base na resposta da cena atual
