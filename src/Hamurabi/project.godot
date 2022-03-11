@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [debug]
 
+settings/fps/force_fps=60
 shapes/navigation/geometry_color=Color( 0.101961, 1, 0.513726, 0.4 )
 
 [display]

@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://World2.tscn")
+	get_tree().change_scene("res://World.tscn")
 
 
 func _on_SairButton_pressed():

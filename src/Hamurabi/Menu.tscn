@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://SairButton.gd" type="Script" id=2]
 [ext_resource path="res://ComoJogarButton.gd" type="Script" id=3]
 [ext_resource path="res://créditos.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="AnimatedTexture" id=2]
 
 [node name="Menu" type="Control"]
 margin_left = 1.0
@@ -28,11 +32,16 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
+self_modulate = Color( 0.819608, 0.709804, 0.709804, 1 )
 margin_right = 140.0
 margin_bottom = 20.0
+theme = SubResource( 1 )
 text = "Iniciar"
+icon = SubResource( 2 )
 
 [node name="ComoJogarButton" type="Button" parent="VBoxContainer"]
+modulate = Color( 0.815686, 0.733333, 0.733333, 1 )
+self_modulate = Color( 0.788235, 0.721569, 0.721569, 1 )
 margin_top = 24.0
 margin_right = 140.0
 margin_bottom = 44.0

@@ -12,8 +12,8 @@ var actualScene = "scene1"
 
 var scene1 = {
 	"title": "Separação ou concentração dos poderes",
-	"lawExplanation": "Enquanto presidente, você percebe que existem diversas funções a serem realizadas para o melhor desempenho da nação. ",
-	"question": "Dessa forma, quais métodos seriam mais eficientes para administrar o país??",
+	"lawExplanation": "Enquanto presidente, você percebe que existem diversas funções a serem realizadas para o melhor desempenho da nação. Então, vamos começar escolhendo uma estrutura para seu governo. ",
+	"question": "Qual método o senhor(a) vai escolher para administrar o país??",
 	"answers": {
 		"answer1": {
 			"text": "Manter o poder  apenas em suas mãos",

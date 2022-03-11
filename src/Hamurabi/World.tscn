@@ -22,10 +22,6 @@ margin_right = 838.0
 margin_bottom = 144.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_styles/normal = SubResource( 1 )
-text = "O presidente do nosso país fugiu com todas as leis e deixou a sociedade em caos.
-Agora é sua missão reconstruir nossa constituição e colocar em ordem novamente o nosso país.
-Cada decisão que você tomar irá definir o futuro do nosso país. E lembre-se, coloque sempre o 
-interesse coletivo acima de tudo em cada decisão que tomar. Topa o desafio?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
