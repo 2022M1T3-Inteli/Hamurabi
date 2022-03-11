@@ -15,18 +15,18 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
+# Começar o jogo ao clicar no botão
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://World.tscn")
 
-
+# Sair do jogo ao clicar no botão
 func _on_SairButton_pressed():
 	get_tree().change_scene("res://saida.tscn")
 
-
+# Abrir tutorial quando clicar no botão
 func _on_ComoJogarButton_pressed():
 	get_tree().change_scene("res://opções.tscn")
 
-
+# Abrir cena de créditos quando clicar no botão
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://créditos.tscn")

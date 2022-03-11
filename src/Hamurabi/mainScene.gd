@@ -1,16 +1,18 @@
 extends Node2D
 
-var time = 0
+# Inicia o timer
+var timer = 0
 
 func _ready():
 	pass
 	
 func _process(delta):
-	time += delta
+	timer += delta
 	
-	if time >= 4.5:
-		_on_Timer_timeout()
+	# Verifica se passou 4.5 segundos.
+	if timer >= 4.5:
+		timerOut()
 
-#função chamada após o nó timer terminar de esperar 4.5 segundos(muda para a próxima cena) 
-func _on_Timer_timeout():
+# Função chamada após o nó timer terminar de esperar 4.5 segundos e muda para a próxima cena. 
+func timerOut():
 	get_tree().change_scene("res://Menu.tscn")

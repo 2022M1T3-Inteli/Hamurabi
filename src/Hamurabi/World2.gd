@@ -1,12 +1,13 @@
 extends Node2D
 
-#variáveis dos indicadores que variam de acordo com as escolhas 
+# Variáveis dos indicadores que variam de acordo com as escolhas 
 var economicIndicator = 50
 var socialIndicator = 50
+
+# Variáveis do tempo decorrido do mandato
 var qtd_cenas = 9
 var tempo_cena = 1460/qtd_cenas
 var daysMandact = 1460 
-
 
 # Define a cena atual
 var actualScene = "scene1"
@@ -352,27 +353,27 @@ var scene10 = {
 	"image": "President.png"
 }
 
-#função que faz aparecer os elementos do menu in game
+# Função que faz aparecer os elementos do menu in game
 func elemetosMenuInGameVisiveis():
-	#estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "visíveis"
+	# Estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "visíveis"
 	for elementosMenuInGame in get_tree().get_nodes_in_group("menu_in_game"):
 		elementosMenuInGame.visible = true
 
-#funcao que faz desaparecer os elementos do menu in game
+# Funcao que faz desaparecer os elementos do menu in game
 func elementosMenuInGameInvisiveis():
 	#estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "invisíveis"
 	for elementosMenuInGame in get_tree().get_nodes_in_group("menu_in_game"):
 		elementosMenuInGame.visible = false
 		
-#funcao que faz aparecer os elementos da cena principal
+# Funcao que faz aparecer os elementos da cena principal
 func elementosCenaPrincipalVisiveis():
-	#estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "visíveis"
+	# Estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "visíveis"
 	for elementosCenaPrincipal in get_tree().get_nodes_in_group("main_scene_group"):
 		elementosCenaPrincipal.visible = true
 		
-#funcao que faz desaparecer os elementos da cena principal
+# Funcao que faz desaparecer os elementos da cena principal
 func elementosCenaPrincipalInvisiveis():
-	#estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "invisíveis"
+	# Estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "invisíveis"
 	for elementosCenaPrincipal in get_tree().get_nodes_in_group("main_scene_group"):
 		elementosCenaPrincipal.visible = false
 
@@ -413,7 +414,7 @@ func _on_answer1_button_pressed():
 	if daysMandact <= 0:
 		daysMandact = 0
 	
-	#se algum dos indicadores é zerado, a cena de impeachment é chamada
+	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
 		get_tree().change_scene("res://Impeachment.tscn")
 		
@@ -472,7 +473,7 @@ func _on_answer2_button_pressed():
 	if socialIndicator <= 0:
 		socialIndicator = 0
 		
-	#se algum dos indicadores é zerado, a cena de impeachment é chamada
+	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
 		get_tree().change_scene("res://Impeachment.tscn")
 	
@@ -531,7 +532,7 @@ func _on_answer3_button_pressed():
 	if socialIndicator <= 0:
 		socialIndicator = 0
 		
-	#se algum dos indicadores é zerado, a cena de impeachment é chamada
+	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
 		get_tree().change_scene("res://Impeachment.tscn")
 	
@@ -573,17 +574,17 @@ func _on_answer3_button_pressed():
 	$answer2_button.text = actualScene.answers.answer2.text 
 	$answer3_button.text = actualScene.answers.answer3.text
 
-#função que roda quando o botão do menu_in_game é pressionado
+# Função que roda quando o botão do menu_in_game é pressionado
 func _on_button_menu_in_game_pressed():
 	elementosCenaPrincipalInvisiveis()
 	elemetosMenuInGameVisiveis()
 
-#função que roda quando o botão "Voltar ao menu principal" é pressionado
+# Função que roda quando o botão "Voltar ao menu principal" é pressionado
 func _on_button_voltar_menu_principal_pressed():
-	#muda para a cena do Menu principal
+	# Muda para a cena do Menu principal
 	get_tree().change_scene("res://Menu.tscn")
 
-#função que roda quando o botão "Continuar" no menu_in_game é pressionado
+# Função que roda quando o botão "Continuar" no menu_in_game é pressionado
 func _on_button_continuar_jogo_pressed():
 	elementosCenaPrincipalVisiveis()
 	elementosMenuInGameInvisiveis()

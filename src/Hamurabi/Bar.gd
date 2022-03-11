@@ -1,25 +1,18 @@
 extends KinematicBody2D
 
+# Declara as variáveis do objeto
 var velocity = Vector2()
 var speed = 2
-var time = 0
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var aceleration = 5
 
 func _process(delta):
-	time += delta
+	# Verifica se o objeto ainda não chegou no seu destino. Caso não, move o objeto com base na velocidade pela aceleração.
 	if position.x < 637:
-		position.x += speed * 5
+		position.x += speed * aceleration
+		
+		# Movimenta o objeto.
 		move_and_slide(velocity, Vector2.RIGHT)
+	
+	# Caso já tenha chegado ao seu destino, para o objeto.
 	else:
 		speed = 0
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
