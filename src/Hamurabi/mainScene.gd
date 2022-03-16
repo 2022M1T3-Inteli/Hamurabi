@@ -4,7 +4,7 @@ extends Node2D
 var timer = 0
 
 func _ready():
-	pass
+	$openSong.play()
 	
 func _process(delta):
 	timer += delta

@@ -1,71 +1,90 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://H.gd" type="Script" id=1]
-[ext_resource path="res://Letras da Animação/2.png" type="Texture" id=2]
+[ext_resource path="res://Letras da Animação/A.png" type="Texture" id=2]
 [ext_resource path="res://mainScene.gd" type="Script" id=3]
-[ext_resource path="res://Letras da Animação/1.png" type="Texture" id=4]
+[ext_resource path="res://Letras da Animação/H.png" type="Texture" id=4]
 [ext_resource path="res://A.gd" type="Script" id=5]
-[ext_resource path="res://Letras da Animação/5.png" type="Texture" id=6]
-[ext_resource path="res://Letras da Animação/3.png" type="Texture" id=7]
-[ext_resource path="res://Letras da Animação/4.png" type="Texture" id=8]
+[ext_resource path="res://Letras da Animação/B.png" type="Texture" id=6]
+[ext_resource path="res://Letras da Animação/U.png" type="Texture" id=7]
+[ext_resource path="res://Letras da Animação/I.png" type="Texture" id=8]
 [ext_resource path="res://M.gd" type="Script" id=9]
 [ext_resource path="res://U.gd" type="Script" id=10]
 [ext_resource path="res://R.gd" type="Script" id=11]
 [ext_resource path="res://I.gd" type="Script" id=12]
-[ext_resource path="res://Letras da Animação/6.png" type="Texture" id=13]
-[ext_resource path="res://Letras da Animação/7.png" type="Texture" id=14]
-[ext_resource path="res://Letras da Animação/8.png" type="Texture" id=15]
+[ext_resource path="res://Letras da Animação/M.png" type="Texture" id=13]
+[ext_resource path="res://Letras da Animação/R.png" type="Texture" id=14]
+[ext_resource path="res://Letras da Animação/bar.png" type="Texture" id=15]
 [ext_resource path="res://A2.gd" type="Script" id=16]
 [ext_resource path="res://B.gd" type="Script" id=17]
 [ext_resource path="res://Bar.gd" type="Script" id=18]
+[ext_resource path="res://Sprites/bensound-thejazzpiano.mp3" type="AudioStream" id=19]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 521, 22.087 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 49.5, 50.375 )
+extents = Vector2( 66, 77.625 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 50.5, 49.5 )
+extents = Vector2( 69.75, 66.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 50, 49.5 )
+extents = Vector2( 84, 67.25 )
 
-[sub_resource type="Gradient" id=4]
-offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.582031, 0.552613, 0.551907, 1 )
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 67.25, 68 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
-width = 1
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 60, 67 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 16.4, 15.3043 )
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 69.5, 66.5 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 57.5, 66.5 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 38, 67.5 )
 
 [node name="mainScene" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="Bar" type="KinematicBody2D" parent="."]
+position = Vector2( -640, 450 )
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="Bar"]
+position = Vector2( 21.2925, 1 )
+scale = Vector2( 2.49061, 1 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar"]
+position = Vector2( 21, 0.912994 )
+shape = SubResource( 13 )
 
 [node name="H" type="KinematicBody2D" parent="."]
 position = Vector2( 188, -110 )
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="H"]
-position = Vector2( 32, -29.375 )
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="H"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
+position = Vector2( 19, -20 )
 texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="H"]
+position = Vector2( 17, -62.625 )
+shape = SubResource( 1 )
 
 [node name="A" type="KinematicBody2D" parent="."]
 position = Vector2( 308, -110 )
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="A"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
+position = Vector2( 92, -28 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="A"]
-position = Vector2( 31.5, -28.5 )
+position = Vector2( 33.75, -51.5 )
 shape = SubResource( 2 )
 
 [node name="M" type="KinematicBody2D" parent="."]
@@ -73,12 +92,11 @@ position = Vector2( 428, -110 )
 script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="M"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
-texture = ExtResource( 7 )
+position = Vector2( 115, -5 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="M"]
-position = Vector2( 32, -28.5 )
+position = Vector2( 71, -51.25 )
 shape = SubResource( 6 )
 
 [node name="U" type="KinematicBody2D" parent="."]
@@ -86,77 +104,60 @@ position = Vector2( 548, -110 )
 script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="U"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
-texture = ExtResource( 8 )
+position = Vector2( 128, -33 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="U"]
-position = Vector2( 32, -28.5 )
-shape = SubResource( 6 )
+position = Vector2( 106.75, -50 )
+shape = SubResource( 8 )
 
 [node name="R" type="KinematicBody2D" parent="."]
 position = Vector2( 668, -110 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="R"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
-texture = ExtResource( 6 )
+position = Vector2( 139, -25 )
+texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="R"]
-position = Vector2( 32, -28.5 )
-shape = SubResource( 6 )
+position = Vector2( 118, -51 )
+shape = SubResource( 9 )
 
 [node name="A2" type="KinematicBody2D" parent="."]
 position = Vector2( 788, -110 )
 script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="A2"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
-texture = ExtResource( 13 )
+position = Vector2( 187, -27 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="A2"]
-position = Vector2( 32, -28.5 )
-shape = SubResource( 6 )
+position = Vector2( 129.5, -51.5 )
+shape = SubResource( 10 )
 
 [node name="B" type="KinematicBody2D" parent="."]
 position = Vector2( 908, -110 )
 script = ExtResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="B"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
-texture = ExtResource( 14 )
+position = Vector2( 173, -20 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="B"]
-position = Vector2( 32, -28.5 )
-shape = SubResource( 6 )
+position = Vector2( 139.5, -51.5 )
+shape = SubResource( 11 )
 
 [node name="I" type="KinematicBody2D" parent="."]
 position = Vector2( 1028, -110 )
 script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="I"]
-position = Vector2( 32, -30 )
-scale = Vector2( 2.08333, 2 )
-texture = ExtResource( 15 )
+position = Vector2( 154, -19 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="I"]
-position = Vector2( 32, -28.5 )
-shape = SubResource( 6 )
+position = Vector2( 118, -50.5 )
+shape = SubResource( 12 )
 
-[node name="Bar" type="KinematicBody2D" parent="."]
-position = Vector2( -640, 450 )
-scale = Vector2( 30, 2.875 )
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Bar"]
-z_index = 2
-texture = SubResource( 5 )
-region_enabled = true
-region_rect = Rect2( 600, 600, 33, 32 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar"]
-position = Vector2( -0.0333328, -0.347839 )
-shape = SubResource( 7 )
+[node name="openSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
