@@ -9,6 +9,9 @@ var start = false
 func _on_button_pressed():
 	get_tree().change_scene("res://World2.tscn")
 
+func _on_button_button_down():
+	$Click.play()
+
 func _process(delta):
 	# Incrementa o tempo passado no jogo utilizando o valor de delta.
 	time += delta
@@ -21,7 +24,14 @@ func _process(delta):
 		if time >= 0.01 and charActualIndex < charTextSize:
 			# Adiciona ao texto do label o próximo caractere do texto.
 			$label.text += text[charActualIndex]
+			$Typing_song.play()
 			
 			# Aumenta o contador e reinicia o tempo decorrido.
 			charActualIndex += 1
 			time = 0
+
+
+
+
+
+

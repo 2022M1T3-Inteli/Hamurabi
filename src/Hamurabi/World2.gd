@@ -421,6 +421,7 @@ func _on_answer1_button_pressed():
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
 	$days_mandact.text = String(daysMandact)
+	$Click.play()
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 		# Verifica qual cena é a próxima com base na resposta da cena atual
@@ -480,6 +481,8 @@ func _on_answer2_button_pressed():
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
 	$days_mandact.text = String(daysMandact)
+	$Click.play()
+	
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 	# Verifica qual cena é a próxima com base na resposta da cena atual
@@ -539,6 +542,7 @@ func _on_answer3_button_pressed():
 	$economic_indicator.text = String(economicIndicator)
 	$social_indicator.text = String(socialIndicator)
 	$days_mandact.text = String(daysMandact)
+	$Click.play()
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 		# Verifica qual cena é a próxima com base na resposta da cena atual
@@ -578,13 +582,19 @@ func _on_answer3_button_pressed():
 func _on_button_menu_in_game_pressed():
 	elementosCenaPrincipalInvisiveis()
 	elemetosMenuInGameVisiveis()
+	$Click.play()
 
 # Função que roda quando o botão "Voltar ao menu principal" é pressionado
 func _on_button_voltar_menu_principal_pressed():
 	# Muda para a cena do Menu principal
 	get_tree().change_scene("res://Menu.tscn")
+	
+
 
 # Função que roda quando o botão "Continuar" no menu_in_game é pressionado
 func _on_button_continuar_jogo_pressed():
 	elementosCenaPrincipalVisiveis()
 	elementosMenuInGameInvisiveis()
+	
+
+

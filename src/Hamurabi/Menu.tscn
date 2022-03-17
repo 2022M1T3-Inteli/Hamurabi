@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://SairButton.gd" type="Script" id=2]
 [ext_resource path="res://ComoJogarButton.gd" type="Script" id=3]
 [ext_resource path="res://créditos.tscn" type="PackedScene" id=4]
+[ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=5]
 
 [node name="Menu" type="Control"]
 margin_left = 1.0
@@ -60,7 +61,15 @@ margin_bottom = 116.0
 text = "Sair"
 script = ExtResource( 2 )
 
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="button_down" from="VBoxContainer/ComoJogarButton" to="." method="_on_ComoJogarButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/ComoJogarButton" to="." method="_on_ComoJogarButton_pressed"]
+[connection signal="button_down" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_button_down"]
+[connection signal="button_down" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="button_down" from="VBoxContainer/SairButton" to="." method="_on_SairButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/SairButton" to="." method="_on_SairButton_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://impeachment.jpeg" type="Texture" id=1]
 [ext_resource path="res://Impeachment.gd" type="Script" id=2]
+[ext_resource path="res://Derrota (online-audio-converter (mp3cut.net).wav" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -20,5 +21,9 @@ text = "Tentar novamente"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Derrota" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
