@@ -24,25 +24,25 @@
 extents = Vector2( 521, 22.087 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 66, 77.625 )
+extents = Vector2( 62.5, 77.625 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 69.75, 66.5 )
+extents = Vector2( 64.5, 66.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 84, 67.25 )
+extents = Vector2( 77.5, 67.25 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 67.25, 68 )
+extents = Vector2( 63, 68 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 60, 67 )
+extents = Vector2( 52.5, 67 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 69.5, 66.5 )
+extents = Vector2( 61, 66.5 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 57.5, 66.5 )
+extents = Vector2( 52, 66.5 )
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 38, 67.5 )
@@ -72,7 +72,7 @@ position = Vector2( 19, -20 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="H"]
-position = Vector2( 17, -62.625 )
+position = Vector2( 16.5, -62.625 )
 shape = SubResource( 1 )
 
 [node name="A" type="KinematicBody2D" parent="."]
@@ -84,7 +84,7 @@ position = Vector2( 92, -28 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="A"]
-position = Vector2( 33.75, -51.5 )
+position = Vector2( 32.5, -51.5 )
 shape = SubResource( 2 )
 
 [node name="M" type="KinematicBody2D" parent="."]
@@ -96,7 +96,7 @@ position = Vector2( 115, -5 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="M"]
-position = Vector2( 71, -51.25 )
+position = Vector2( 71.5, -51.25 )
 shape = SubResource( 6 )
 
 [node name="U" type="KinematicBody2D" parent="."]
@@ -108,7 +108,7 @@ position = Vector2( 128, -33 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="U"]
-position = Vector2( 106.75, -50 )
+position = Vector2( 106, -50 )
 shape = SubResource( 8 )
 
 [node name="R" type="KinematicBody2D" parent="."]
@@ -120,7 +120,7 @@ position = Vector2( 139, -25 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="R"]
-position = Vector2( 118, -51 )
+position = Vector2( 115.5, -51 )
 shape = SubResource( 9 )
 
 [node name="A2" type="KinematicBody2D" parent="."]
@@ -132,7 +132,7 @@ position = Vector2( 187, -27 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="A2"]
-position = Vector2( 129.5, -51.5 )
+position = Vector2( 127, -51.5 )
 shape = SubResource( 10 )
 
 [node name="B" type="KinematicBody2D" parent="."]
@@ -144,7 +144,7 @@ position = Vector2( 173, -20 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="B"]
-position = Vector2( 139.5, -51.5 )
+position = Vector2( 139, -51.5 )
 shape = SubResource( 11 )
 
 [node name="I" type="KinematicBody2D" parent="."]

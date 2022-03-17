@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://World2.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/images.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://social.png" type="Texture" id=5]
 [ext_resource path="res://book.png" type="Texture" id=6]
 [ext_resource path="res://circle-dashed-8-64.png" type="Texture" id=7]
+[ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -208,10 +209,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
 [connection signal="pressed" from="answer1_button" to="." method="_on_answer1_button_pressed"]
 [connection signal="pressed" from="answer2_button" to="." method="_on_answer2_button_pressed"]
 [connection signal="pressed" from="answer3_button" to="." method="_on_answer3_button_pressed"]
 [connection signal="pressed" from="button_menu_in_game" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="button_menu_in_game" to="." method="_on_button_menu_in_game_pressed"]
+[connection signal="button_down" from="button_voltar_menu_principal" to="." method="_on_button_voltar_menu_principal_button_down"]
 [connection signal="pressed" from="button_voltar_menu_principal" to="." method="_on_button_voltar_menu_principal_pressed"]
+[connection signal="button_down" from="button_continuar_jogo" to="." method="_on_button_continuar_jogo_button_down"]
 [connection signal="pressed" from="button_continuar_jogo" to="." method="_on_button_continuar_jogo_pressed"]
