@@ -354,28 +354,28 @@ var scene10 = {
 }
 
 # Função que faz aparecer os elementos do menu in game
-func elemetosMenuInGameVisiveis():
-	# Estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "visíveis"
-	for elementosMenuInGame in get_tree().get_nodes_in_group("menu_in_game"):
-		elementosMenuInGame.visible = true
-
-# Funcao que faz desaparecer os elementos do menu in game
-func elementosMenuInGameInvisiveis():
-	#estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "invisíveis"
-	for elementosMenuInGame in get_tree().get_nodes_in_group("menu_in_game"):
-		elementosMenuInGame.visible = false
+#func elemetosMenuInGameVisiveis():
+#	# Estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "visíveis"
+#	for elementosMenuInGame in get_tree().get_nodes_in_group("menu_in_game"):
+#		elementosMenuInGame.visible = true
+#
+## Funcao que faz desaparecer os elementos do menu in game
+#func elementosMenuInGameInvisiveis():
+#	#estrutura de repetição que percorre todos os elementos do grupo "menu_in_game" e torna eles "invisíveis"
+#	for elementosMenuInGame in get_tree().get_nodes_in_group("menu_in_game"):
+#		elementosMenuInGame.visible = false
 		
 # Funcao que faz aparecer os elementos da cena principal
-func elementosCenaPrincipalVisiveis():
-	# Estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "visíveis"
-	for elementosCenaPrincipal in get_tree().get_nodes_in_group("main_scene_group"):
-		elementosCenaPrincipal.visible = true
+#func elementosCenaPrincipalVisiveis():
+#	# Estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "visíveis"
+#	for elementosCenaPrincipal in get_tree().get_nodes_in_group("main_scene_group"):
+#		elementosCenaPrincipal.visible = true
 		
 # Funcao que faz desaparecer os elementos da cena principal
-func elementosCenaPrincipalInvisiveis():
-	# Estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "invisíveis"
-	for elementosCenaPrincipal in get_tree().get_nodes_in_group("main_scene_group"):
-		elementosCenaPrincipal.visible = false
+#func elementosCenaPrincipalInvisiveis():
+#	# Estrutura de repetição que percorre todos os elementos do grupo "main_scene_group" e torna eles "invisíveis"
+#	for elementosCenaPrincipal in get_tree().get_nodes_in_group("main_scene_group"):
+#		elementosCenaPrincipal.visible = false
 
 func _ready():
 	# Iniciar os indicadores (50%)
@@ -394,8 +394,8 @@ func _ready():
 	$answer2_button.text = actualScene.answers.answer2.text 
 	$answer3_button.text = actualScene.answers.answer3.text
 	
-	elementosCenaPrincipalVisiveis()
-	elementosMenuInGameInvisiveis()
+#	elementosCenaPrincipalVisiveis()
+#	elementosMenuInGameInvisiveis()
 
 # Função chamada quando o jogador escolher a opção 1
 func _on_answer1_button_pressed():
@@ -580,21 +580,16 @@ func _on_answer3_button_pressed():
 
 # Função que roda quando o botão do menu_in_game é pressionado
 func _on_button_menu_in_game_pressed():
-	elementosCenaPrincipalInvisiveis()
-	elemetosMenuInGameVisiveis()
+#	elementosCenaPrincipalInvisiveis()
+#	elemetosMenuInGameVisiveis()
 	$Click.play()
 
 # Função que roda quando o botão "Voltar ao menu principal" é pressionado
-func _on_button_voltar_menu_principal_pressed():
-	# Muda para a cena do Menu principal
-	get_tree().change_scene("res://Menu.tscn")
-	
-
-
-# Função que roda quando o botão "Continuar" no menu_in_game é pressionado
-func _on_button_continuar_jogo_pressed():
-	elementosCenaPrincipalVisiveis()
-	elementosMenuInGameInvisiveis()
-	
-
-
+#func _on_button_voltar_menu_principal_pressed():
+#	# Muda para a cena do Menu principal
+#	get_tree().change_scene("res://Menu.tscn")
+#
+## Função que roda quando o botão "Continuar" no menu_in_game é pressionado
+#func _on_button_continuar_jogo_pressed():
+#	elementosCenaPrincipalVisiveis()
+#	elementosMenuInGameInvisiveis()

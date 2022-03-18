@@ -16,8 +16,11 @@ func _ready():
 #	pass
 
 # Começar o jogo ao clicar no botão
-func _on_StartButton_pressed():
+func _on_start_button_pressed():
 	get_tree().change_scene("res://World.tscn")
+	
+func _on_start_button_button_down():
+	$Click.play()
 
 # Sair do jogo ao clicar no botão
 func _on_SairButton_pressed():
@@ -30,19 +33,3 @@ func _on_ComoJogarButton_pressed():
 # Abrir cena de créditos quando clicar no botão
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://créditos.tscn")
-
-
-func _on_StartButton_button_down():
-	$Click.play()
-
-func _on_ComoJogarButton_button_down():
-	$Click.play()
-
-func _on_OptionsButton_button_down():
-	$Click.play()
-
-func _on_CreditsButton_button_down():
-	$Click.play()
-
-func _on_SairButton_button_down():
-	$Click.play()

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 # Declara as variáveis do objeto
 var velocity = Vector2()
-var gravity = 1300
+var gravity = 1500
 var time = 0
 
 func _physics_process(delta):

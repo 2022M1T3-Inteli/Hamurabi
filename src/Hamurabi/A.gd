@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 # Declara as variáveis do objeto
 var velocity = Vector2()
-var gravity = 700
+var gravity = 900
 var time = 0
 
 func _physics_process(delta):
@@ -11,7 +11,7 @@ func _physics_process(delta):
 	time += delta
 	
 	# Verifica se já se passou 1.35 segundo. Caso sim, aumenta a velocidade com base na gravidade pelo tempo decorrido.
-	if time > 1.35:
+	if time > 1.45:
 		velocity.y += gravity * delta
 		
 		# Movimenta o objeto
