@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mixkit-keyboard-key-presses-2534 (mp3cut.net).wav-6b99d25851424239ff04d3c9461a3cf2.sample"
+
+[deps]
+
+source_file="res://mixkit-keyboard-key-presses-2534 (mp3cut.net).wav"
+dest_files=[ "res://.import/mixkit-keyboard-key-presses-2534 (mp3cut.net).wav-6b99d25851424239ff04d3c9461a3cf2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
