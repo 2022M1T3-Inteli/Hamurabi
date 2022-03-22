@@ -1,26 +1,39 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://exit.gd" type="Script" id=1]
+[ext_resource path="res://opções.gd" type="Script" id=1]
+[ext_resource path="res://Vitoria.mp3" type="AudioStream" id=2]
 
-[node name="Label" type="Label"]
-margin_left = 241.0
-margin_top = 141.0
-margin_right = 943.0
-margin_bottom = 531.0
-text = "O jogo consiste nas escolhas"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="."]
-margin_left = 656.0
-margin_top = -35.0
-margin_right = 704.0
-margin_bottom = 6.0
-text = "X"
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[node name="Button" type="Button" parent="."]
+margin_left = 1321.0
+margin_top = 12.0
+margin_right = 1407.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 480.0
+margin_top = 453.0
+margin_right = 942.0
+margin_bottom = 584.0
+min_value = -80.0
+max_value = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

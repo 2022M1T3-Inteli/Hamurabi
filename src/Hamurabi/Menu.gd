@@ -33,3 +33,19 @@ func _on_ComoJogarButton_pressed():
 # Abrir cena de créditos quando clicar no botão
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://créditos.tscn")
+
+
+func _on_exit_button_pressed():
+	get_tree().quit()
+	
+
+func _on_options_button_pressed():
+	get_tree().change_scene ("res://opções.tscn")
+
+
+func _on_credits_button_pressed():
+	get_tree().change_scene ("res://créditos.tscn") 
+
+func _on_how_to_play_button_pressed():
+	get_tree().change_scene ("res://howtoplay.tscn")
+	
