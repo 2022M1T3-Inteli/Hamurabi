@@ -14,4 +14,4 @@ func _ready():
 #	pass
 
 func _on_TextureButton_pressed():
-	get_tree().change_scene("res://Menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")

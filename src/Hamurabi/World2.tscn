@@ -2,11 +2,11 @@
 
 [ext_resource path="res://World2.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/images.png" type="Texture" id=2]
-[ext_resource path="res://fundo escritorio.jpg" type="Texture" id=3]
-[ext_resource path="res://bank-2-64.png" type="Texture" id=4]
-[ext_resource path="res://social.png" type="Texture" id=5]
-[ext_resource path="res://book.png" type="Texture" id=6]
-[ext_resource path="res://circle-dashed-8-64.png" type="Texture" id=7]
+[ext_resource path="res://Assets/office_background.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/bank-2-64.png" type="Texture" id=4]
+[ext_resource path="res://Assets/social.png" type="Texture" id=5]
+[ext_resource path="res://Assets/book.png" type="Texture" id=6]
+[ext_resource path="res://Assets/circle-dashed-8-64.png" type="Texture" id=7]
 [ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]

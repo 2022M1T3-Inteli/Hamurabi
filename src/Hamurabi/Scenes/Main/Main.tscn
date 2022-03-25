@@ -1,0 +1,379 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Intro/Background.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=3]
+[ext_resource path="res://mixkit-keyboard-key-presses-2534 (mp3cut.net).wav" type="AudioStream" id=4]
+[ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Fonts/Quicksand-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Intro/Dialogue Button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Intro/Choice.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Public/Renata Cropped.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Public/Congress Bar.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Fonts/Quicksand-Medium.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Public/Congress Bar Border.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Public/Socialeconomic Bar.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Public/SocialEconomicBar Border.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Public/Congress Icon.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Public/Socialeconomic Icon.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Public/Mandate Time.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Public/Configuration Icon.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Menu/Exit Hover.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Menu/How To Play Hover.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Menu/Start Game Hover.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Menu/Options Hover.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Menu/How To Play.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Menu/Start Game.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Menu/Credits.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Menu/Options.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Menu/Exit.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=29]
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 11 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_left = -1.0
+margin_right = 1441.0
+margin_bottom = 1024.0
+rect_pivot_offset = Vector2( 492, 385 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" type="TextureRect" parent="Background"]
+margin_left = 466.0
+margin_top = 198.0
+margin_right = 1015.0
+margin_bottom = 969.0
+rect_scale = Vector2( 1, 0.8 )
+texture = ExtResource( 9 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Typing_song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 450.0
+margin_right = 1340.0
+margin_bottom = 830.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialogue" type="TextureButton" parent="VBoxContainer"]
+margin_right = 1220.0
+margin_bottom = 380.0
+texture_normal = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="chracter_name" type="Label" parent="VBoxContainer/dialogue"]
+margin_left = 47.0
+margin_top = 18.0
+margin_right = 486.0
+margin_bottom = 67.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Renata - Conselheira"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="VBoxContainer/dialogue"]
+margin_left = 44.0
+margin_top = 103.0
+margin_right = 1166.0
+margin_bottom = 346.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialogue_button" type="TextureButton" parent="VBoxContainer/dialogue"]
+visible = false
+margin_left = 1089.0
+margin_top = 287.0
+margin_right = 1126.0
+margin_bottom = 335.0
+texture_normal = ExtResource( 7 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="choice1" type="TextureButton" parent="."]
+light_mask = 0
+margin_left = 199.0
+margin_top = 877.0
+margin_right = 672.0
+margin_bottom = 979.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="choice1"]
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 469.0
+margin_bottom = 96.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="choice2" type="TextureButton" parent="."]
+light_mask = 0
+margin_left = 764.0
+margin_top = 878.0
+margin_right = 1245.0
+margin_bottom = 979.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="choice2"]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 478.0
+margin_bottom = 98.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CongressBar" type="TextureProgress" parent="."]
+margin_left = 87.0
+margin_top = 20.0
+margin_right = 293.0
+margin_bottom = 60.0
+texture_under = ExtResource( 12 )
+texture_progress = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CongressValue" type="Label" parent="CongressBar"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 205.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "80%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CongressIcon" type="Sprite" parent="CongressBar"]
+position = Vector2( -33, 18 )
+texture = ExtResource( 15 )
+
+[node name="SocialEconomicBar" type="TextureProgress" parent="."]
+margin_left = 87.0
+margin_top = 75.0
+margin_right = 293.0
+margin_bottom = 115.0
+texture_under = ExtResource( 14 )
+texture_progress = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SocialEconomicValue" type="Label" parent="SocialEconomicBar"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 205.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "80%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SocialeconomicIcon" type="Sprite" parent="SocialEconomicBar"]
+position = Vector2( -35, 18 )
+texture = ExtResource( 16 )
+
+[node name="MandateTime" type="TextureRect" parent="."]
+margin_left = 1048.0
+margin_top = 10.0
+margin_right = 1297.0
+margin_bottom = 130.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MandateTimeValue" type="Label" parent="MandateTime"]
+margin_left = 15.0
+margin_top = 59.0
+margin_right = 236.0
+margin_bottom = 106.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfigurationButton" type="TextureButton" parent="."]
+margin_left = 1335.0
+margin_top = 38.0
+margin_right = 1395.0
+margin_bottom = 98.0
+texture_normal = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuInGameBg" type="ColorRect" parent="."]
+visible = false
+margin_left = 313.0
+margin_top = 292.0
+margin_right = 1122.0
+margin_bottom = 898.0
+color = Color( 0.278431, 0.278431, 0.278431, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuInGame" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 410.0
+margin_top = 329.0
+margin_right = 1025.0
+margin_bottom = 862.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="TextureButton" parent="MenuInGame"]
+margin_right = 615.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 21 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToPlayButton" type="TextureButton" parent="MenuInGame"]
+margin_top = 107.0
+margin_right = 615.0
+margin_bottom = 210.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 23 )
+texture_hover = ExtResource( 20 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="TextureButton" parent="MenuInGame"]
+margin_top = 214.0
+margin_right = 615.0
+margin_bottom = 318.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 26 )
+texture_hover = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="TextureButton" parent="MenuInGame"]
+margin_top = 322.0
+margin_right = 615.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 25 )
+texture_hover = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="TextureButton" parent="MenuInGame"]
+margin_top = 429.0
+margin_right = 615.0
+margin_bottom = 533.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 28 )
+texture_hover = ExtResource( 19 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseMenuButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 1064.0
+margin_top = 260.0
+margin_right = 1144.0
+margin_bottom = 340.0
+texture_normal = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/dialogue" to="." method="_on_dialogue_pressed"]
+[connection signal="pressed" from="VBoxContainer/dialogue/dialogue_button" to="." method="_on_dialogue_button_pressed"]
+[connection signal="pressed" from="choice1" to="." method="_on_choice1_pressed"]
+[connection signal="pressed" from="choice2" to="." method="_on_choice2_pressed"]
+[connection signal="pressed" from="ConfigurationButton" to="." method="_on_ConfigurationButton_pressed"]
+[connection signal="pressed" from="CloseMenuButton" to="." method="_on_CloseMenuButton_pressed"]
