@@ -3,8 +3,8 @@
 [ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Intro/Background.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=3]
-[ext_resource path="res://mixkit-keyboard-key-presses-2534 (mp3cut.net).wav" type="AudioStream" id=4]
-[ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Public/Keyboard.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Public/Click.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Fonts/Quicksand-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Intro/Dialogue Button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Intro/Choice.png" type="Texture" id=8]
@@ -72,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Typing_song" type="AudioStreamPlayer2D" parent="."]
+[node name="TypingSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
@@ -94,7 +94,7 @@ margin_bottom = 380.0
 texture_normal = ExtResource( 1 )
 stretch_mode = 3
 
-[node name="chracter_name" type="Label" parent="VBoxContainer/dialogue"]
+[node name="CharacterName" type="Label" parent="VBoxContainer/dialogue"]
 margin_left = 47.0
 margin_top = 18.0
 margin_right = 486.0
@@ -122,7 +122,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="dialogue_button" type="TextureButton" parent="VBoxContainer/dialogue"]
+[node name="DialogueButton" type="TextureButton" parent="VBoxContainer/dialogue"]
 visible = false
 margin_left = 1089.0
 margin_top = 287.0
@@ -372,7 +372,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="VBoxContainer/dialogue" to="." method="_on_dialogue_pressed"]
-[connection signal="pressed" from="VBoxContainer/dialogue/dialogue_button" to="." method="_on_dialogue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/dialogue/DialogueButton" to="." method="_on_dialogue_button_pressed"]
 [connection signal="pressed" from="choice1" to="." method="_on_choice1_pressed"]
 [connection signal="pressed" from="choice2" to="." method="_on_choice2_pressed"]
 [connection signal="pressed" from="ConfigurationButton" to="." method="_on_ConfigurationButton_pressed"]

@@ -399,205 +399,204 @@ func _ready():
 #	elementosCenaPrincipalVisiveis()
 #	elementosMenuInGameInvisiveis()
 
-# Função chamada quando o jogador escolher a opção 1
-func _on_answer1_button_pressed():
-	# Atualiza o valor dos indicadores com base na escolha da cena
-	daysMandact -= tempo_cena 
-	economicIndicator += actualScene.answers.answer1.indicators.economic 
-	socialIndicator += actualScene.answers.answer1.indicators.social
-	if economicIndicator >= 100:
-		economicIndicator = 100
-	if socialIndicator >= 100:
-		socialIndicator = 100
-	if economicIndicator <= 0:
-		economicIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
-	if daysMandact <= 0:
-		daysMandact = 0
-	
-	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if socialIndicator == 0 or economicIndicator == 0:
-		get_tree().change_scene("res://Impeachment.tscn")
-		
-	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
-	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
-	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
-	$Click.play()
-	
-	if socialIndicator > 0 or economicIndicator > 0:
-		# Verifica qual cena é a próxima com base na resposta da cena atual
-		if actualScene.answers.answer1.next == "scene2":
-			actualScene = scene2
-		elif actualScene.answers.answer1.next == "scene3":
-			actualScene = scene3
-		elif actualScene.answers.answer1.next == "scene4":
-			actualScene = scene4
-		elif actualScene.answers.answer1.next == "scene5":
-			actualScene = scene5
-		elif actualScene.answers.answer1.next == "scene6":
-			actualScene = scene6
-		elif actualScene.answers.answer1.next == "scene7":
-			actualScene = scene7
-		elif actualScene.answers.answer1.next == "scene8":
-			actualScene = scene8
-		elif actualScene.answers.answer1.next == "scene9":
-			actualScene = scene9
-		elif actualScene.answers.answer1.next == "scene10": 
-			get_tree().change_scene("res://vitoria.tscn")
-	
-	if actualScene.answers.answer2.text == "":
-		$answer2_button.visible = false
-	else:
-		$answer2_button.visible = true
-	
-	# Define e renderiza os novos elementos de texto de acordo com a nova cena definida
-#	$title.text = actualScene.title
-#	$law_explanation.text = actualScene.lawExplanation
-	$VBoxContainer/dialogue/label.text = actualScene.question
-	$choice1/text.text = actualScene.answers.answer1.text
-	$choice2/text.text = actualScene.answers.answer2.text 
-#	$answer3_button.text = actualScene.answers.answer3.text
-
-# Função chamada quando o jogador escolher a opção 2
-func _on_answer2_button_pressed():
-	# Atualiza o valor dos indicadores com base na escolha da cena
-	daysMandact -= tempo_cena 
-	economicIndicator += actualScene.answers.answer2.indicators.economic 
-	socialIndicator += actualScene.answers.answer2.indicators.social
-	if economicIndicator >= 100:
-		economicIndicator = 100
-	if socialIndicator >= 100:
-		socialIndicator = 100
-	if economicIndicator <= 0:
-		economicIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
-		
-	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if socialIndicator == 0 or economicIndicator == 0:
-		get_tree().change_scene("res://Impeachment.tscn")
-	
-	$CongressBar.value = socialIndicator
-	$SocialEconomicBar.value = economicIndicator
-	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
-	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
-	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
-	$Click.play()
-	
-	if socialIndicator > 0 or economicIndicator > 0:
-	# Verifica qual cena é a próxima com base na resposta da cena atual
-		if actualScene.answers.answer2.next == "scene2":
-			actualScene = scene2
-		elif actualScene.answers.answer2.next == "scene3":
-			actualScene = scene3
-		elif actualScene.answers.answer2.next == "scene4":
-			actualScene = scene4
-		elif actualScene.answers.answer2.next == "scene5":
-			actualScene = scene5
-		elif actualScene.answers.answer2.next == "scene6":
-			actualScene = scene6
-		elif actualScene.answers.answer2.next == "scene7":
-			actualScene = scene7
-		elif actualScene.answers.answer2.next == "scene8":
-			actualScene = scene8
-		elif actualScene.answers.answer2.next == "scene9":
-			actualScene = scene9
-		elif actualScene.answers.answer2.next == "scene10": 
-			get_tree().change_scene("res://vitoria.tscn")
-		
-	if actualScene.answers.answer2.text == "":
-		$answer2_button.visible = false
-	else:
-		$answer2_button.visible = true
-		
-	# Define e renderiza os novos elementos de texto de acordo com a nova cena definida
-#	$title.text = actualScene.title
-#	$law_explanation.text = actualScene.lawExplanation
-	$VBoxContainer/dialogue/label.text = actualScene.question
-	$choice1/text.text = actualScene.answers.answer1.text
-	$choice2/text.text = actualScene.answers.answer2.text 
-#	$answer3_button.text = actualScene.answers.answer3.text
-
-# Função chamada quando o jogador escolher a opção 3
-func _on_answer3_button_pressed():
-	# Atualiza o valor dos indicadores com base na escolha da cena
-	daysMandact -= tempo_cena 
-	economicIndicator += actualScene.answers.answer3.indicators.economic
-	socialIndicator += actualScene.answers.answer3.indicators.social
-	if economicIndicator >= 100:
-		economicIndicator = 100
-	if socialIndicator >= 100:
-		socialIndicator = 100
-	if economicIndicator <= 0:
-		economicIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
-		
-	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if socialIndicator == 0 or economicIndicator == 0:
-		get_tree().change_scene("res://Impeachment.tscn")
-	
-	$CongressBar.value = socialIndicator
-	$SocialEconomicBar.value = economicIndicator
-	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
-	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
-	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
-	$Click.play()
-	
-	if socialIndicator > 0 or economicIndicator > 0:
-		# Verifica qual cena é a próxima com base na resposta da cena atual
-		if actualScene.answers.answer3.next == "scene2":
-			actualScene = scene2
-		elif actualScene.answers.answer3.next == "scene3":
-			actualScene = scene3
-		elif actualScene.answers.answer3.next == "scene4":
-			actualScene = scene4
-		elif actualScene.answers.answer3.next == "scene5":
-			actualScene = scene5
-		elif actualScene.answers.answer3.next == "scene6":
-			actualScene = scene6
-		elif actualScene.answers.answer3.next == "scene7":
-			actualScene = scene7
-		elif actualScene.answers.answer3.next == "scene8":
-			actualScene = scene8
-		elif actualScene.answers.answer3.next == "scene9":
-			actualScene = scene9
-		elif actualScene.answers.answer3.next == "scene10": 
-			get_tree().change_scene("res://vitoria.tscn")
-	
-	if actualScene.answers.answer2.text == "":
-		$answer2_button.visible = false
-	else:
-		$answer2_button.visible = true 
-	
-	# Define e renderiza os novos elementos de texto de acordo com a nova cena definida
-#	$title.text = actualScene.title
-#	$VBoxContainer/dialogue/label.text = actualScene.lawExplanation
-	$VBoxContainer/dialogue/label.text = actualScene.question
-	$choice1/text.text = actualScene.answers.answer1.text
-	$choice2/text.text = actualScene.answers.answer2.text 
-#	$answer3_button.text = actualScene.answers.answer3.text
-
-# Função que roda quando o botão do menu_in_game é pressionado
-func _on_button_menu_in_game_pressed():
-	elementosCenaPrincipalInvisiveis()
-	elemetosMenuInGameVisiveis()
-	$Click.play()
-
-# Função que roda quando o botão "Voltar ao menu principal" é pressionado
-func _on_button_voltar_menu_principal_pressed():
-	# Muda para a cena do Menu principal
-	get_tree().change_scene("res://Menu.tscn")
-# Função que roda quando o botão "Continuar" no menu_in_game é pressionado
-func _on_button_continuar_jogo_pressed():
-	elementosCenaPrincipalVisiveis()
-	elementosMenuInGameInvisiveis()
-
+## Função chamada quando o jogador escolher a opção 1
+#func _on_answer1_button_pressed():
+#	# Atualiza o valor dos indicadores com base na escolha da cena
+#	daysMandact -= tempo_cena 
+#	economicIndicator += actualScene.answers.answer1.indicators.economic 
+#	socialIndicator += actualScene.answers.answer1.indicators.social
+#	if economicIndicator >= 100:
+#		economicIndicator = 100
+#	if socialIndicator >= 100:
+#		socialIndicator = 100
+#	if economicIndicator <= 0:
+#		economicIndicator = 0
+#	if socialIndicator <= 0:
+#		socialIndicator = 0
+#	if daysMandact <= 0:
+#		daysMandact = 0
+#
+#	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
+#	if socialIndicator == 0 or economicIndicator == 0:
+#		get_tree().change_scene("res://Impeachment.tscn")
+#
+#	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
+#	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
+#	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
+#	$Click.play()
+#
+#	if socialIndicator > 0 or economicIndicator > 0:
+#		# Verifica qual cena é a próxima com base na resposta da cena atual
+#		if actualScene.answers.answer1.next == "scene2":
+#			actualScene = scene2
+#		elif actualScene.answers.answer1.next == "scene3":
+#			actualScene = scene3
+#		elif actualScene.answers.answer1.next == "scene4":
+#			actualScene = scene4
+#		elif actualScene.answers.answer1.next == "scene5":
+#			actualScene = scene5
+#		elif actualScene.answers.answer1.next == "scene6":
+#			actualScene = scene6
+#		elif actualScene.answers.answer1.next == "scene7":
+#			actualScene = scene7
+#		elif actualScene.answers.answer1.next == "scene8":
+#			actualScene = scene8
+#		elif actualScene.answers.answer1.next == "scene9":
+#			actualScene = scene9
+#		elif actualScene.answers.answer1.next == "scene10": 
+#			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+#
+#	if actualScene.answers.answer2.text == "":
+#		$answer2_button.visible = false
+#	else:
+#		$answer2_button.visible = true
+#
+#	# Define e renderiza os novos elementos de texto de acordo com a nova cena definida
+##	$title.text = actualScene.title
+##	$law_explanation.text = actualScene.lawExplanation
+#	$VBoxContainer/dialogue/label.text = actualScene.question
+#	$choice1/text.text = actualScene.answers.answer1.text
+#	$choice2/text.text = actualScene.answers.answer2.text 
+##	$answer3_button.text = actualScene.answers.answer3.text
+#
+## Função chamada quando o jogador escolher a opção 2
+#func _on_answer2_button_pressed():
+#	# Atualiza o valor dos indicadores com base na escolha da cena
+#	daysMandact -= tempo_cena 
+#	economicIndicator += actualScene.answers.answer2.indicators.economic 
+#	socialIndicator += actualScene.answers.answer2.indicators.social
+#	if economicIndicator >= 100:
+#		economicIndicator = 100
+#	if socialIndicator >= 100:
+#		socialIndicator = 100
+#	if economicIndicator <= 0:
+#		economicIndicator = 0
+#	if socialIndicator <= 0:
+#		socialIndicator = 0
+#	if socialIndicator <= 0:
+#		socialIndicator = 0
+#
+#	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
+#	if socialIndicator == 0 or economicIndicator == 0:
+#		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#
+#	$CongressBar.value = socialIndicator
+#	$SocialEconomicBar.value = economicIndicator
+#	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
+#	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
+#	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
+#	$Click.play()
+#
+#	if socialIndicator > 0 or economicIndicator > 0:
+#	# Verifica qual cena é a próxima com base na resposta da cena atual
+#		if actualScene.answers.answer2.next == "scene2":
+#			actualScene = scene2
+#		elif actualScene.answers.answer2.next == "scene3":
+#			actualScene = scene3
+#		elif actualScene.answers.answer2.next == "scene4":
+#			actualScene = scene4
+#		elif actualScene.answers.answer2.next == "scene5":
+#			actualScene = scene5
+#		elif actualScene.answers.answer2.next == "scene6":
+#			actualScene = scene6
+#		elif actualScene.answers.answer2.next == "scene7":
+#			actualScene = scene7
+#		elif actualScene.answers.answer2.next == "scene8":
+#			actualScene = scene8
+#		elif actualScene.answers.answer2.next == "scene9":
+#			actualScene = scene9
+#		elif actualScene.answers.answer2.next == "scene10": 
+#			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+#
+#	if actualScene.answers.answer2.text == "":
+#		$answer2_button.visible = false
+#	else:
+#		$answer2_button.visible = true
+#
+#	# Define e renderiza os novos elementos de texto de acordo com a nova cena definida
+##	$title.text = actualScene.title
+##	$law_explanation.text = actualScene.lawExplanation
+#	$VBoxContainer/dialogue/label.text = actualScene.question
+#	$choice1/text.text = actualScene.answers.answer1.text
+#	$choice2/text.text = actualScene.answers.answer2.text 
+##	$answer3_button.text = actualScene.answers.answer3.text
+#
+## Função chamada quando o jogador escolher a opção 3
+#func _on_answer3_button_pressed():
+#	# Atualiza o valor dos indicadores com base na escolha da cena
+#	daysMandact -= tempo_cena 
+#	economicIndicator += actualScene.answers.answer3.indicators.economic
+#	socialIndicator += actualScene.answers.answer3.indicators.social
+#	if economicIndicator >= 100:
+#		economicIndicator = 100
+#	if socialIndicator >= 100:
+#		socialIndicator = 100
+#	if economicIndicator <= 0:
+#		economicIndicator = 0
+#	if socialIndicator <= 0:
+#		socialIndicator = 0
+#	if socialIndicator <= 0:
+#		socialIndicator = 0
+#
+#	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
+#	if socialIndicator == 0 or economicIndicator == 0:
+#		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#
+#	$CongressBar.value = socialIndicator
+#	$SocialEconomicBar.value = economicIndicator
+#	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
+#	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
+#	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
+#	$Click.play()
+#
+#	if socialIndicator > 0 or economicIndicator > 0:
+#		# Verifica qual cena é a próxima com base na resposta da cena atual
+#		if actualScene.answers.answer3.next == "scene2":
+#			actualScene = scene2
+#		elif actualScene.answers.answer3.next == "scene3":
+#			actualScene = scene3
+#		elif actualScene.answers.answer3.next == "scene4":
+#			actualScene = scene4
+#		elif actualScene.answers.answer3.next == "scene5":
+#			actualScene = scene5
+#		elif actualScene.answers.answer3.next == "scene6":
+#			actualScene = scene6
+#		elif actualScene.answers.answer3.next == "scene7":
+#			actualScene = scene7
+#		elif actualScene.answers.answer3.next == "scene8":
+#			actualScene = scene8
+#		elif actualScene.answers.answer3.next == "scene9":
+#			actualScene = scene9
+#		elif actualScene.answers.answer3.next == "scene10": 
+#			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+#
+#	if actualScene.answers.answer2.text == "":
+#		$answer2_button.visible = false
+#	else:
+#		$answer2_button.visible = true 
+#
+#	# Define e renderiza os novos elementos de texto de acordo com a nova cena definida
+##	$title.text = actualScene.title
+##	$VBoxContainer/dialogue/label.text = actualScene.lawExplanation
+#	$VBoxContainer/dialogue/label.text = actualScene.question
+#	$choice1/text.text = actualScene.answers.answer1.text
+#	$choice2/text.text = actualScene.answers.answer2.text 
+##	$answer3_button.text = actualScene.answers.answer3.text
+#
+## Função que roda quando o botão do menu_in_game é pressionado
+#func _on_button_menu_in_game_pressed():
+#	elementosCenaPrincipalInvisiveis()
+#	elemetosMenuInGameVisiveis()
+#	$Click.play()
+#
+## Função que roda quando o botão "Voltar ao menu principal" é pressionado
+#func _on_button_voltar_menu_principal_pressed():
+#	# Muda para a cena do Menu principal
+#	get_tree().change_scene("res://Menu.tscn")
+## Função que roda quando o botão "Continuar" no menu_in_game é pressionado
+#func _on_button_continuar_jogo_pressed():
+#	elementosCenaPrincipalVisiveis()
+#	elementosMenuInGameInvisiveis()
 
 func _on_choice1_pressed():
 		# Atualiza o valor dos indicadores com base na escolha da cena
@@ -617,7 +616,7 @@ func _on_choice1_pressed():
 	
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
-		get_tree().change_scene("res://Impeachment.tscn")
+		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 		
 	$CongressBar.value = socialIndicator
 	$SocialEconomicBar.value = economicIndicator
@@ -645,7 +644,7 @@ func _on_choice1_pressed():
 		elif actualScene.answers.answer1.next == "scene9":
 			actualScene = scene9
 		elif actualScene.answers.answer1.next == "scene10": 
-			get_tree().change_scene("res://vitoria.tscn")
+			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
 	
 #	if actualScene.answers.answer2.text == "":
 #		$answer2_button.visible = false
@@ -679,7 +678,7 @@ func _on_choice2_pressed():
 		
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
-		get_tree().change_scene("res://Impeachment.tscn")
+		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 	
 	$CongressBar.value = socialIndicator
 	$SocialEconomicBar.value = economicIndicator
@@ -687,7 +686,6 @@ func _on_choice2_pressed():
 	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
 	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
 	$Click.play()
-	
 	
 	if socialIndicator > 0 or economicIndicator > 0:
 	# Verifica qual cena é a próxima com base na resposta da cena atual
@@ -708,7 +706,7 @@ func _on_choice2_pressed():
 		elif actualScene.answers.answer2.next == "scene9":
 			actualScene = scene9
 		elif actualScene.answers.answer2.next == "scene10": 
-			get_tree().change_scene("res://vitoria.tscn")
+			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
 		
 #	if actualScene.answers.answer2.text == "":
 #		$answer2_button.visible = false
@@ -734,3 +732,7 @@ func _on_CloseMenuButton_pressed():
 	$MenuInGameBg.visible = false
 	$MenuInGame.visible = false
 	$CloseMenuButton.visible = false
+
+
+func _on_dialogue_pressed():
+	pass # Replace with function body.

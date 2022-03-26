@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Menu/Start Game Hover.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Menu/Start Game.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Menu/Options Hover.png" type="Texture" id=4]
-[ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Public/Click.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Menu/Credits.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Menu/Options.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=8]

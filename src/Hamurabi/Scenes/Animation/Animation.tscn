@@ -50,7 +50,7 @@ extents = Vector2( 52, 66 )
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 38, 67.5 )
 
-[node name="mainScene" type="Node2D"]
+[node name="Animation" type="Node2D"]
 self_modulate = Color( 0.329412, 0.0156863, 0.0156863, 1 )
 script = ExtResource( 10 )
 
