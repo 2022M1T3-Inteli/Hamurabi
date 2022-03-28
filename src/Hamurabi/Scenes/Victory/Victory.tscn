@@ -37,7 +37,6 @@ custom_fonts/font = SubResource( 2 )
 text = "Parabéns! Você acabou de concluir o seu mandato. "
 align = 1
 valign = 1
-percent_visible = -0.0243902
 __meta__ = {
 "_edit_use_anchors_": false
 }

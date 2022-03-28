@@ -274,6 +274,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PauseMask" type="ColorRect" parent="."]
+visible = false
+margin_right = 1444.0
+margin_bottom = 1024.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MenuInGameBg" type="ColorRect" parent="."]
 visible = false
 margin_left = 313.0
