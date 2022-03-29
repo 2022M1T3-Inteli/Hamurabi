@@ -1,0 +1,161 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Public/Renata Cropped.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Intro/Background.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Intro/Intro.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Public/Keyboard.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Public/Click.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Fonts/Quicksand-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Intro/Dialogue Button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Intro/Choice.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 6 )
+
+[node name="Scene" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_left = -1.0
+margin_right = 1441.0
+margin_bottom = 1024.0
+rect_pivot_offset = Vector2( 492, 385 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" type="TextureRect" parent="Background"]
+margin_left = 466.0
+margin_top = 198.0
+margin_right = 1015.0
+margin_bottom = 969.0
+rect_scale = Vector2( 1, 0.8 )
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Typing_song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 450.0
+margin_right = 1340.0
+margin_bottom = 830.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="TextureButton" parent="VBoxContainer"]
+margin_right = 1220.0
+margin_bottom = 380.0
+texture_normal = ExtResource( 9 )
+stretch_mode = 3
+
+[node name="CharacterName" type="Label" parent="VBoxContainer/Dialogue"]
+margin_left = 46.0
+margin_top = 14.0
+margin_right = 485.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Renata - Conselheira"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueLabel" type="Label" parent="VBoxContainer/Dialogue"]
+margin_left = 44.0
+margin_top = 103.0
+margin_right = 1166.0
+margin_bottom = 346.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueButton" type="TextureButton" parent="VBoxContainer/Dialogue"]
+visible = false
+margin_left = 1089.0
+margin_top = 287.0
+margin_right = 1126.0
+margin_bottom = 335.0
+texture_normal = ExtResource( 7 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choice1" type="TextureButton" parent="."]
+visible = false
+light_mask = 0
+margin_left = 339.0
+margin_top = 871.0
+margin_right = 641.0
+margin_bottom = 953.0
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="Choice1"]
+margin_right = 297.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Sim"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choice2" type="TextureButton" parent="."]
+visible = false
+light_mask = 0
+margin_left = 774.0
+margin_top = 871.0
+margin_right = 1076.0
+margin_bottom = 953.0
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="Choice2"]
+margin_right = 305.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Com certeza!"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="VBoxContainer/Dialogue" to="." method="_on_Dialogue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Dialogue/DialogueButton" to="." method="_on_DialogueButton_pressed"]
+[connection signal="pressed" from="Choice1" to="." method="_on_choice1_pressed"]
+[connection signal="pressed" from="Choice2" to="." method="_on_choice2_pressed"]
