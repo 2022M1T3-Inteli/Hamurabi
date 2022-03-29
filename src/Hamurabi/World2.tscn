@@ -1,0 +1,228 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://World2.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/images.png" type="Texture" id=2]
+[ext_resource path="res://Assets/office_background.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/bank-2-64.png" type="Texture" id=4]
+[ext_resource path="res://Assets/social.png" type="Texture" id=5]
+[ext_resource path="res://Assets/book.png" type="Texture" id=6]
+[ext_resource path="res://Assets/circle-dashed-8-64.png" type="Texture" id=7]
+[ext_resource path="res://202312__7778__dbl-click.ogg" type="AudioStream" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0588235, 0.415686, 0.92549, 1 )
+
+[node name="World2" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 720.75, 511 )
+scale = Vector2( 1.60056, 2.03557 )
+texture = ExtResource( 3 )
+
+[node name="Bank-2-64" type="Sprite" parent="background" groups=["main_scene_group"]]
+position = Vector2( -334.103, -227.454 )
+scale = Vector2( 0.451852, 0.294788 )
+texture = ExtResource( 4 )
+
+[node name="Book" type="Sprite" parent="background" groups=["main_scene_group"]]
+position = Vector2( 394.4, -216.382 )
+scale = Vector2( 0.496876, 0.498857 )
+texture = ExtResource( 6 )
+
+[node name="title" type="Label" parent="." groups=["main_scene_group"]]
+margin_left = 629.0
+margin_top = 183.0
+margin_right = 814.0
+margin_bottom = 267.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 1 )
+text = "O que é a CLT?"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="law_explanation" type="Label" parent="." groups=["main_scene_group"]]
+margin_left = 241.0
+margin_top = 314.0
+margin_right = 1193.0
+margin_bottom = 464.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 2 )
+text = "A Consolidação das Leis do Trabalho, popularmente chamada de CLT, regulamenta as relações trabalhistas, tanto do trabalho urbano quanto do rural, 
+de relações individuais ou coletivas. 
+Ela foi decretada no Estado Novo – período autoritário da Era Vargas – em 1º de maio de 1943. 
+Essa legislação visa a proteger o trabalhador, a regular as relações de trabalho e criar o direito processual do trabalho."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer1_button" type="Button" parent="." groups=["main_scene_group"]]
+margin_left = 277.0
+margin_top = 847.0
+margin_right = 545.0
+margin_bottom = 908.0
+text = "Criar a consolidação das leis do trabalho"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer2_button" type="Button" parent="." groups=["main_scene_group"]]
+margin_left = 573.0
+margin_top = 847.0
+margin_right = 857.0
+margin_bottom = 913.0
+text = "Deixar o país sem leis do trabalho"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer3_button" type="Button" parent="." groups=["main_scene_group"]]
+margin_left = 882.0
+margin_top = 848.0
+margin_right = 1203.0
+margin_bottom = 915.0
+text = "Criar uma nova lei relacionada aos trabalhadores"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="president_image" type="Sprite" parent="." groups=["main_scene_group"]]
+position = Vector2( 717, 614 )
+texture = ExtResource( 2 )
+
+[node name="question" type="Label" parent="." groups=["main_scene_group"]]
+margin_left = 512.0
+margin_top = 768.0
+margin_right = 903.0
+margin_bottom = 788.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 3 )
+text = "O que fazer para manter todos os direitos dos trabalhadores?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="economic_indicator" type="Label" parent="." groups=["main_scene_group"]]
+margin_left = 151.0
+margin_top = 73.0
+margin_right = 224.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="social_indicator" type="Label" parent="." groups=["main_scene_group"]]
+margin_left = 234.0
+margin_top = 71.0
+margin_right = 309.0
+margin_bottom = 89.0
+rect_scale = Vector2( 0.847771, 1.11985 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Social" type="Sprite" parent="." groups=["main_scene_group"]]
+position = Vector2( 265, 48 )
+scale = Vector2( 0.640625, 0.59375 )
+texture = ExtResource( 5 )
+
+[node name="Circle-dashed-8-64" type="Sprite" parent="." groups=["main_scene_group"]]
+position = Vector2( 1353, 66 )
+scale = Vector2( 1.28125, 1.17969 )
+texture = ExtResource( 7 )
+
+[node name="button_menu_in_game" type="Button" parent="." groups=["main_scene_group"]]
+margin_left = 1216.0
+margin_top = 31.0
+margin_right = 1280.0
+margin_bottom = 95.0
+text = "PAUSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_voltar_menu_principal" type="Button" parent="." groups=["menu_in_game"]]
+visible = false
+margin_left = 404.0
+margin_top = 349.0
+margin_right = 572.0
+margin_bottom = 398.0
+text = "Voltar ao menu principal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_continuar_jogo" type="Button" parent="." groups=["menu_in_game"]]
+visible = false
+margin_left = 422.0
+margin_top = 223.0
+margin_right = 553.0
+margin_bottom = 264.0
+text = "Continuar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_config" type="Button" parent="." groups=["menu_in_game"]]
+visible = false
+margin_left = 422.0
+margin_top = 288.0
+margin_right = 555.0
+margin_bottom = 318.0
+text = "Configurações "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="days_mandact" type="Label" parent="."]
+margin_left = 691.0
+margin_top = 44.0
+margin_right = 731.0
+margin_bottom = 58.0
+text = "1460"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="days" type="Label" parent="."]
+margin_left = 666.0
+margin_top = 18.0
+margin_right = 758.0
+margin_bottom = 32.0
+text = "Dias restantes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[connection signal="pressed" from="answer1_button" to="." method="_on_answer1_button_pressed"]
+[connection signal="pressed" from="answer2_button" to="." method="_on_answer2_button_pressed"]
+[connection signal="pressed" from="answer3_button" to="." method="_on_answer3_button_pressed"]
+[connection signal="pressed" from="button_menu_in_game" to="." method="_on_button_menu_in_game_pressed"]
+[connection signal="pressed" from="button_menu_in_game" to="." method="_on_Button_pressed"]
+[connection signal="button_down" from="button_voltar_menu_principal" to="." method="_on_button_voltar_menu_principal_button_down"]
+[connection signal="pressed" from="button_voltar_menu_principal" to="." method="_on_button_voltar_menu_principal_pressed"]
+[connection signal="button_down" from="button_continuar_jogo" to="." method="_on_button_continuar_jogo_button_down"]
+[connection signal="pressed" from="button_continuar_jogo" to="." method="_on_button_continuar_jogo_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Intro/Background.png" type="Texture" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Menu/Exit.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Public/Gregorio.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Public/Choice.png" type="Texture" id=31]
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -45,6 +47,9 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=4]
 size = 24
 font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -68,6 +73,17 @@ margin_bottom = 969.0
 rect_scale = Vector2( 1, 0.8 )
 texture = ExtResource( 9 )
 stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gregorio" type="TextureRect" parent="Background"]
+visible = false
+margin_left = 992.0
+margin_top = 234.0
+margin_right = 1279.0
+margin_bottom = 1034.0
+texture = ExtResource( 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,9 +126,9 @@ __meta__ = {
 
 [node name="label" type="Label" parent="VBoxContainer/dialogue"]
 margin_left = 44.0
-margin_top = 103.0
+margin_top = 104.0
 margin_right = 1166.0
-margin_bottom = 346.0
+margin_bottom = 347.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -123,7 +139,6 @@ __meta__ = {
 }
 
 [node name="DialogueButton" type="TextureButton" parent="VBoxContainer/dialogue"]
-visible = false
 margin_left = 1089.0
 margin_top = 287.0
 margin_right = 1126.0
@@ -285,11 +300,9 @@ __meta__ = {
 
 [node name="MenuInGameBg" type="ColorRect" parent="."]
 visible = false
-margin_left = 313.0
-margin_top = 292.0
-margin_right = 1122.0
-margin_bottom = 898.0
-color = Color( 0.278431, 0.278431, 0.278431, 1 )
+margin_right = 1441.0
+margin_bottom = 1025.0
+color = Color( 1, 1, 1, 0.439216 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -380,9 +393,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="continue" type="TextureButton" parent="."]
+visible = false
+margin_left = 935.0
+margin_top = 880.0
+margin_right = 1237.0
+margin_bottom = 962.0
+texture_normal = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="continue"]
+margin_left = 104.0
+margin_top = 32.0
+margin_right = 196.0
+margin_bottom = 52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "CONTINUAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="VBoxContainer/dialogue" to="." method="_on_dialogue_pressed"]
 [connection signal="pressed" from="VBoxContainer/dialogue/DialogueButton" to="." method="_on_dialogue_button_pressed"]
 [connection signal="pressed" from="choice1" to="." method="_on_choice1_pressed"]
 [connection signal="pressed" from="choice2" to="." method="_on_choice2_pressed"]
 [connection signal="pressed" from="ConfigurationButton" to="." method="_on_ConfigurationButton_pressed"]
 [connection signal="pressed" from="CloseMenuButton" to="." method="_on_CloseMenuButton_pressed"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]

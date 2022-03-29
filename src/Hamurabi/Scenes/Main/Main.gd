@@ -12,6 +12,9 @@ var daysMandact = 1460
 # Define a cena atual
 var actualScene = 0
 
+#variável que define se o personagem Gregório precisa aparecer
+var gregorioNeedAppear = true
+
 # Cria um array de dicionários para guardar todos os valores de uma cena
 var scenes = [
 	{
@@ -364,6 +367,8 @@ func _ready():
 	$choice1/text.text = actualScene.answers.answer1.text
 #	$choice2/text.text = actualScene.answers.answer2.text 
 	$choice2/text.text = actualScene.answers.answer3.text
+	$Background/Gregorio.visible = false
+	$continue.visible = false
 
 func _on_choice1_pressed():
 		# Atualiza o valor dos indicadores com base na escolha da cena
@@ -384,7 +389,8 @@ func _on_choice1_pressed():
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
 		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
-		
+				
+			
 	$CongressBar.value = socialIndicator
 	$SocialEconomicBar.value = economicIndicator
 	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
@@ -406,6 +412,16 @@ func _on_choice1_pressed():
 	$choice2/text.text = actualScene.answers.answer2.text 
 #	$answer3_button.text = actualScene.answers.answer3.text
 
+	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
+	if (socialIndicator <= 20 or economicIndicator <= 20) and gregorioNeedAppear:
+		$Background/Character.visible = false
+		$choice1.visible = false
+		$choice2.visible = false
+		$Background/Gregorio.visible = true
+		$continue.visible = true
+		$VBoxContainer/dialogue/CharacterName.text = "Gregório - Jogador opositor"
+		$VBoxContainer/dialogue/label.text = "Muito cuidado com as suas próximas decisões, seus indicadores estão baixos e caso você os zere, será iniciado um processo de Impeachmeant contra você. E é isso o que nós, sua oposição, queremos!"
+		gregorioNeedAppear = false
 
 func _on_choice2_pressed():
 		# Atualiza o valor dos indicadores com base na escolha da cena
@@ -426,6 +442,7 @@ func _on_choice2_pressed():
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if socialIndicator == 0 or economicIndicator == 0:
 		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+	
 	
 	$CongressBar.value = socialIndicator
 	$SocialEconomicBar.value = economicIndicator
@@ -453,6 +470,16 @@ func _on_choice2_pressed():
 	$choice2/text.text = actualScene.answers.answer2.text 
 #	$answer3_button.text = actualScene.answers.answer3.text
 
+	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
+	if (socialIndicator <= 20 or economicIndicator <= 20) and gregorioNeedAppear:
+		$Background/Character.visible = false
+		$choice1.visible = false
+		$choice2.visible = false
+		$Background/Gregorio.visible = true
+		$continue.visible = true
+		$VBoxContainer/dialogue/CharacterName.text = "Gregório - Jogador opositor"
+		$VBoxContainer/dialogue/label.text = "Muito cuidado com as suas próximas decisões, seus indicadores estão baixos e caso você os zere, será iniciado um processo de Impeachmeant contra você. E é isso o que nós, sua oposição, queremos!"
+		gregorioNeedAppear = false
 
 func _on_ConfigurationButton_pressed():
 	$PauseMask.visible = true
@@ -471,3 +498,13 @@ func _on_CloseMenuButton_pressed():
 func _on_dialogue_pressed():
 	pass # Replace with function body.
 
+
+func _on_continue_pressed():
+	$continue.visible = false
+	$Background/Gregorio.visible = false
+	$Background/Character.visible = true
+	$VBoxContainer/dialogue/CharacterName.text = "Renata - Conselheira"
+	$VBoxContainer/dialogue/label.text = actualScene.question
+	$choice1.visible = true
+	$choice2.visible = true
+	$Click.play()
