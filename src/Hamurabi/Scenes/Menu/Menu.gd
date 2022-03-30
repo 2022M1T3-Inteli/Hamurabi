@@ -27,8 +27,8 @@ func _on_SairButton_pressed():
 	get_tree().change_scene("res://saida.tscn")
 
 # Abrir tutorial quando clicar no botão
-func _on_ComoJogarButton_pressed():
-	get_tree().change_scene("res://opções.tscn")
+func _on_HowToPlayButton_pressed():
+	get_tree().change_scene("res://Scenes/Menu/Howtoplay.tscn")
 
 # Abrir cena de créditos quando clicar no botão
 func _on_CreditsButton_pressed():
@@ -41,3 +41,5 @@ func _on_StartButtonn_down():
 
 func _on_StartButton_down():
 	pass # Replace with function body.
+
+
