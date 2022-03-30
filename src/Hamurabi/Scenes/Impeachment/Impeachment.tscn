@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Victory/brasilia.jpeg" type="Texture" id=1]
+[ext_resource path="res://Assets/Public/Congress Background.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Impeachment/Impeachment.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Impeachment/lose.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Intro/Choice.png" type="Texture" id=4]

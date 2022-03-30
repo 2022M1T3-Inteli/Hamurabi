@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brasilia.jpeg-a42ebbc1a5cc0d6ba88aa7acfd04723b.stex"
+path="res://.import/Congress Background.png-ea4cc04904f4c4960327a6a2a983878b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Victory/brasilia.jpeg"
-dest_files=[ "res://.import/brasilia.jpeg-a42ebbc1a5cc0d6ba88aa7acfd04723b.stex" ]
+source_file="res://Assets/Public/Congress Background.png"
+dest_files=[ "res://.import/Congress Background.png-ea4cc04904f4c4960327a6a2a983878b.stex" ]
 
 [params]
 

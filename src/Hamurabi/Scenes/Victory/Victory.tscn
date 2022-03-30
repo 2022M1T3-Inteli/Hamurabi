@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Victory/brasilia.jpeg" type="Texture" id=1]
+[ext_resource path="res://Assets/Public/Congress Background.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Intro/Choice.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Victory/Victory.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Fonts/Quicksand-Regular.ttf" type="DynamicFontData" id=4]

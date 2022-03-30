@@ -1,8 +1,8 @@
 extends Node2D
 
 # Variáveis dos indicadores que variam de acordo com as escolhas 
-var economicIndicator = 50
-var socialIndicator = 50
+var congressIndicator = 50
+var socialEconomicIndicator = 50
 
 # Variáveis do tempo decorrido do mandato
 var numScenes = 10
@@ -12,6 +12,7 @@ var daysMandact = 1460
 
 # Define a cena atual
 var actualScene = 0
+var nextScene = 0
 # Define o Texto atual
 var actualText = 0
 
@@ -23,6 +24,7 @@ var charActualIndex = 0
 var time = 0
 var startDialogue = false
 var nextDialogue = false
+var consequenceScene = false
 var endDialogue = false
 
 # Cria um array de dicionários para guardar todos os valores de uma cena
@@ -36,28 +38,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Manter o poder apenas em suas mãos",
+				"consequence": {
+					"text": [
+						"Manter o poder foi uma escolha não muito boa.",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": 5
+					"congress": -10,
+					"socialEconomic": 5
 				},
 				"next": 2
 			},
 			"answer2": {
-				"text": "",
+				"text": "Separar os poderes e cada poder terá uma função estatal",
+				"consequence": {
+					"text": [
+						"Que excelente escolha!",
+					],
+				},
 				"indicators": {
-					"social": 5,
-					"economic": -5
+					"congress": 5,
+					"socialEconomic": -5
 				},
 				"next": 2
 			},
-			"answer3": {
-				"text": "Separar os poderes e cada poder terá uma função estatal",
-				"indicators": {
-					"social": 5,
-					"economic": -5
-				},
-				"next": 2
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png", 
@@ -71,28 +75,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Criar Lei CLT",
+				"consequence": {
+					"text": [
+						"Você criou a lei da CLT, muito bem feito!",
+					],
+				},
 				"indicators": {
-					"social": 5,
-					"economic": 5
+					"congress": 5,
+					"socialEconomic": 5
 				},
 				"next": 3
 			},
 			"answer2": {
 				"text": "Deixar o país sem lei dos trabalhadores",
+				"consequence": {
+					"text": [
+						"Não gostaram muito do que fizemos, querem que a gente mude essa situação o quanto antes.",
+					],
+				},
 				"indicators": {
-					"social": -5,
-					"economic": -5
+					"congress": -5,
+					"socialEconomic": -5
 				},
 				"next": 3
 			},
-			"answer3": {
-				"text": "Criar outra lei",
-				"indicators": {
-					"social": 5,
-					"economic": -5
-				},
-				"next": 3
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -106,28 +112,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Reduzir a burocracia para apresentação dos projetos de lei",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": 5
+					"congress": -10,
+					"socialEconomic": 5
 				},
 				"next": 4
 			},
 			"answer2": {
 				"text": "Aumentar a burocracia para apresentação dos projetos de lei",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": 5,
-					"economic": -5
+					"congress": 5,
+					"socialEconomic": -5
 				},
 				"next": 4
 			},
-			"answer3": {
-				"text": "Manter a burocracia para apresentação dos projetos de lei",
-				"indicators": {
-					"social": 0,
-					"economic": 0
-				},
-				"next": 4
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -141,28 +149,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Ele deve ser julgado pela justiça comum",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": 5,
-					"economic": -5
+					"congress": 5,
+					"socialEconomic": -5
 				},
 				"next": 5
 			},
 			"answer2": {
 				"text": "Ele será julgado pelo STF como forma de proteger sua função de Estado",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -5,
-					"economic": 5
+					"congress": -5,
+					"socialEconomic": 5
 				},
 				"next": 5
 			},
-			"answer3": {
-				"text": "Ele não deve ser julgado e devemos arquivar o caso",
-				"indicators": {
-					"social": -10,
-					"economic": -10
-				},
-				"next": 5
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -178,28 +188,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Não aceitar a proposta e manter a estrutura política como está.",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": 5,
-					"economic": 5
+					"congress": 5,
+					"socialEconomic": 5
 				},
 				"next": 6
 			},
 			"answer2": {
 				"text": "Aceitar a proposta",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": -10
+					"congress": -10,
+					"socialEconomic": -10
 				},
 				"next": 6
 			},
-			"answer3": {
-				"text": "",
-				"indicators": {
-					"social": -10,
-					"economic": -10
-				},
-				"next": 6
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -213,28 +225,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Cobrar dos prefeitos de cada cidade",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": 15,
-					"economic": 0
+					"congress": 15,
+					"socialEconomic": 0
 				},
 				"next": 7
 			},
 			"answer2": {
 				"text": "Cobrar os governadores estaduais",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": 0
+					"congress": -10,
+					"socialEconomic": 0
 				},
 				"next": 7
 			},
-			"answer3": {
-				"text": "Cobrar deputados estaduais",
-				"indicators": {
-					"social": -10,
-					"economic": 0
-				},
-				"next": 7
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -248,28 +262,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Aceitar Asilo",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": 10,
-					"economic": -5
+					"congress": 10,
+					"socialEconomic": -5
 				},
 				"next": 8
 			},
 			"answer2": {
 				"text": "Recusar Asilo",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": -10
+					"congress": -10,
+					"socialEconomic": -10
 				},
 				"next": 8
 			},
-			"answer3": {
-				"text": "",
-				"indicators": {
-					"social": -10,
-					"economic": 0
-				},
-				"next": 8
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -283,28 +299,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Aceitar a doação de recursos",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": 0
+					"congress": -10,
+					"socialEconomic": 0
 				},
 				"next": 9
 			},
 			"answer2": {
 				"text": "Recusar a doação de recursos",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": 0,
-					"economic": 0
+					"congress": 0,
+					"socialEconomic": 0
 				},
 				"next": 9
 			},
-			"answer3": {
-				"text": "Aceitar a doação e declarar para as autoridades os valores recebidos",
-				"indicators": {
-					"social": -30,
-					"economic": 0
-				},
-				"next": 9
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -319,28 +337,30 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "Cobrar resultado de vereadores municipais",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": 0
+					"congress": -10,
+					"socialEconomic": 0
 				},
 				"next": 10
 			},
 			"answer2": {
 				"text": "Cobrar resultado de prefeitos municipais",
+				"consequence": {
+					"text": [
+						"Você...",
+					],
+				},
 				"indicators": {
-					"social": -10,
-					"economic": 0
+					"congress": -10,
+					"socialEconomic": 0
 				},
 				"next": 10
 			},
-			"answer3": {
-				"text": "Cobrar resultado de governadores estaduais",
-				"indicators": {
-					"social": 15,
-					"economic": -30
-				},
-				"next": 10
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -352,28 +372,28 @@ var scenes = [
 		"answers": {
 			"answer1": {
 				"text": "",
+				"consequence": {
+					"text": [
+						"",
+					],
+				},
 				"indicators": {
-					"social": 5,
-					"economic": 5
+					"congress": 5,
+					"socialEconomic": 5
 				},
 				"next": null
 			},
 			"answer2": {
 				"text": "",
+				"consequence": [
+					"",
+				],
 				"indicators": {
-					"social": -10,
-					"economic": -10
+					"congress": -10,
+					"socialEconomic": -10
 				},
 				"next": null
 			},
-			"answer3": {
-				"text": "",
-				"indicators": {
-					"social": 0,
-					"economic": 0
-				},
-				"next": null
-			}
 		},
 		"background": "background.jpg",
 		"image": "President.png"
@@ -391,15 +411,12 @@ func _ready():
 	# Definir a cena atual
 	actualScene = scenes[actualScene]
 	
-	charTextSize = len(actualScene.text[actualText]) # Armazenar o número de caracteres do texto.
-	# Define o caractere atual que será utilizado para percorrer o texto.
-	
-	# Atribui e Renderiza os elementos de texto com base na cena atual 
-#	$title.text = actualScene.title
-#	$law_explanation.text = actualScene.lawExplanation
+	# Armazenar o número de caracteres do texto
+	charTextSize = len(actualScene.text[actualText])
+
+	# Define os textos das respostas com base na cena inicial
 	$Choice1/Text.text = actualScene.answers.answer1.text
-#	$choice2/text.text = actualScene.answers.answer2.text 
-	$Choice2/Text.text = actualScene.answers.answer3.text
+	$Choice2/Text.text = actualScene.answers.answer2.text 
 
 func _process(delta):
 	time += delta
@@ -409,17 +426,22 @@ func _process(delta):
 		if !nextDialogue and time >= 0.01 and charActualIndex < charTextSize:
 			$VBoxContainer/Dialogue/DialogueLabel.text += actualScene.text[actualText][charActualIndex]
 			charActualIndex += 1
-			$Keyboard.play()
+			if time >= 0.03:
+				$Keyboard.play()
+				time = 0
 		if charActualIndex == charTextSize:
 			if actualText != len(actualScene.text) - 1:
 				$VBoxContainer/Dialogue/DialogueButton.visible = true
 				# Define que já pode passar de dialogo.
 				nextDialogue = true
 			else:
-				$Choice1.visible = true
-				$Choice2.visible = true
-
-	if Input.is_key_pressed(KEY_SPACE) and time >= 0.01:
+				if !consequenceScene:
+					$Choice1.visible = true
+					$Choice2.visible = true
+				else:
+					$VBoxContainer/Dialogue/DialogueButton.visible = true
+					nextDialogue = true
+	if Input.is_action_just_pressed("ui_right"):
 		time = 0
 		nextDialogue()
 
@@ -427,61 +449,131 @@ func _on_choice1_pressed():
 	# Atualiza o valor dos indicadores com base na escolha da cena
 	daysMandact -= sceneTime
 	scenesLeft -= 1
-	economicIndicator += actualScene.answers.answer1.indicators.economic 
-	socialIndicator += actualScene.answers.answer1.indicators.social
-	if economicIndicator >= 100:
-		economicIndicator = 100
-	if socialIndicator >= 100:
-		socialIndicator = 100
-	if economicIndicator <= 0:
-		economicIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
+	socialEconomicIndicator += actualScene.answers.answer1.indicators.socialEconomic 
+	congressIndicator += actualScene.answers.answer1.indicators.congress
+	if socialEconomicIndicator >= 100:
+		socialEconomicIndicator = 100
+	if congressIndicator >= 100:
+		congressIndicator = 100
+	if socialEconomicIndicator <= 0:
+		socialEconomicIndicator = 0
+	if congressIndicator <= 0:
+		congressIndicator = 0
 	
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if socialIndicator == 0 or economicIndicator == 0:
+	if  congressIndicator == 0 or socialEconomicIndicator == 0:
 		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 		
-	$CongressBar.value = socialIndicator
-	$SocialEconomicBar.value = economicIndicator
-	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
-	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
+	$CongressBar.value = congressIndicator
+	$SocialEconomicBar.value = socialEconomicIndicator
+	$CongressBar/CongressValue.text = String(congressIndicator) + "%"
+	$SocialEconomicBar/SocialEconomicValue.text = String(socialEconomicIndicator) + "%"
 	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
 	$Click.play()
 
-	nextScene()
+	showExplication(actualScene.answers.answer1)
 
 func _on_choice2_pressed():
 		# Atualiza o valor dos indicadores com base na escolha da cena
 	daysMandact -= sceneTime
 	scenesLeft -= 1
-	economicIndicator += actualScene.answers.answer2.indicators.economic 
-	socialIndicator += actualScene.answers.answer2.indicators.social
-	if economicIndicator >= 100:
-		economicIndicator = 100
-	if socialIndicator >= 100:
-		socialIndicator = 100
-	if economicIndicator <= 0:
-		economicIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
-	if socialIndicator <= 0:
-		socialIndicator = 0
+	socialEconomicIndicator += actualScene.answers.answer2.indicators.socialEconomic 
+	congressIndicator += actualScene.answers.answer2.indicators.congress
+	if socialEconomicIndicator >= 100:
+		socialEconomicIndicator = 100
+	if congressIndicator >= 100:
+		congressIndicator = 100
+	if socialEconomicIndicator <= 0:
+		socialEconomicIndicator = 0
+	if congressIndicator <= 0:
+		congressIndicator = 0
+	if congressIndicator <= 0:
+		congressIndicator = 0
 		
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if socialIndicator == 0 or economicIndicator == 0:
+	if congressIndicator == 0 or socialEconomicIndicator == 0:
 		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 	
-	$CongressBar.value = socialIndicator
-	$SocialEconomicBar.value = economicIndicator
-	$CongressBar/CongressValue.text = String(socialIndicator) + "%"
-	$SocialEconomicBar/SocialEconomicValue.text = String(economicIndicator) + "%"
+	$CongressBar.value = congressIndicator
+	$SocialEconomicBar.value = socialEconomicIndicator
+	$CongressBar/CongressValue.text = String(congressIndicator) + "%"
+	$SocialEconomicBar/SocialEconomicValue.text = String(socialEconomicIndicator) + "%"
 	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
 	$Click.play()
 
 	# Verifica qual cena é a próxima com base na resposta da cena atual
-	nextScene()
+	showExplication(actualScene.answers.answer2)
 
+func _on_Dialogue_pressed():
+	print("Chamou o botão")
+	nextDialogue()
+
+func nextDialogue():
+	print("Chamou o próximo dialogo")
+	$VBoxContainer/Dialogue/DialogueButton.visible = false
+	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
+	if !nextDialogue:
+		print("entrou")
+		$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
+		nextDialogue = true
+		if actualText != len(actualScene.text) - 1:
+			$VBoxContainer/Dialogue/DialogueButton.visible = true
+#		else:
+#			$Choice1.visible = true
+#			$Choice2.visible = true
+	# Caso não, verifica se ainda não é a última cena, se sim tira o botão de dialogo pois há mais cenas.
+	else:
+		if actualText < len(actualScene.text) - 1:
+			$VBoxContainer/Dialogue/DialogueLabel.text = ""
+			# Define o próximo texto do Array.
+			actualText += 1
+			charTextSize = len(actualScene.text[actualText])
+			charActualIndex = 0
+			time = 0
+			nextDialogue = false
+		# Caso tenha chegado no final, mostra os botões de escolha.
+		else:
+			if consequenceScene:
+				nextScene()
+			else:
+				$Choice1.visible = true
+				$Choice2.visible = true
+	
+func showExplication(answer):
+	consequenceScene = true
+	$VBoxContainer/Dialogue/DialogueLabel.text = ""
+	time = 0
+	startDialogue = false
+	nextScene = answer.next
+	actualScene = answer.consequence
+	nextDialogue = false
+	$Choice1.visible = false
+	$Choice2.visible = false
+	charActualIndex = 0
+	actualText = 0
+	charTextSize = len (actualScene.text[actualText])
+
+func nextScene():
+	actualScene = scenes[nextScene - 1]
+	consequenceScene = false
+	time = 0
+	startDialogue = false
+	if scenesLeft == 0:
+		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+	else: 
+		$VBoxContainer/Dialogue/DialogueLabel.text = ""
+		time = 0
+		startDialogue = false
+		nextDialogue = false
+#		var nextSceneIndex = actualScene.answers.answer1.next
+#		actualScene = scenes[nextSceneIndex - 1]
+		$Choice1/Text.text = actualScene.answers.answer1.text
+		$Choice2/Text.text = actualScene.answers.answer2.text 
+#		$Choice1.visible = false
+#		$Choice2.visible = false
+		charActualIndex = 0
+		actualText = 0
+		charTextSize = len (actualScene.text[actualText])
 
 func _on_ConfigurationButton_pressed():
 	$PauseMask.visible = true
@@ -496,51 +588,3 @@ func _on_CloseMenuButton_pressed():
 	$MenuInGame.visible = false
 	$CloseMenuButton.visible = false
 	$Click.play()
-
-func nextDialogue():
-	$VBoxContainer/Dialogue/DialogueButton.visible = false
-	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
-	if !nextDialogue:
-		$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
-		nextDialogue = true
-		if actualText != len(actualScene.text) - 1:
-			$VBoxContainer/Dialogue/DialogueButton.visible = true
-		else:
-			$Choice1.visible = true
-			$Choice2.visible = true
-	# Caso não, verifica se ainda não é a última cena, se sim tira o botão de dialogo pois há mais cenas.
-	else:
-		if actualText < len(actualScene.text) - 1:
-			$VBoxContainer/Dialogue/DialogueLabel.text = ""
-			# Define o próximo texto do Array.
-			actualText += 1
-			charTextSize = len(actualScene.text[actualText])
-			charActualIndex = 0
-			time = 0
-			nextDialogue = false
-		
-		# Caso tenha chegado no final, mostra os botões de escolha.
-		else:
-			$Choice1.visible = true
-			$Choice2.visible = true
-
-func _on_Dialogue_pressed():
-	nextDialogue()
-	
-func nextScene():
-	if scenesLeft == 0:
-		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
-	else: 
-		$VBoxContainer/Dialogue/DialogueLabel.text = ""
-		time = 2
-		startDialogue = false
-		nextDialogue = false
-		var nextSceneIndex = actualScene.answers.answer1.next
-		actualScene = scenes[nextSceneIndex - 1]
-		$Choice1/Text.text = actualScene.answers.answer1.text
-		$Choice2/Text.text = actualScene.answers.answer2.text 
-		$Choice1.visible = false
-		$Choice2.visible = false
-		charActualIndex = 0
-		actualText = 0
-		charTextSize = len (actualScene.text[actualText])
