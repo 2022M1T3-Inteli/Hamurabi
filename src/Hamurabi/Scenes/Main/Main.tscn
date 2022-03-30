@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Intro/Background.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Menu/Exit.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Public/Gregorio.png" type="Texture" id=30]
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -60,13 +61,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Character" type="TextureRect" parent="Background"]
+[node name="Renata" type="TextureRect" parent="Background"]
 margin_left = 466.0
 margin_top = 198.0
 margin_right = 1015.0
 margin_bottom = 969.0
 rect_scale = Vector2( 1, 0.8 )
 texture = ExtResource( 9 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gregorio" type="TextureRect" parent="Background"]
+visible = false
+margin_left = 937.0
+margin_top = 286.0
+margin_right = 1486.0
+margin_bottom = 1209.0
+rect_scale = Vector2( 1, 0.8 )
+texture = ExtResource( 30 )
 stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
@@ -287,11 +301,11 @@ __meta__ = {
 
 [node name="MenuInGameBg" type="ColorRect" parent="."]
 visible = false
-margin_left = 313.0
-margin_top = 292.0
-margin_right = 1122.0
-margin_bottom = 898.0
-color = Color( 0.278431, 0.278431, 0.278431, 1 )
+margin_left = -7.0
+margin_top = -4.0
+margin_right = 1448.0
+margin_bottom = 1029.0
+color = Color( 1, 1, 1, 0.396078 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

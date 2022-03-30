@@ -27,6 +27,9 @@ var nextDialogue = false
 var consequenceScene = false
 var endDialogue = false
 
+#variável que define se o gregório precisa aparecer
+var gregorioScene = true
+
 # Cria um array de dicionários para guardar todos os valores de uma cena
 var scenes = [
 	{
@@ -503,7 +506,8 @@ func _on_choice2_pressed():
 
 	# Verifica qual cena é a próxima com base na resposta da cena atual
 	showExplication(actualScene.answers.answer2)
-
+	
+	
 func _on_Dialogue_pressed():
 	print("Chamou o botão")
 	nextDialogue()
@@ -554,26 +558,37 @@ func showExplication(answer):
 	charTextSize = len (actualScene.text[actualText])
 
 func nextScene():
-	actualScene = scenes[nextScene - 1]
-	consequenceScene = false
-	time = 0
-	startDialogue = false
-	if scenesLeft == 0:
-		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
-	else: 
-		$VBoxContainer/Dialogue/DialogueLabel.text = ""
+	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
+	if (congressIndicator <= 45 or socialEconomicIndicator <= 45) and gregorioScene:
+		$Background/Renata.visible = false
+		$Choice1.visible = false
+		$Choice2.visible = false
+		$Background/Gregorio.visible = true
+		#$continue.visible = true
+		$VBoxContainer/Dialogue/CharacterName.text = "Gregório - Jogador opositor"
+		$VBoxContainer/Dialogue/DialogueLabel.text = "Muito cuidado com as suas próximas decisões, seus indicadores estão baixos e caso você os zere, será iniciado um processo de Impeachmeant contra você. E é isso o que nós, sua oposição, queremos!"
+		gregorioScene = false
+	else:
+		actualScene = scenes[nextScene - 1]
+		consequenceScene = false
 		time = 0
 		startDialogue = false
-		nextDialogue = false
-#		var nextSceneIndex = actualScene.answers.answer1.next
-#		actualScene = scenes[nextSceneIndex - 1]
-		$Choice1/Text.text = actualScene.answers.answer1.text
-		$Choice2/Text.text = actualScene.answers.answer2.text 
-#		$Choice1.visible = false
-#		$Choice2.visible = false
-		charActualIndex = 0
-		actualText = 0
-		charTextSize = len (actualScene.text[actualText])
+		if scenesLeft == 0:
+			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+		else: 
+			$VBoxContainer/Dialogue/DialogueLabel.text = ""
+			time = 0
+			startDialogue = false
+			nextDialogue = false
+	#		var nextSceneIndex = actualScene.answers.answer1.next
+	#		actualScene = scenes[nextSceneIndex - 1]
+			$Choice1/Text.text = actualScene.answers.answer1.text
+			$Choice2/Text.text = actualScene.answers.answer2.text 
+	#		$Choice1.visible = false
+	#		$Choice2.visible = false
+			charActualIndex = 0
+			actualText = 0
+			charTextSize = len (actualScene.text[actualText])
 
 func _on_ConfigurationButton_pressed():
 	$PauseMask.visible = true
