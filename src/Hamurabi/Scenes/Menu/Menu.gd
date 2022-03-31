@@ -24,7 +24,7 @@ func _on_StartButton_button_down():
 
 # Abrir tutorial quando clicar no botão
 func _on_HowToPlayButton_pressed():
-	get_tree().change_scene("res://Scenes/Menu/Howtoplay.tscn")
+	get_tree().change_scene("res://Scenes/HowToPlay/HowToPlay.tscn")
 
 # Abrir cena de créditos quando clicar no botão
 func _on_CreditsButton_pressed():

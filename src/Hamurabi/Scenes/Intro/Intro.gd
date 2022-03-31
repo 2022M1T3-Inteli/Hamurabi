@@ -2,6 +2,7 @@ extends Node2D
 
 # Cria a variável que armazerá o tempo decorrido.
 var time = 0
+var paused = false
 
 # Cria a variável que irá armazenar os textos da cena em forma de Array.
 var text = [
@@ -34,7 +35,7 @@ func _process(delta):
 	
 	if start:
 		# Verifica se passou 0.01 seg e se o contador ainda é menor o tamanho do texto.
-		if !next and time >= 0.01 and charActualIndex < charTextSize:
+		if !next and time >= 0.01 and charActualIndex < charTextSize and !paused:
 			# Adiciona ao texto do label o próximo caractere do texto.
 			$VBoxContainer/Dialogue/DialogueLabel.text += text[actualText][charActualIndex]
 			$Typing_song.play()
@@ -52,6 +53,9 @@ func _process(delta):
 		if actualText == len(text) - 1 and !end:
 			$Choice1.visible = true
 			$Choice2.visible = true
+		
+		if Input.is_action_just_pressed("ui_cancel"):
+			openMenu()
 		
 		if end:
 			if time >= 1.5:
@@ -110,3 +114,32 @@ func _on_choice2_pressed():
 	$Choice2.visible = false
 	end = true
 	next_scene()
+
+func _on_ConfigurationButton_pressed():
+	openMenu()
+
+func _on_CloseMenuButton_pressed():
+	closeMenu()
+	
+func openMenu():
+	$PauseMask.visible = true
+	$MenuInGameBg.visible = true
+	$MenuInGame.visible = true
+	$CloseMenuButton.visible = true
+	$Click.play()
+	paused = true
+
+func closeMenu():
+	$PauseMask.visible = false
+	$MenuInGameBg.visible = false
+	$MenuInGame.visible = false
+	$CloseMenuButton.visible = false
+	$Click.play()
+	paused = false
+
+func _on_OptionsButton_pressed():
+	pass # Replace with function body.
+	
+
+func _on_ExitButton_pressed():
+	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/Start Game Hover.png" type="Texture" id=2]
@@ -9,9 +9,12 @@
 [ext_resource path="res://Assets/Menu/Options.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Menu/How To Play.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Menu/Exit.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Menu/Exit Hover.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Public/Exit.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Public/Exit Hover.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Menu/How To Play Hover.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Public/Character.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Public/Background Section.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Public/Logo.png" type="Texture" id=15]
 
 [node name="Menu" type="Control"]
 anchor_left = 0.001
@@ -25,15 +28,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = -0.01
-anchor_top = -1.6
-anchor_right = -0.01
-anchor_bottom = -1.6
-margin_left = -0.03
-margin_right = 1439.97
-margin_bottom = 1024.0
-color = Color( 0.258824, 0.247059, 0.32549, 1 )
+[node name="Background" type="TextureRect" parent="."]
+margin_left = -1.0
+margin_top = -112.0
+margin_right = 1439.0
+margin_bottom = 914.0
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Characters" type="TextureRect" parent="."]
+margin_left = -4.16
+margin_top = -117.0
+margin_right = 1435.84
+margin_bottom = 907.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="."]
+margin_left = 214.84
+margin_top = -85.0
+margin_right = 1214.84
+margin_bottom = 215.0
+texture = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,7 +77,7 @@ __meta__ = {
 
 [node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 margin_right = 137.0
-margin_bottom = 29.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 3 )
@@ -64,9 +88,9 @@ __meta__ = {
 }
 
 [node name="HowToPlayButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 33.0
+margin_top = 42.0
 margin_right = 137.0
-margin_bottom = 63.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 9 )
@@ -77,6 +101,7 @@ __meta__ = {
 }
 
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
+visible = false
 margin_top = 67.0
 margin_right = 137.0
 margin_bottom = 97.0
@@ -90,9 +115,9 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 101.0
+margin_top = 84.0
 margin_right = 137.0
-margin_bottom = 131.0
+margin_bottom = 122.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 6 )
@@ -103,7 +128,7 @@ __meta__ = {
 }
 
 [node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 135.0
+margin_top = 126.0
 margin_right = 137.0
 margin_bottom = 165.0
 size_flags_horizontal = 3
@@ -114,9 +139,6 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Click" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_down"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/HowToPlay/HowToPlay.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Public/Dialogue Button.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HowToPlay/Scene1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Public/Click.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Public/Background Section.png" type="Texture" id=6]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1440.0
+margin_bottom = 1026.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 521.0
+margin_bottom = 449.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="."]
+margin_left = 1191.0
+margin_top = 811.0
+margin_right = 1258.0
+margin_bottom = 864.0
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviousButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 207.0
+margin_top = 811.0
+margin_right = 274.0
+margin_bottom = 864.0
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="CloseGuideButton" type="TextureButton" parent="."]
+margin_left = 1233.0
+margin_top = 141.0
+margin_right = 1313.0
+margin_bottom = 221.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="PreviousButton" to="." method="_on_PreviousButton_pressed"]
+[connection signal="pressed" from="CloseGuideButton" to="." method="_on_CloseGuideButton_pressed"]

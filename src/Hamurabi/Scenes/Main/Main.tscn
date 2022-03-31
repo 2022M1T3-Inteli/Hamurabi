@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Intro/Background.png" type="Texture" id=2]
@@ -18,16 +18,10 @@
 [ext_resource path="res://Assets/Public/Socialeconomic Icon.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Public/Mandate Time.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Public/Configuration Icon.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Menu/Exit Hover.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Menu/How To Play Hover.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Menu/Start Game Hover.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Public/Exit Hover.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Menu/Options Hover.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Menu/How To Play.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Menu/Start Game.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Menu/Credits.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Menu/Options.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Menu/Exit.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Public/Exit.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Public/Gregorio.png" type="Texture" id=30]
 
@@ -292,8 +286,10 @@ __meta__ = {
 
 [node name="PauseMask" type="ColorRect" parent="."]
 visible = false
-margin_right = 1444.0
-margin_bottom = 1024.0
+margin_left = 6.0
+margin_top = 33.0
+margin_right = 1450.0
+margin_bottom = 1057.0
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -301,55 +297,30 @@ __meta__ = {
 
 [node name="MenuInGameBg" type="ColorRect" parent="."]
 visible = false
-margin_left = -7.0
-margin_top = -4.0
-margin_right = 1448.0
-margin_bottom = 1029.0
-color = Color( 1, 1, 1, 0.396078 )
+margin_left = 419.0
+margin_top = 399.0
+margin_right = 1043.0
+margin_bottom = 784.0
+color = Color( 0.820313, 0.820313, 0.820313, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MenuInGame" type="VBoxContainer" parent="."]
 visible = false
-margin_left = 410.0
-margin_top = 329.0
-margin_right = 1025.0
-margin_bottom = 862.0
+margin_left = 513.0
+margin_top = 473.0
+margin_right = 936.0
+margin_bottom = 715.0
 rect_clip_content = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="TextureButton" parent="MenuInGame"]
-margin_right = 615.0
-margin_bottom = 103.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 24 )
-texture_hover = ExtResource( 21 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HowToPlayButton" type="TextureButton" parent="MenuInGame"]
-margin_top = 107.0
-margin_right = 615.0
-margin_bottom = 210.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 23 )
-texture_hover = ExtResource( 20 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="OptionsButton" type="TextureButton" parent="MenuInGame"]
-margin_top = 214.0
-margin_right = 615.0
-margin_bottom = 318.0
+visible = false
+margin_right = 423.0
+margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 26 )
@@ -359,38 +330,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreditsButton" type="TextureButton" parent="MenuInGame"]
-margin_top = 322.0
-margin_right = 615.0
-margin_bottom = 425.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 27 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ExitButton" type="TextureButton" parent="MenuInGame"]
-margin_top = 429.0
-margin_right = 615.0
-margin_bottom = 533.0
+margin_top = 123.0
+margin_right = 423.0
+margin_bottom = 242.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 28 )
 texture_hover = ExtResource( 19 )
 expand = true
+stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CloseMenuButton" type="TextureButton" parent="."]
 visible = false
-margin_left = 1064.0
-margin_top = 260.0
-margin_right = 1144.0
-margin_bottom = 340.0
+margin_left = 993.0
+margin_top = 370.0
+margin_right = 1073.0
+margin_bottom = 450.0
 texture_normal = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -401,4 +360,6 @@ __meta__ = {
 [connection signal="pressed" from="Choice1" to="." method="_on_choice1_pressed"]
 [connection signal="pressed" from="Choice2" to="." method="_on_choice2_pressed"]
 [connection signal="pressed" from="ConfigurationButton" to="." method="_on_ConfigurationButton_pressed"]
+[connection signal="pressed" from="MenuInGame/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MenuInGame/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="CloseMenuButton" to="." method="_on_CloseMenuButton_pressed"]
