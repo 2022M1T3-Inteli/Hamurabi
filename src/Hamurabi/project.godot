@@ -13,6 +13,10 @@ config_version=4
 config/name="Hamurabi"
 run/main_scene="res://Scenes/Animation/Animation.tscn"
 
+[autoload]
+
+Global="*res://Scenes/global.gd"
+
 [debug]
 
 shapes/navigation/geometry_color=Color( 0.101961, 1, 0.513726, 0.4 )

@@ -4,6 +4,19 @@ extends Node2D
 var time = 0
 var paused = false
 
+onready var renataAnimation = [
+	load("res://Assets/Public/Renata Animation 3.png"),	
+	load("res://Assets/Public/Renata Animation 1.png"),
+	load("res://Assets/Public/Renata Animation 3.png"),
+	load("res://Assets/Public/Renata Animation 2.png"),	
+	load("res://Assets/Public/Renata Animation 1.png"),
+	load("res://Assets/Public/Renata Animation 3.png"),
+	load("res://Assets/Public/Renata Animation 1.png"),
+]
+
+var timeAnimation = 0
+var currentAnimation = 0
+
 # Cria a variável que irá armazenar os textos da cena em forma de Array.
 var text = [
 	"O presidente do nosso país fugiu com todas as leis e deixou a sociedade em caos.",
@@ -29,6 +42,7 @@ var end = false
 func _process(delta):
 	# Incrementa o tempo passado no jogo utilizando o valor de delta.
 	time += delta
+	timeAnimation += delta
 	
 	if time >= 0.5:
 		start = true
@@ -39,12 +53,22 @@ func _process(delta):
 			# Adiciona ao texto do label o próximo caractere do texto.
 			$VBoxContainer/Dialogue/DialogueLabel.text += text[actualText][charActualIndex]
 			$Typing_song.play()
-			
+			if timeAnimation >= 0.15:
+				if currentAnimation < len(renataAnimation):
+					$Background/Renata.texture = renataAnimation[currentAnimation]
+					currentAnimation += 1
+					timeAnimation = 0
+				else:
+					currentAnimation = 0
+					timeAnimation = 0
 			# Aumenta o contador e reinicia o tempo decorrido.
 			charActualIndex += 1
 			time = 0
 		# Verifica se chegou no último caractere do texto, caso sim deixa visível o botão que indica que pode passar para o próximo dialogo.
 		if charActualIndex == charTextSize and actualText != len(text) - 1:
+			currentAnimation = 0
+			$Background/Renata.texture = renataAnimation[currentAnimation]
+			timeAnimation = 0 
 			$VBoxContainer/Dialogue/DialogueButton.visible = true
 			# Define que já pode passar de dialogo.
 			next = true
@@ -53,6 +77,9 @@ func _process(delta):
 		if actualText == len(text) - 1 and !end:
 			$Choice1.visible = true
 			$Choice2.visible = true
+			currentAnimation = 0
+			$Background/Renata.texture = renataAnimation[currentAnimation]
+			timeAnimation = 0 
 		
 		if Input.is_action_just_pressed("ui_cancel"):
 			openMenu()
@@ -63,6 +90,8 @@ func _process(delta):
 
 # Função chamada para pular a cena (dialogo).
 func next_scene():
+	currentAnimation = 0
+	$Background/Renata.texture = renataAnimation[currentAnimation]
 	$VBoxContainer/Dialogue/DialogueButton.visible = false
 	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
 	if !next and !end:

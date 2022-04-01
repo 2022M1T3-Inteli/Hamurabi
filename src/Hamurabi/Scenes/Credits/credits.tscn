@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Credits/Credits.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Credits/Credits.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Credits/Credits.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Public/Background Section.png" type="Texture" id=4]
 
 [node name="Node2D" type="Node2D"]
@@ -22,7 +22,7 @@ margin_left = 2.0
 margin_top = 72.0
 margin_right = 1425.0
 margin_bottom = 1014.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -122,7 +122,7 @@ margin_left = 1206.0
 margin_top = 121.0
 margin_right = 1286.0
 margin_bottom = 201.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

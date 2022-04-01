@@ -1,11 +1,23 @@
 extends Node2D
 
-#onready var renata = [
-#	load("res://Assets/Public/Renata Animation 1 Cropped.png"),
-#	load("res://Assets/Public/Renata Animation 2 Cropped.png")
-#]
+onready var renataAnimation = [
+	load("res://Assets/Public/Renata Animation 3.png"),	
+	load("res://Assets/Public/Renata Animation 1.png"),
+	load("res://Assets/Public/Renata Animation 3.png"),
+	load("res://Assets/Public/Renata Animation 2.png"),	
+	load("res://Assets/Public/Renata Animation 1.png"),
+	load("res://Assets/Public/Renata Animation 3.png"),
+	load("res://Assets/Public/Renata Animation 1.png"),
+]
+
+onready var background = [
+	load("res://Assets/Public/Background.png"),
+	load("res://Assets/Public/Park Day.jpg"),
+	load("res://Assets/Public/Park Night.jpg"),
+] 
+
 var timeAnimation = 0
-var currentAnimation = 1
+var currentAnimation = 0
 
 # Variáveis dos indicadores que variam de acordo com as escolhas 
 var congressIndicator = 50
@@ -34,6 +46,7 @@ var nextDialogue = false
 var consequenceScene = false
 var endDialogue = false
 var paused = false
+var loseGame = false
 
 #variável que define se o gregório precisa aparecer
 var gregorioScene = true
@@ -60,8 +73,8 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -10,
-					"socialEconomic": -10
+					"congress": -20,
+					"socialEconomic": -20
 				},
 				"next": 2
 			},
@@ -79,7 +92,7 @@ var scenes = [
 				"next": 2
 			},
 		},
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png", 
 	},
 	{
@@ -101,7 +114,7 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 5,
-					"socialEconomic": -10
+					"socialEconomic": -15
 				},
 				"next": 3
 			},
@@ -116,12 +129,12 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 0,
-					"socialEconomic": -10
+					"socialEconomic": -15
 				},
 				"next": 3
 			},
 		},
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png", 
 	},
 	{
@@ -155,12 +168,12 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": -5,
-					"socialEconomic": -10
+					"socialEconomic": -15
 				},
 				"next": 4
 			},
 		},
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png"
 	},
 	{
@@ -198,7 +211,7 @@ var scenes = [
 				"next": 5
 			},
 		},
-		"background": "background.jpg",
+		"background": 1,
 		"image": "President.png"
 	},
 	{
@@ -233,12 +246,12 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 5,
-					"socialEconomic": -10
+					"socialEconomic": -15
 				},
 				"next": 6
 			},
 		},
-		"background": "background.jpg",
+		"background": 1,
 		"image": "President.png"
 	},
 	{
@@ -270,13 +283,13 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -10,
+					"congress": -15,
 					"socialEconomic": 5
 				},
 				"next": 7
 			},
 		},
-		"background": "background.jpg",
+		"background": 1,
 		"image": "President.png"
 	},
 	{
@@ -310,12 +323,12 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 0,
-					"socialEconomic": -10
+					"socialEconomic": -15
 				},
 				"next": 8
 			},
 		},
-		"background": "background.jpg",
+		"background": 2,
 		"image": "President.png"
 	},
 	{
@@ -351,20 +364,20 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -5,
+					"congress": -10,
 					"socialEconomic": 10
 				},
 				"next": 9
 			},
 		},
-		"background": "background.jpg",
+		"background": 2,
 		"image": "President.png"
 	},
 	{
 		"title": "Nível de governo estadual",
 		"text": [
 			"Presidente, estamos pagando muitos impostos em cima de nossos veículos e as rodovias que ligam nossas cidades estão horríveis.", 
-			"Estamos gastando muito dinheiro em peneus por causa de todos os buracos das estradas! Se você é presidente do povo, faça algo para melhorar isso.",	
+			"Estamos gastando muito dinheiro em pneus por causa de todos os buracos das estradas! Se você é presidente do povo, faça algo para melhorar isso.",	
 			"De quem você, como presidente, deve cobrar resultados?"
 		],
 		"answers": {
@@ -391,13 +404,13 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -5,
+					"congress": -10,
 					"socialEconomic": 10
 				},
 				"next": 10
 			},
 		},
-		"background": "background.jpg",
+		"background": 2,
 		"image": "President.png"
 	},
 	{
@@ -416,7 +429,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -10,
+					"congress": -15,
 					"socialEconomic": 10
 				},
 				"next": 11
@@ -430,13 +443,12 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 10,
-					"socialEconomic": -10
+					"socialEconomic": -15
 				},
 				"next": 11
 			},
 		},
-		
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png"
 	},
 	{
@@ -457,7 +469,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -10,
+					"congress": -15,
 					"socialEconomic": 5
 				},
 				"next": 12
@@ -472,13 +484,13 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 10,
-					"socialEconomic": -5
+					"socialEconomic": -10
 				},
 				"next": 12
 			},
 		},
 		
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png"
 	},
 	{
@@ -513,14 +525,14 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -10,
+					"congress": -15,
 					"socialEconomic": 0
 				},
 				"next": 13
 			},
 		},
 		
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png"
 	},
 	{
@@ -553,7 +565,7 @@ var scenes = [
 			},
 		},
 		
-		"background": "background.jpg",
+		"background": 0,
 		"image": "President.png"
 	},
 	{
@@ -635,7 +647,7 @@ var scenes = [
 				},
 				"next": null
 			},
-			"background": "background.jpg",
+			"background": 0,
 			"image": "President.png"
 			},
 		}
@@ -672,21 +684,21 @@ func _process(delta):
 				$Keyboard.play()
 				time = 0
 			
-#			if timeAnimation >= 0.25:
-#				if currentAnimation < len(renata):
-#					$Background/Renata.texture = renata[currentAnimation]
-#					currentAnimation += 1
-#					timeAnimation = 0
-#				else:
-#						currentAnimation = 0
-					
+			if timeAnimation >= 0.15:
+				if currentAnimation < len(renataAnimation):
+					$Background/Renata.texture = renataAnimation[currentAnimation]
+					currentAnimation += 1
+					timeAnimation = 0
+				else:
+					currentAnimation = 0
+					timeAnimation = 0
 		if charActualIndex == charTextSize:
-#			currentAnimation = 1
-#			$Background/Renata.texture = renata[currentAnimation]
-#			timeAnimation = 0
+			currentAnimation = 0
+			$Background/Renata.texture = renataAnimation[currentAnimation]
+			timeAnimation = 0
 			if actualText != len(actualScene.text) - 1:
 				$VBoxContainer/Dialogue/DialogueButton.visible = true
-				# Define que já pode passar de dialogo.
+				# Define que já pode passar de dialogo
 				nextDialogue = true
 			else:
 				if !consequenceScene:
@@ -718,8 +730,10 @@ func _on_choice1_pressed():
 		congressIndicator = 0
 	
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if  congressIndicator == 0 or socialEconomicIndicator == 0:
+#	if  congressIndicator == 0 or socialEconomicIndicator == 0:
+#		loseGame = true
 		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#		actualScene = scenes[-1]
 		
 	$CongressBar.value = congressIndicator
 	$SocialEconomicBar.value = socialEconomicIndicator
@@ -749,7 +763,9 @@ func _on_choice2_pressed():
 		
 	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 	if congressIndicator == 0 or socialEconomicIndicator == 0:
+#		loseGame = true
 		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#		actualScene = scenes[-1]
 	
 	$CongressBar.value = congressIndicator
 	$SocialEconomicBar.value = socialEconomicIndicator
@@ -765,6 +781,9 @@ func _on_Dialogue_pressed():
 	nextDialogue()
 
 func nextDialogue():
+	currentAnimation = 0
+	$Background/Renata.texture = renataAnimation[currentAnimation]
+	time = 0
 	$VBoxContainer/Dialogue/DialogueButton.visible = false
 	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
 	if !nextDialogue:
@@ -790,6 +809,8 @@ func nextDialogue():
 			nextDialogue = false
 		# Caso tenha chegado no final, mostra os botões de escolha.
 		else:
+			if loseGame:
+				nextScene()
 			if consequenceScene:
 				nextScene()
 			else:
@@ -797,7 +818,7 @@ func nextDialogue():
 				$Choice2.visible = true
 	
 func showExplication(answer):
-	if gregorioSceneRun:
+	if gregorioSceneRun and !loseGame:
 		actualScene = nextScene
 		nextScene()
 	else:
@@ -819,41 +840,44 @@ func showExplication(answer):
 func nextScene():
 	currentAnimation = 0
 	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
-	if congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
-		gregorioSceneRun = true
-		gregorioScene = false
-		$Background/Renata.visible = false
-		$Background/Gregorio.visible = true
-	else:
-		gregorioSceneRun = false
-		$Background/Renata.visible = true
-		$Background/Gregorio.visible = false
+#	if congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
+#		gregorioSceneRun = true
+#		gregorioScene = false
+#		$Background/Renata.visible = false
+#		$Background/Gregorio.visible = true
+#	else:
+#		gregorioSceneRun = false
+#		$Background/Renata.visible = true
+#		$Background/Gregorio.visible = false
 
-	if gregorioSceneRun:
+	if gregorioSceneRun and !loseGame:
 		actualScene = scenes[gregorioSceneIndex - 1]
 	else:	
-		actualScene = nextScene
-#	var nextSceneIndex = actualScene.answers.answer1.next
-		actualScene = scenes[nextScene - 1]
-	consequenceScene = false
-	time = 0
-	startDialogue = false
-	if scenesLeft == 0:
-		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
-	else: 
-		$VBoxContainer/Dialogue/DialogueLabel.text = ""
+		if !loseGame:
+			actualScene = nextScene
+			actualScene = scenes[nextScene - 1]
+			$Background.texture = background[actualScene.background]
+		else: 
+			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+		consequenceScene = false
 		time = 0
 		startDialogue = false
-		nextDialogue = false
-#		var nextSceneIndex = actualScene.answers.answer1.next
-#		actualScene = scenes[nextSceneIndex - 1]
-		$Choice1/Text.text = actualScene.answers.answer1.text
-		$Choice2/Text.text = actualScene.answers.answer2.text 
-#		$Choice1.visible = false
-#		$Choice2.visible = false
-		charActualIndex = 0
-		actualText = 0
-		charTextSize = len (actualScene.text[actualText])
+		if scenesLeft == 0:
+			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+		else: 
+			$VBoxContainer/Dialogue/DialogueLabel.text = ""
+			time = 0
+			startDialogue = false
+			nextDialogue = false
+	#		var nextSceneIndex = actualScene.answers.answer1.next
+	#		actualScene = scenes[nextSceneIndex - 1]
+			$Choice1/Text.text = actualScene.answers.answer1.text
+			$Choice2/Text.text = actualScene.answers.answer2.text 
+	#		$Choice1.visible = false
+	#		$Choice2.visible = false
+			charActualIndex = 0
+			actualText = 0
+			charTextSize = len (actualScene.text[actualText])
 
 func _on_ConfigurationButton_pressed():
 	openMenu()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/Start Game Hover.png" type="Texture" id=2]
@@ -9,8 +9,7 @@
 [ext_resource path="res://Assets/Menu/Options.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Menu/How To Play.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Public/Exit.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Public/Exit Hover.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Menu/Right Arrow.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Menu/How To Play Hover.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Public/Character.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Public/Background Section.png" type="Texture" id=14]
@@ -65,10 +64,10 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = -1.616
 anchor_bottom = 9.202
-margin_left = 448.0
-margin_top = 348.12
-margin_right = 585.0
-margin_bottom = -243.14
+margin_left = 499.0
+margin_top = 390.12
+margin_right = 612.0
+margin_bottom = -226.14
 rect_scale = Vector2( 3.88059, 3.07833 )
 rect_clip_content = true
 __meta__ = {
@@ -76,10 +75,12 @@ __meta__ = {
 }
 
 [node name="StartButton" type="TextureButton" parent="VBoxContainer"]
-margin_right = 137.0
-margin_bottom = 38.0
+modulate = Color( 0.768627, 0.768627, 0.768627, 1 )
+margin_right = 113.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+disabled = true
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 2 )
 expand = true
@@ -88,9 +89,9 @@ __meta__ = {
 }
 
 [node name="HowToPlayButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 42.0
-margin_right = 137.0
-margin_bottom = 80.0
+margin_top = 48.0
+margin_right = 113.0
+margin_bottom = 92.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 9 )
@@ -102,9 +103,9 @@ __meta__ = {
 
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
 visible = false
-margin_top = 67.0
-margin_right = 137.0
-margin_bottom = 97.0
+margin_top = 72.0
+margin_right = 113.0
+margin_bottom = 104.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 7 )
@@ -115,9 +116,9 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 84.0
-margin_right = 137.0
-margin_bottom = 122.0
+margin_top = 96.0
+margin_right = 113.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 6 )
@@ -127,21 +128,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 126.0
-margin_right = 137.0
-margin_bottom = 165.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 10 )
-texture_hover = ExtResource( 11 )
-expand = true
+[node name="TutorialArrow" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 349.84
+margin_top = 429.0
+margin_right = 605.84
+margin_bottom = 685.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_down"]
+[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_HowToPlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

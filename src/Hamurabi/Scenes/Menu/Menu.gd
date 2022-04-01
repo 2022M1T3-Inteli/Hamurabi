@@ -1,26 +1,30 @@
 extends Control
+var iniciable = Global.iniciable
+var time = 0.5
+var tutorialArrowShow = false
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	if Global.iniciable:
+		$VBoxContainer/StartButton.disabled = false
+		$VBoxContainer/StartButton.modulate = "#ffffff"
+		
+func _process(delta):
+	time += delta
+	if !iniciable:
+		if time >= 0.5:
+			if tutorialArrowShow:
+				$TutorialArrow.visible = false
+				tutorialArrowShow = false
+				time = 0
+			else:
+				$TutorialArrow.visible = true
+				tutorialArrowShow = true
+				time = 0
+	else:
+		$TutorialArrow.visible = false
 # Começar o jogo ao clicar no botão
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://Scenes/Intro/Intro.tscn")
-
-func _on_StartButton_button_down():
-	$Click.play()
 
 # Abrir tutorial quando clicar no botão
 func _on_HowToPlayButton_pressed():
@@ -30,6 +34,5 @@ func _on_HowToPlayButton_pressed():
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://Scenes/Credits/Credits.tscn")
 
-# Sair do jogo ao clicar no botão
-func _on_ExitButton_pressed():
-	get_tree().quit()
+func _on_StartButton_button_down():
+	$Click.play()

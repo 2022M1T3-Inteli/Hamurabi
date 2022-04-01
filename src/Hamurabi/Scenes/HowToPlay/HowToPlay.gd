@@ -9,6 +9,7 @@ var path
 func _ready():
 	# AO INICIAR A CENA, ADICIONAMOS A LABEL "TextureRect" A PRIMEIRA IMAGEM DO TUTORIAL
 	$TextureRect.texture = texture
+#	Global.iniciable = true
 #	# O BOTÃO 2 DEVE INICIAR DESATIVADO E SÓ SER ATIVADO NA ÚLTIMA CENA, POSSIBITANDO QUE O USUÁRIO SEJA REDIRECIONADO PARA O MENU INICIAL DO GAME 
 #	$TextureButton2.visible = false
 #	$TextureButton2.disabled = true
@@ -56,4 +57,5 @@ func showButtons():
 
 
 func _on_CloseGuideButton_pressed():
+	Global.iniciable = true
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
