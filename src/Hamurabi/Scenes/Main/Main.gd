@@ -880,15 +880,13 @@ func showExplication(answer):
 #	if loseGameRun:
 #		loseGame = true
 #		actualText = 0
-	if gregorioSceneRun and !loseGameRun:
-		actualScene = nextSceneIndex
-		nextScene()
-	else:
+
 		consequenceScene = true
 		$VBoxContainer/Dialogue/DialogueLabel.text = ""
 		time = 0
 		startDialogue = false
-		nextSceneIndex = answer.next
+		if !gregorioSceneRun:
+			nextSceneIndex = answer.next
 		actualScene = answer.consequence
 		nextDialogueReady = false
 		$Choice1.visible = false
@@ -906,50 +904,48 @@ func nextScene():
 		loseGameRun = true
 	
 	currentAnimation = 0
+	if !loseGameRun:
+		actualScene = nextSceneIndex
+		actualScene = scenes[nextSceneIndex - 1]
+		$Background.texture = background[actualScene.background]
 	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
-#	if congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
-#		gregorioSceneRun = true
-#		gregorioScene = false
-#		$Background/Renata.visible = false
-#		$Background/Gregorio.visible = true
-#	else:
-#		gregorioSceneRun = false
-#		$Background/Renata.visible = true
-#		$Background/Gregorio.visible = false
-	if gregorioSceneRun and !loseGameRun:
-		actualScene = scenes[gregorioSceneIndex - 1]
-	else:	
-		if !loseGameRun:
-			actualScene = nextSceneIndex
-			actualScene = scenes[nextSceneIndex - 1]
-			$Background.texture = background[actualScene.background]
-		consequenceScene = false
+	if congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
+		gregorioSceneRun = true
+		gregorioScene = false
+		$Background/Renata.visible = false
+		$Background/Gregorio.visible = true
+		actualScene = scenes[-2]
+	else:
+		gregorioSceneRun = false
+		$Background/Renata.visible = true
+		$Background/Gregorio.visible = false
+	consequenceScene = false
+	time = 0
+	startDialogue = false
+	if scenesLeft == 0:
+		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
+	else: 
+		$VBoxContainer/Dialogue/DialogueLabel.text = ""
 		time = 0
 		startDialogue = false
-		if scenesLeft == 0:
-			get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
-		else: 
-			$VBoxContainer/Dialogue/DialogueLabel.text = ""
-			time = 0
-			startDialogue = false
-			nextDialogueReady = false
-	#		var nextSceneIndex = actualScene.answers.answer1.next
-	#		actualScene = scenes[nextSceneIndex - 1]
-			if loseGameRun:
-				actualScene = scenes[-1]
-				$Background/Renata.visible = false
-				$Background/Gregorio.visible = true
-				$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
-			if loseGame:
-				get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+		nextDialogueReady = false
+#		var nextSceneIndex = actualScene.answers.answer1.next
+#		actualScene = scenes[nextSceneIndex - 1]
+		if loseGameRun:
+			actualScene = scenes[-1]
+			$Background/Renata.visible = false
+			$Background/Gregorio.visible = true
+			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
+		if loseGame:
+			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 #			actualScene = scenes[14]
-			$Choice1/Text.text = actualScene.answers.answer1.text
-			$Choice2/Text.text = actualScene.answers.answer2.text 
-	#		$Choice1.visible = false
-	#		$Choice2.visible = false
-			charActualIndex = 0
-			actualText = 0
-			charTextSize = len (actualScene.text[actualText])
+		$Choice1/Text.text = actualScene.answers.answer1.text
+		$Choice2/Text.text = actualScene.answers.answer2.text 
+#		$Choice1.visible = false
+#		$Choice2.visible = false
+		charActualIndex = 0
+		actualText = 0
+		charTextSize = len (actualScene.text[actualText])
 
 # Função para chamar a função de abrir o menu in-game
 func _on_ConfigurationButton_pressed():
