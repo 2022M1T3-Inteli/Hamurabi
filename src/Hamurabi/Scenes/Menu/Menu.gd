@@ -36,3 +36,9 @@ func _on_CreditsButton_pressed():
 
 func _on_StartButton_button_down():
 	$Click.play()
+
+func _on_HowToPlayButton_button_down():
+	$Click.play()
+
+func _on_CreditsButton_button_down():
+	$Click.play()

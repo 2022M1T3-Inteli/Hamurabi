@@ -1,5 +1,7 @@
 extends Node2D
 
+# Array com os caminhos de todas as imagens usadas para animação da Renata
+# Repetições de imagens para prolongar o tempo de aparição da imagem sem usar código
 onready var renataAnimation = [
 	load("res://Assets/Public/Renata Animation 3.png"),	
 	load("res://Assets/Public/Renata Animation 1.png"),
@@ -10,13 +12,16 @@ onready var renataAnimation = [
 	load("res://Assets/Public/Renata Animation 1.png"),
 ]
 
+# Array com os caminhos dos background usados nas cenas
 onready var background = [
 	load("res://Assets/Public/Background.png"),
 	load("res://Assets/Public/Park Day.jpg"),
 	load("res://Assets/Public/Park Night.jpg"),
 ] 
 
+# Define o tempo de animação percorrido
 var timeAnimation = 0
+# Define a animação atual
 var currentAnimation = 0
 
 # Variáveis dos indicadores que variam de acordo com as escolhas 
@@ -31,7 +36,7 @@ var daysMandact = 1460
 
 # Define a cena atual
 var actualScene = 0
-var nextScene = 0
+var nextSceneIndex = 0
 # Define o Texto atual
 var actualText = 0
 
@@ -40,12 +45,20 @@ var charTextSize = 0
 # Define o caractere atual que será utilizado para percorrer o texto.
 var charActualIndex = 0
 
+# Define o tempo atual
 var time = 0
+# Variavel que servirá para controlar se já é possível iniciar o dialogo
 var startDialogue = false
-var nextDialogue = false
+# Variavel que servirá para controlar se já é possível ir para o próximo dialogo
+var nextDialogueReady = false
+# Variavel que servirá para controlar se já estamos na cena de consequencia
 var consequenceScene = false
+# Variavel que servirá para controlar se já finalizou todos os dialogos da cena
 var endDialogue = false
+# Variavel que servirá para controlar se o jogo está pausado ou não
 var paused = false
+# Variavel que servirá para controlar se o jogador perdeu o game ou não
+var loseGameRun = false
 var loseGame = false
 
 #variável que define se o gregório precisa aparecer
@@ -55,6 +68,17 @@ var proposalAccepted = false
 var gregorioSceneIndex = 14
 
 # Cria um array de dicionários para guardar todos os valores de uma cena
+# Cada dicionário é uma cena
+	# title é o titulo da cena em questão
+	# text são todos os textos que serão utlizados no dialogo, são separados em array para permitir a lógica de reproduzir o próximo dialogo
+	# answers é um dicionário com as respostas da cena
+		# answer1 e answer 2 são dicionários com a primeira e a segunda resposta da cena, possuem a mesma estrutura
+			# text é o texto que será mostrado na resposta
+			# consequence é um dicionário com um array dos textos a serem exibiidos no dialogo após a resposta
+			# indicators é um dicionário que contém os valores que a resposta irá mudar nos indicadores de congresso e do socialeconomico
+			# next é uma referencia para a próxima cena que será criada após a resposta escolhida
+	# background é o índice que iremos usar para reproduzir o background correto da cena
+	# image no futuro seria usado para trocar os personagens com base na cena
 var scenes = [
 	{
 		"title": "Separação ou concentração dos poderes",
@@ -622,7 +646,7 @@ var scenes = [
 			],
 			"answers": {
 				"answer1": {
-					"text": "Ser contra a existência da União",
+					"text": "Ser contra a união",
 					"consequence": {
 						"text": [
 							"Presidente, suas escolhas até aqui abriram um pedido de Impeachment contra você, seus indicadores foram uma das maneiras para te alertar isso, porém o processo de Impeachment é algo bem amplo e a escolha da cena anterior iniciou o processo.",
@@ -636,6 +660,7 @@ var scenes = [
 					"next": null
 				},
 				"answer2": {
+					"text": "Cometer crime de responsabilidade",
 					"consequence": {
 						"text": [
 							"Ser contra a segurança",
@@ -654,7 +679,7 @@ var scenes = [
 	]
 
 func _ready():
-	# Iniciar os indicadores (50%)
+	# Iniciar os indicadores em 50%
 	$CongressBar.value = 50
 	$CongressBar/CongressValue.text = String(50) + "%"
 	$SocialEconomicBar.value = 50
@@ -672,52 +697,81 @@ func _ready():
 	$Choice2/Text.text = actualScene.answers.answer2.text 
 
 func _process(delta):
+#	print(loseGame)
+	# Guarda o tempo decorrido no jogo, usado tanto para as cenas quanto para as animações
 	time += delta
 	timeAnimation += delta
+	
+	# Verifica se já passou meio segundo, inicia o dialogo
 	if time >= 0.5:
 		startDialogue = true
+		
+	# Verifica se o dialogo já foi iniciado
 	if startDialogue:
-		if !nextDialogue and time >= 0.01 and charActualIndex < charTextSize and !paused:
+		# Verifica se já não está no próximo dialogo, se o tempo passou 0.01 segundos, se caractere atual é menor que tamanho do texto e se o jogo não está pausado
+		if !nextDialogueReady and time >= 0.01 and charActualIndex < charTextSize and !paused:
+			# Adiciona o caractere atual do texto para a caixa de dialogo
 			$VBoxContainer/Dialogue/DialogueLabel.text += actualScene.text[actualText][charActualIndex]
+			# Passa para o próximo caractere do texto
 			charActualIndex += 1
+			# Verifica se já passou 0.03 segundos
 			if time >= 0.03:
+				# Roda o áudio do teclado e zera o tempo decorrido
 				$Keyboard.play()
 				time = 0
 			
+			# Verifica se já passou 0.15 segundos
 			if timeAnimation >= 0.15:
+				# Verifica se a animção atual ainda é menor que o número de animações do personagem
 				if currentAnimation < len(renataAnimation):
+					# Define a animação atual
 					$Background/Renata.texture = renataAnimation[currentAnimation]
+					# Define a próxima animação e zera o tempo decorrido
 					currentAnimation += 1
 					timeAnimation = 0
 				else:
+					# Define a animação atual como a primeira novamente e zera o tempo decorrido
 					currentAnimation = 0
 					timeAnimation = 0
+	
+		# Verifica se caractere atual já é o último do texto atual, caso sim quer dizer que já escreveu todo o texto
 		if charActualIndex == charTextSize:
+			# Define a animação inicial do personagem, muda a textura e zera o tempo decorrido
 			currentAnimation = 0
 			$Background/Renata.texture = renataAnimation[currentAnimation]
 			timeAnimation = 0
+			# Verifica se ainda não chegou no último texto
 			if actualText != len(actualScene.text) - 1:
+				# Deixa visível o botão de próximo dialogo
 				$VBoxContainer/Dialogue/DialogueButton.visible = true
 				# Define que já pode passar de dialogo
-				nextDialogue = true
+				nextDialogueReady = true
 			else:
+				# Verifica se ainda não está na cena de consquencia da resposta
 				if !consequenceScene:
+					# Deixa visíveis os botões de escolha
 					$Choice1.visible = true
 					$Choice2.visible = true
 				else:
+					# Deixa visível o botão de próximo dialogo e permite pular para a próxima cena
 					$VBoxContainer/Dialogue/DialogueButton.visible = true
-					nextDialogue = true
-					
+					nextDialogueReady = true
+	# Verifica se a seta direita foi apertada
 	if Input.is_action_just_pressed("ui_right"):
-		time = 0
+		# Chama a função do próximo dialogo e zera o tempo decorrido
 		nextDialogue()
+		time = 0
+	# Verifica se a tecla ESC foi apertada
 	if Input.is_action_just_pressed("ui_cancel"):
+		# Chama a função para abrir o menu in-game
 		openMenu()
 	
+# Função que chama a primera escolha ao clicar no botão
 func _on_choice1_pressed():
-	# Atualiza o valor dos indicadores com base na escolha da cena
+	# Atualiza os dias de mandatos restantes e diminui o número de cenas restantes para o fim do jogo
 	daysMandact -= sceneTime
 	scenesLeft -= 1
+	# Atualiza o valor dos indicadores com base na escolha da cena
 	socialEconomicIndicator += actualScene.answers.answer1.indicators.socialEconomic 
 	congressIndicator += actualScene.answers.answer1.indicators.congress
 	if socialEconomicIndicator >= 100:
@@ -729,10 +783,12 @@ func _on_choice1_pressed():
 	if congressIndicator <= 0:
 		congressIndicator = 0
 	
-	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
+#	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
 #	if  congressIndicator == 0 or socialEconomicIndicator == 0:
-#		loseGame = true
-		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#		actualText = 0
+#		charTextSize = len (scenes[-1].text[actualText])
+#		loseGameRun = true
+#		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 #		actualScene = scenes[-1]
 		
 	$CongressBar.value = congressIndicator
@@ -741,7 +797,7 @@ func _on_choice1_pressed():
 	$SocialEconomicBar/SocialEconomicValue.text = String(socialEconomicIndicator) + "%"
 	$MandateTime/MandateTimeValue.text = String(daysMandact) + " dias"
 	$Click.play()
-
+	
 	showExplication(actualScene.answers.answer1)
 
 func _on_choice2_pressed():
@@ -761,10 +817,7 @@ func _on_choice2_pressed():
 	if congressIndicator <= 0:
 		congressIndicator = 0
 		
-	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-	if congressIndicator == 0 or socialEconomicIndicator == 0:
-#		loseGame = true
-		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 #		actualScene = scenes[-1]
 	
 	$CongressBar.value = congressIndicator
@@ -777,6 +830,7 @@ func _on_choice2_pressed():
 	# Verifica qual cena é a próxima com base na resposta da cena atual
 	showExplication(actualScene.answers.answer2)
 	
+# Função que chama a função de troca de dialogo quando clicar no dialogo
 func _on_Dialogue_pressed():
 	nextDialogue()
 
@@ -785,10 +839,11 @@ func nextDialogue():
 	$Background/Renata.texture = renataAnimation[currentAnimation]
 	time = 0
 	$VBoxContainer/Dialogue/DialogueButton.visible = false
+	
 	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
-	if !nextDialogue:
+	if !nextDialogueReady:
 		$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
-		nextDialogue = true
+		nextDialogueReady = true
 		if actualText != len(actualScene.text) - 1:
 			$VBoxContainer/Dialogue/DialogueButton.visible = true
 		else:
@@ -799,6 +854,10 @@ func nextDialogue():
 				$VBoxContainer/Dialogue/DialogueButton.visible = true
 	# Caso não, verifica se ainda não é a última cena, se sim tira o botão de dialogo pois há mais cenas.
 	else:
+		if loseGameRun:
+			$Background/Renata.visible = true
+			$Background/Gregorio.visible = false
+			$VBoxContainer/Dialogue/CharacterName.text = "Renata - Conselheira"
 		if actualText < len(actualScene.text) - 1:
 			$VBoxContainer/Dialogue/DialogueLabel.text = ""
 			# Define o próximo texto do Array.
@@ -806,11 +865,11 @@ func nextDialogue():
 			charTextSize = len(actualScene.text[actualText])
 			charActualIndex = 0
 			time = 0
-			nextDialogue = false
+			nextDialogueReady = false
 		# Caso tenha chegado no final, mostra os botões de escolha.
 		else:
-			if loseGame:
-				nextScene()
+			if loseGameRun:
+				loseGame = true
 			if consequenceScene:
 				nextScene()
 			else:
@@ -818,17 +877,20 @@ func nextDialogue():
 				$Choice2.visible = true
 	
 func showExplication(answer):
-	if gregorioSceneRun and !loseGame:
-		actualScene = nextScene
+#	if loseGameRun:
+#		loseGame = true
+#		actualText = 0
+	if gregorioSceneRun and !loseGameRun:
+		actualScene = nextSceneIndex
 		nextScene()
 	else:
 		consequenceScene = true
 		$VBoxContainer/Dialogue/DialogueLabel.text = ""
 		time = 0
 		startDialogue = false
-		nextScene = answer.next
+		nextSceneIndex = answer.next
 		actualScene = answer.consequence
-		nextDialogue = false
+		nextDialogueReady = false
 		$Choice1.visible = false
 		$Choice2.visible = false
 		charActualIndex = 0
@@ -838,6 +900,11 @@ func showExplication(answer):
 #func gregorioScene():
 	
 func nextScene():
+	if congressIndicator == 0 or socialEconomicIndicator == 0:
+		actualText = 0
+		charTextSize = len (scenes[-1].text[actualText])
+		loseGameRun = true
+	
 	currentAnimation = 0
 	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
 #	if congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
@@ -849,16 +916,13 @@ func nextScene():
 #		gregorioSceneRun = false
 #		$Background/Renata.visible = true
 #		$Background/Gregorio.visible = false
-
-	if gregorioSceneRun and !loseGame:
+	if gregorioSceneRun and !loseGameRun:
 		actualScene = scenes[gregorioSceneIndex - 1]
 	else:	
-		if !loseGame:
-			actualScene = nextScene
-			actualScene = scenes[nextScene - 1]
+		if !loseGameRun:
+			actualScene = nextSceneIndex
+			actualScene = scenes[nextSceneIndex - 1]
 			$Background.texture = background[actualScene.background]
-		else: 
-			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
 		consequenceScene = false
 		time = 0
 		startDialogue = false
@@ -868,9 +932,17 @@ func nextScene():
 			$VBoxContainer/Dialogue/DialogueLabel.text = ""
 			time = 0
 			startDialogue = false
-			nextDialogue = false
+			nextDialogueReady = false
 	#		var nextSceneIndex = actualScene.answers.answer1.next
 	#		actualScene = scenes[nextSceneIndex - 1]
+			if loseGameRun:
+				actualScene = scenes[-1]
+				$Background/Renata.visible = false
+				$Background/Gregorio.visible = true
+				$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
+			if loseGame:
+				get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+#			actualScene = scenes[14]
 			$Choice1/Text.text = actualScene.answers.answer1.text
 			$Choice2/Text.text = actualScene.answers.answer2.text 
 	#		$Choice1.visible = false
@@ -879,33 +951,55 @@ func nextScene():
 			actualText = 0
 			charTextSize = len (actualScene.text[actualText])
 
+# Função para chamar a função de abrir o menu in-game
 func _on_ConfigurationButton_pressed():
+	# Chama a função
 	openMenu()
 
+# Função para chamar a função de fechar o menu in-game ao clicar no botão
 func _on_CloseMenuButton_pressed():
+	# Chama a função
 	closeMenu()
 
+# Função que abre o menu quando chamada
 func openMenu():
+	# Deixa visivel a máscara que bloqueia o clique na tela
 	$PauseMask.visible = true
+	# Deixa visível o background do menu in-game
 	$MenuInGameBg.visible = true
+	# Deixa visivel o container com os botões do menu in-game
 	$MenuInGame.visible = true
+	# Deixa visível o botão de fechar o menu in-game
 	$CloseMenuButton.visible = true
+	# Roda o som de clique
 	$Click.play()
+	# Coloca o jogo em pause
 	paused = true
 
+# Função que fecha o menu quando chamada
 func closeMenu():
+	# Deixa invisível a máscara que bloqueia o clique na tela
 	$PauseMask.visible = false
+	# Deixa invisível o background do menu in-game
 	$MenuInGameBg.visible = false
+	# Deixa invisível o container com os botões do menu in-game
 	$MenuInGame.visible = false
+	# Deixa invisível o botão de fechar o menu in-game
 	$CloseMenuButton.visible = false
+	# Roda o som de clique
 	$Click.play()
+	# Tira o jogo do pause
 	paused = false
 	
+# Função que chama a função de troca de dialogo ao clicar no botão do dialogo
 func _on_DialogueButton_pressed():
 	nextDialogue()
 
+# Função de options ainda não implementada
 func _on_OptionsButton_pressed():
 	pass # Replace with function body.
 
+# Função chamada ao clicar no botão para voltar ao menu
 func _on_ExitButton_pressed():
+	# Vai para a cena de menu
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")

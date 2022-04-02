@@ -142,5 +142,7 @@ __meta__ = {
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="button_down" from="VBoxContainer/HowToPlayButton" to="." method="_on_HowToPlayButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_HowToPlayButton_pressed"]
+[connection signal="button_down" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]

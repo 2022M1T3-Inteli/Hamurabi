@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Credits/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Credits/Credits.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Public/Background Section.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Public/Click.ogg" type="AudioStream" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,10 +19,8 @@ __meta__ = {
 }
 
 [node name="Credits" type="TextureRect" parent="."]
-margin_left = 2.0
-margin_top = 72.0
-margin_right = 1425.0
-margin_bottom = 1014.0
+margin_right = 1440.0
+margin_bottom = 1024.0
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,90 +28,90 @@ __meta__ = {
 
 [node name="AlyssonButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 788.0
-margin_top = 324.0
-margin_right = 1138.0
-margin_bottom = 360.0
+margin_left = 803.0
+margin_top = 339.0
+margin_right = 1153.0
+margin_bottom = 375.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ConstituicaoButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 175.0
-margin_top = 650.0
-margin_right = 555.0
-margin_bottom = 811.0
+margin_left = 190.0
+margin_top = 661.0
+margin_right = 570.0
+margin_bottom = 822.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="InteliButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 162.0
-margin_top = 290.0
-margin_right = 555.0
-margin_bottom = 474.0
+margin_left = 177.0
+margin_top = 303.0
+margin_right = 570.0
+margin_bottom = 487.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SaadiButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 783.0
-margin_top = 383.0
-margin_right = 1138.0
-margin_bottom = 421.0
+margin_left = 800.0
+margin_top = 395.0
+margin_right = 1155.0
+margin_bottom = 433.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FelipeButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 788.0
-margin_top = 441.0
-margin_right = 1138.0
-margin_bottom = 477.0
+margin_left = 798.0
+margin_top = 452.0
+margin_right = 1148.0
+margin_bottom = 488.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GiovannaButton" type="Button" parent="."]
+[node name="GiovanaButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 785.0
-margin_top = 494.0
-margin_right = 1151.0
-margin_bottom = 530.0
+margin_left = 798.0
+margin_top = 505.0
+margin_right = 1164.0
+margin_bottom = 541.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IagoButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 788.0
-margin_top = 549.0
-margin_right = 1138.0
-margin_bottom = 589.0
+margin_left = 798.0
+margin_top = 557.0
+margin_right = 1148.0
+margin_bottom = 597.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="KathlynButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 788.0
-margin_top = 609.0
-margin_right = 1138.0
-margin_bottom = 645.0
+margin_left = 798.0
+margin_top = 615.0
+margin_right = 1148.0
+margin_bottom = 653.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PedroButton" type="Button" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = 788.0
-margin_top = 663.0
-margin_right = 1138.0
-margin_bottom = 699.0
+margin_left = 797.0
+margin_top = 672.0
+margin_right = 1147.0
+margin_bottom = 712.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -127,12 +126,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
 [connection signal="pressed" from="AlyssonButton" to="." method="_on_AlyssonButton_pressed"]
 [connection signal="pressed" from="ConstituicaoButton" to="." method="_on_ConstituicaoButton_pressed"]
 [connection signal="pressed" from="InteliButton" to="." method="_on_InteliButton_pressed"]
 [connection signal="pressed" from="SaadiButton" to="." method="_on_SaadiButton_pressed"]
 [connection signal="pressed" from="FelipeButton" to="." method="_on_FelipeButton_pressed"]
-[connection signal="pressed" from="GiovannaButton" to="." method="_on_GiovannaButton_pressed"]
+[connection signal="pressed" from="GiovanaButton" to="." method="_on_GiovanaButton_pressed"]
 [connection signal="pressed" from="IagoButton" to="." method="_on_IagoButton_pressed"]
 [connection signal="pressed" from="KathlynButton" to="." method="_on_KathlynButton_pressed"]
 [connection signal="pressed" from="PedroButton" to="." method="_on_PedroButton_pressed"]
