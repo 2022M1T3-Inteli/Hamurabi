@@ -201,7 +201,7 @@ var scenes = [
 		"image": "President.png"
 	},
 	{
-		"title": "Criação de Projetos de Lei pela população",
+		"title": "Criação de Projetos de Lei pela população.",
 		"text": [
 			"Presidente, uma parte da população gostaria de propor um projeto de lei em relação aos casos recentes sobre compra de votos",
 			"Mas, existem diversas dificuldades em relação à criação de um projeto de lei vindo da população. Qual a atitude o senhor(a) diante essa situação?",
