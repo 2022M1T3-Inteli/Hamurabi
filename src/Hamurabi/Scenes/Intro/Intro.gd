@@ -166,6 +166,6 @@ func closeMenu():
 	paused = false
 	Global.menuOpen = false
 	
-func _on_Back_to_Menu_Button_pressed():
-		Global.menuOpen = false
-		get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
+func _on_BackToMenuButton_pressed():
+	Global.menuOpen = false
+	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")

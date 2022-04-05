@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Public/Dialogue.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Public/Renata Animation 1.png" type="Texture" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Assets/Public/Configuration Icon.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Public/Back to Menu.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Public/Menu in-game.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Public/Info Button (1).png" type="Texture" id=21]
+[ext_resource path="res://Assets/Public/Law Explanation Section.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Public/Exit Button.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Public/Gregorio.png" type="Texture" id=30]
 
@@ -37,6 +39,10 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 44
 font_data = ExtResource( 11 )
 
 [node name="Main" type="Node2D"]
@@ -117,10 +123,10 @@ __meta__ = {
 }
 
 [node name="DialogueLabel" type="Label" parent="VBoxContainer/Dialogue"]
-margin_left = 44.0
-margin_top = 103.0
-margin_right = 1166.0
-margin_bottom = 346.0
+margin_left = 71.0
+margin_top = 102.0
+margin_right = 1142.0
+margin_bottom = 345.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -324,7 +330,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back to Menu Button" type="TextureButton" parent="MenuInGame/VBoxContainer/HBoxContainer"]
+[node name="BackToMenuButton" type="TextureButton" parent="MenuInGame/VBoxContainer/HBoxContainer"]
 margin_left = 81.0
 margin_right = 521.0
 margin_bottom = 80.0
@@ -344,10 +350,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="InfoButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 1249.0
+margin_top = 513.0
+margin_right = 1299.0
+margin_bottom = 563.0
+texture_normal = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LawExplanation" type="TextureRect" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 90.0
+margin_right = 1442.0
+margin_bottom = 1114.0
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LawExplanationText" type="Label" parent="LawExplanation"]
+margin_left = 190.0
+margin_top = 110.0
+margin_right = 1252.0
+margin_bottom = 804.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseLawExplanationButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 1230.0
+margin_top = 213.0
+margin_right = 1310.0
+margin_bottom = 293.0
+texture_normal = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="VBoxContainer/Dialogue" to="." method="_on_Dialogue_pressed"]
 [connection signal="pressed" from="VBoxContainer/Dialogue/DialogueButton" to="." method="_on_DialogueButton_pressed"]
 [connection signal="pressed" from="Choice1" to="." method="_on_choice1_pressed"]
 [connection signal="pressed" from="Choice2" to="." method="_on_choice2_pressed"]
 [connection signal="pressed" from="ConfigurationButton" to="." method="_on_ConfigurationButton_pressed"]
-[connection signal="pressed" from="MenuInGame/VBoxContainer/HBoxContainer/Back to Menu Button" to="." method="_on_Back_to_Menu_Button_pressed"]
+[connection signal="pressed" from="MenuInGame/VBoxContainer/HBoxContainer/BackToMenuButton" to="." method="_on_BackToMenuButton_pressed"]
 [connection signal="pressed" from="CloseMenuButton" to="." method="_on_CloseMenuButton_pressed"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_InfoButton_pressed"]
+[connection signal="pressed" from="CloseLawExplanationButton" to="." method="_on_CloseLawExplanationButton_pressed"]

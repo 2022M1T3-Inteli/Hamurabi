@@ -207,7 +207,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back to Menu Button" type="TextureButton" parent="MenuInGame/VBoxContainer/HBoxContainer"]
+[node name="BackToMenuButton" type="TextureButton" parent="MenuInGame/VBoxContainer/HBoxContainer"]
 margin_left = 81.0
 margin_right = 521.0
 margin_bottom = 80.0
@@ -232,5 +232,5 @@ __meta__ = {
 [connection signal="pressed" from="Choice1" to="." method="_on_choice1_pressed"]
 [connection signal="pressed" from="Choice2" to="." method="_on_choice2_pressed"]
 [connection signal="pressed" from="ConfigurationButton" to="." method="_on_ConfigurationButton_pressed"]
-[connection signal="pressed" from="MenuInGame/VBoxContainer/HBoxContainer/Back to Menu Button" to="." method="_on_Back_to_Menu_Button_pressed"]
+[connection signal="pressed" from="MenuInGame/VBoxContainer/HBoxContainer/BackToMenuButton" to="." method="_on_BackToMenuButton_pressed"]
 [connection signal="pressed" from="CloseMenuButton" to="." method="_on_CloseMenuButton_pressed"]

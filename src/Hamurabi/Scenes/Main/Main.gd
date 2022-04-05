@@ -87,6 +87,7 @@ var scenes = [
 			"De acordo com o filósofo francês Montesquieu, quando os poderes estão concentrados em uma mesma pessoa, não existe garantia de liberdade para os governados.",
 			"Sua primeira tarefa como presidente é criar um estado democrático para todos, como você alocaria os poderes para conseguir esse objetivo?"
 		],
+		"lawExplanation": "Para que um Estado seja verdadeiramente democrático, as funções de criar, executar e julgar leis não devem se concentrar nas mãos de uma única pessoa, pois isso pode levar ao abuso de poder. Nesse sentido, o Estado brasileiro é formado por três poderes: Executivo, Legislativo e Judiciário. Administrar o Estado, definir as leis e executar e cuidar dos conflitos são as funções desses poderes, respectivamente.",
 		"answers": {
 			"answer1": {
 				"text": "Manter o poder de decisões políticas apenas em suas mãos",
@@ -128,6 +129,7 @@ var scenes = [
 			"Presidente, sua equipe sabia como as eleições funcionavam e já escreveram isso na nova constituição.",
 			"Você quer ocupar seu tempo explicando para o povo porque isso acontece e que é de acordo com a constituição ou prefere que os próprios cidadãos corram atrás de respostas?",
 		],
+		"lawExplanation": "Isso ocorre porque deputados e vereadores são eleitos pelo sistema proporcional, ao passo que o presidente da República, governadores, senadores e prefeitos são escolhidos pelo sistema majoritário. No primeiro, os votos computados são os de cada partido ou coligação No segundo, quem obtiver mais votos sagra-se vencedor.",
 		"answers": {
 			"answer1": {
 				"text": "Explicar porque é de acordo com a lei",
@@ -167,6 +169,7 @@ var scenes = [
 			"Presidente, ainda não construímos a parte da Constituição que garante direitos aos trabalhadores! Estamos recebendo denúncias de jornadas de trabalhos muito extensas e outros abusos.",
 			"Você prefere recriar a CLT ou atender as reclamações que chegaram aos nossos escritórios individualmente?",
 		],
+		"lawExplanation": "CLT ou Consolidação das Lei do Trabalho é uma série de leis que visam proteger o trabalhador, regular as relações de trabalho e criar o direito processual do trabalho.",
 		"answers": {
 			"answer1": {
 				"text": "Criar leis trabalhistas universais",
@@ -206,6 +209,7 @@ var scenes = [
 			"Presidente, uma parte da população gostaria de propor um projeto de lei em relação aos casos recentes sobre compra de votos",
 			"Mas, existem diversas dificuldades em relação à criação de um projeto de lei vindo da população. Qual a atitude o senhor(a) diante essa situação?",
 		],
+		"lawExplanation": "No Brasil atual, há uma série de processos, para que haja a avaliação de um projeto de lei vindo da iniciativa popular, em que cerca de 1% da população brasileira (1.5 milhão de pessoas) precisa assinar para apresentar um projeto, distribuida por ao menos 5 Estados, com ao menos 30% de eleitores em cada um deles. Já a PEC (Proposta de Emenda Constitucional) serve para alterar algumas partes do texto constitucional sem convocar uma nova assembleia constituinte, mas só pode ser proposta por um terço dos deputados ou senadores, pelo Presidente ou mais da metade das Assembleias Legislativas das Unidades Federativas.",
 		"answers": {
 			"answer1": {
 				"text": "Criar uma PEC referente à compra de votos",
@@ -245,6 +249,7 @@ var scenes = [
 			"Ele alega que deve ser julgado pelo Supremo Tribunal Federal, para que não haja perseguição por estar em uma função pública.",
 			"Após ouvir suas declarações, qual seria a medida tomada pelo senhor?"
 		],
+		"lawExplanation": "Na prática, uma ação penal contra uma autoridade pública – como os parlamentares – é julgada por tribunais superiores, diferentemente de um cidadão comum, julgado pela justiça comum. A justificativa é proteger o exercício da função ou do mandato público.",
 		"answers": {
 			"answer1": {
 				"text": "Ele deve ser julgado pela justiça comum",
@@ -284,6 +289,7 @@ var scenes = [
 			"Presidente, a população está reclamando sobre o lixo deixado nas ruas e a falta de transporte público fornecido.",
 			"De quem você, como presidente, deve cobrar resultados?",
 		],
+		"lawExplanation": "O nível de governo municipal. No nível municipal, estão os prefeitos e os vereadores, mas não há Judiciário, pois os fóruns locais estão sob a estrutura do Judiciário estadual.",
 		"answers": {
 			"answer1": {
 				"text": "Cobrar das prefeituras de cada cidade",
@@ -323,6 +329,7 @@ var scenes = [
 			"Sua equipe analisou o caso e o angolano não cometeu crime algum e possui a ficha limpa em seu país de origem.",
 			"Qual seria a sua conduta? Aceitar ou recusar ele?",
 		],
+		"lawExplanation": "Para que uma pessoa possa ser considerada asilada política, é fundamental que ela esteja sendo perseguida por motivos políticos em seu país de origem. Para receber o benefício, o solicitante de asilo não pode ter cometido crime comum ou estar em aguardo de julgamento relacionado a um crime comum.",
 		"answers": {
 			"answer1": {
 				"text": "Aceitar asilo",
@@ -362,6 +369,7 @@ var scenes = [
 			"Uma empresa multinacional decide auxilia-lo financeiramente no processo de candidatura.",
 			"Qual seria a sua conduta?"
 		],
+		"lawExplanation": "É um fundo público destinado a financiar campanhas eleitorais, o fundo eleitoral foi criado em 2017, pela lei 13.487. O total de recursos desse fundo é definido pela LOA(Lei Orçamentária Anual), que é uma das principais fontes de receita para campanhas eleitorais. O dinheiro é distribuído aos partidos seguindo alguns critérios, por exemplo, os partidos que possuem representantes na câmara e no senado devem receber as maiores quantias. De acordo com a lei, 30% do valor recebido por cada partido deve ser destinado para mulheres. Além disso, a distribuição deve ser proporcional ao total de candidatos negros apresentados para a disputa eleitoral.",
 		"answers": {
 			"answer1": {
 				"text": "Aceitar a doação de recursos",
@@ -404,6 +412,7 @@ var scenes = [
 			"Estamos gastando muito dinheiro em pneus por causa de todos os buracos das estradas! Se você é presidente do povo, faça algo para melhorar isso.",	
 			"De quem você, como presidente, deve cobrar resultados?"
 		],
+		"lawExplanation": "Cabe ao governo estadual reparar as estradas que ligam cidades dentro de um estado -- O governo estadual recolhe o IPVA (Imposto sobre a Propriedade de Veículos Automotores).",
 		"answers": {
 			"answer1": {
 				"text": "Cobrar resultado de vereadores municipais",
@@ -444,6 +453,7 @@ var scenes = [
 			"A única forma de alterar isso é através de uma reforma nos atuais mecanismos políticos.",
 			"Você prefere verificar caso a caso e tomar as medidas necessárias para remover os ocupantes do cargo, caso não cumpram os requisitos necessários?"
 		],
+		"lawExplanation": "O congresso é formado pelo senado e pela câmara dos deputados. O número de deputados que representam os estados varia de acordo com o número da população de cada estado. O mínimo são oito políticos por estado e o máximo são setenta. Por outro lado, são permitidos apenas 3 senadores por estado. O mandato dos senadores é de oito anos, o dobro dos deputados, que é de 4 anos. Apesar de o congresso ser constituído por duas casas, as duas possuem poderes diferentes. É só a câmara que pode, por exemplo, iniciar um processo contra o presidente. E é só o senado que pode processar e julgar esse processo.",
 		"answers": {
 			"answer1": {
 				"text": "Verificar cada caso",
@@ -483,6 +493,7 @@ var scenes = [
 			"A população acredita que é necessária uma medida provisória para poder permitir que os adolescentes votem sem o título de eleitor, assim tornando o processo mais democrático.",
 			"Deseja criar uma MP, ou seja, Medida Provisória, para que adolescentes que não possuem título de eleitor possam votar apenas utilizando RG ou CPF ou  deseja manter o antigo sistema de votação?"
 		],
+		"lawExplanation": "A medida provisória, conhecida pela sigla MP, é um instrumento que o presidente pode utilizar para criar leis. A MP pode ser criada pelo presidente e somente em situações de extrema relevância e urgência. A partir da data de criação, a MP passa a valer como uma lei pelo período de 60 dias. Durante esse período de 60 dias o Congresso Nacional confere se a lei atende aos requisitos de relevância e urgência, caso positivo, ela se torna uma lei permanente.",
 		"answers": {
 			"answer1": {
 				"text": "Criar MP",
@@ -526,6 +537,7 @@ var scenes = [
 			"Deseja contratá-la imediatamente e permitir autonomia, agindo sempre de acordo com o que for melhor para a educação do país",
 			"ou deseja procurar outra pessoa para o cargo que obedeça sempre à ordens superiores?"
 		],
+		"lawExplanation": "Decretos são atos administrativos de competência dos chefes do Poder Executivo em cada nível(ou seja, presidente, em nível federal, governadores, em nível estadual, e prefeitos, em nível municipal). Diferentemente das medidas provisórias, os decretos podem ser criados por qualquer chefe do Poder Executivo - e não apenas pelo Presidente da República. Geralmente um decreto é utilizado para nomear pessoas a cargos públicos ou para regulamentar leis. Algumas leis dependem de decretos para que possam ser cumpridas de forma efetiva: por vezes a lei estabelece o que deve ser feito, mas somente o decreto determina a forma como deve ser feito. O decreto tem, portanto, a função de detalhar a lei, regulamentando ou executando o que está disposto no texto.",
 		"answers": {
 			"answer1": {
 				"text": "Contratá-la imediatamente",
@@ -562,6 +574,7 @@ var scenes = [
 	{
 		"title": "",
 		"text": [],
+		"lawExplanation": "",
 		"answers": {
 			"answer1": {
 				"text": "",
@@ -599,6 +612,7 @@ var scenes = [
 			"Eu tenho uma proposta para você.",
 			"Deixe que eu tome as decisões a partir de agora, farei com que as coisas mudem para melhor."
 		],
+		"lawExplanation": "",
 		"answers": {
 			"answer1": {
 				"text": "Aceitar trabalhar para o Gregorio",
@@ -644,6 +658,7 @@ var scenes = [
 				"Presidente, você está sendo julgado por diversos crimes de responsabilidade, decorrentes de suas escolhas até o momento. Esses crimes podem levá-lo a uma situação de Impeachment.",
 				"Abaixo estão listados alguns casos desses possíveis crimes, peço para que selecione um deles, por favor."
 			],
+			"lawExplanation": "",
 			"answers": {
 				"answer1": {
 					"text": "Ser contra a união",
@@ -698,6 +713,8 @@ func _ready():
 	# Define os textos das respostas com base na cena inicial
 	$Choice1/Text.text = actualScene.answers.answer1.text
 	$Choice2/Text.text = actualScene.answers.answer2.text 
+	
+	$LawExplanation/LawExplanationText.text = actualScene.lawExplanation
 
 func _process(delta):
 #	print(loseGame)
@@ -753,6 +770,8 @@ func _process(delta):
 			else:
 				# Verifica se ainda não está na cena de consquencia da resposta
 				if !consequenceScene:
+					if !gregorioSceneRun:
+						$InfoButton.visible = true
 					# Deixa visíveis os botões de escolha
 					$Choice1.visible = true
 					$Choice2.visible = true
@@ -821,9 +840,6 @@ func _on_choice2_pressed():
 	if congressIndicator <= 0:
 		congressIndicator = 0
 		
-#		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
-#		actualScene = scenes[-1]
-	
 	$CongressBar.value = congressIndicator
 	$SocialEconomicBar.value = socialEconomicIndicator
 	$CongressBar/CongressValue.text = String(congressIndicator) + "%"
@@ -852,6 +868,7 @@ func nextDialogue():
 			$VBoxContainer/Dialogue/DialogueButton.visible = true
 		else:
 			if !consequenceScene:
+				$InfoButton.visible = true
 				$Choice1.visible = true
 				$Choice2.visible = true
 			else:
@@ -877,6 +894,8 @@ func nextDialogue():
 			if consequenceScene:
 				nextScene()
 			else:
+				if !gregorioSceneRun:
+					$InfoButton.visible = true
 				$Choice1.visible = true
 				$Choice2.visible = true
 	
@@ -893,6 +912,8 @@ func showExplication(answer):
 			nextSceneIndex = answer.next
 		actualScene = answer.consequence
 		nextDialogueReady = false
+		if !gregorioSceneRun:
+			$InfoButton.visible = false
 		$Choice1.visible = false
 		$Choice2.visible = false
 		charActualIndex = 0
@@ -945,6 +966,7 @@ func nextScene():
 #			actualScene = scenes[14]
 		$Choice1/Text.text = actualScene.answers.answer1.text
 		$Choice2/Text.text = actualScene.answers.answer2.text 
+		$LawExplanation/LawExplanationText.text = actualScene.lawExplanation
 #		$Choice1.visible = false
 #		$Choice2.visible = false
 		charActualIndex = 0
@@ -997,6 +1019,18 @@ func _on_OptionsButton_pressed():
 	pass # Replace with function body.
 
 # Função chamada ao clicar no botão para voltar ao menu
-func _on_Back_to_Menu_Button_pressed():
+func _on_BackToMenuButton_pressed():
 	Global.menuOpen = false
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
+
+func _on_InfoButton_pressed():
+	$LawExplanation.visible = true
+	$CloseLawExplanationButton.visible = true
+	$PauseMask.visible = true
+	paused = true
+
+func _on_CloseLawExplanationButton_pressed():
+	$LawExplanation.visible = false
+	$CloseLawExplanationButton.visible = false
+	$PauseMask.visible = false
+	paused = false
