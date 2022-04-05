@@ -679,6 +679,9 @@ var scenes = [
 	]
 
 func _ready():
+	if Global.menuOpen:
+		openMenu()
+		
 	# Iniciar os indicadores em 50%
 	$CongressBar.value = 50
 	$CongressBar/CongressValue.text = String(50) + "%"
@@ -705,6 +708,7 @@ func _process(delta):
 	# Verifica se já passou meio segundo, inicia o dialogo
 	if time >= 0.5:
 		startDialogue = true
+	
 		
 	# Verifica se o dialogo já foi iniciado
 	if startDialogue:
@@ -961,9 +965,7 @@ func _on_CloseMenuButton_pressed():
 func openMenu():
 	# Deixa visivel a máscara que bloqueia o clique na tela
 	$PauseMask.visible = true
-	# Deixa visível o background do menu in-game
-	$MenuInGameBg.visible = true
-	# Deixa visivel o container com os botões do menu in-game
+	# Deixa visivel o menu in-game
 	$MenuInGame.visible = true
 	# Deixa visível o botão de fechar o menu in-game
 	$CloseMenuButton.visible = true
@@ -976,9 +978,7 @@ func openMenu():
 func closeMenu():
 	# Deixa invisível a máscara que bloqueia o clique na tela
 	$PauseMask.visible = false
-	# Deixa invisível o background do menu in-game
-	$MenuInGameBg.visible = false
-	# Deixa invisível o container com os botões do menu in-game
+	# Deixa invisível o menu in-game
 	$MenuInGame.visible = false
 	# Deixa invisível o botão de fechar o menu in-game
 	$CloseMenuButton.visible = false
@@ -986,6 +986,7 @@ func closeMenu():
 	$Click.play()
 	# Tira o jogo do pause
 	paused = false
+
 	
 # Função que chama a função de troca de dialogo ao clicar no botão do dialogo
 func _on_DialogueButton_pressed():
@@ -996,6 +997,6 @@ func _on_OptionsButton_pressed():
 	pass # Replace with function body.
 
 # Função chamada ao clicar no botão para voltar ao menu
-func _on_ExitButton_pressed():
-	# Vai para a cena de menu
+func _on_Back_to_Menu_Button_pressed():
+	Global.menuOpen = false
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")

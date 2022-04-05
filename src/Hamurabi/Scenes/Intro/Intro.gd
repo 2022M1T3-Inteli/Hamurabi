@@ -152,23 +152,20 @@ func _on_CloseMenuButton_pressed():
 	
 func openMenu():
 	$PauseMask.visible = true
-	$MenuInGameBg.visible = true
 	$MenuInGame.visible = true
 	$CloseMenuButton.visible = true
 	$Click.play()
 	paused = true
+	Global.menuOpen = true
 
 func closeMenu():
 	$PauseMask.visible = false
-	$MenuInGameBg.visible = false
 	$MenuInGame.visible = false
 	$CloseMenuButton.visible = false
 	$Click.play()
 	paused = false
-
-func _on_OptionsButton_pressed():
-	pass # Replace with function body.
+	Global.menuOpen = false
 	
-
-func _on_ExitButton_pressed():
-	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
+func _on_Back_to_Menu_Button_pressed():
+		Global.menuOpen = false
+		get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
