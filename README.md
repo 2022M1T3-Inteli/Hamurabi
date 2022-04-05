@@ -4,11 +4,23 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Nome do Projeto
+# Projeto Constituição nas Escolas 
 
-## Nome do Grupo
+## Grupo 42
 
 ## Integrantes: <a href="" target="_blank">Alysson Cordeiro</a>, <a href="https://www.linkedin.com/in/felipe-saadi/" target="_blank">Felipe Saadi</a>, <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/" target="_blank">Felipe Sampaio</a>, <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/" target="_blank">Giovana Thomé</a>, <a href="www.linkedin.com/in/iago-tavares-b10244149" target="_blank">Iago Tavares</a>, <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/" target="_blank">Kathlyn Diwan</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/" target="_blank">Pedro Silva</a>
+<br><br>
+<p align="center">
+  <a href="#descrição">Descrição</a> •
+  <a href="#estrutura-de-pastas">Estrutura de pastas</a> •
+  <a href="#instalação">Instalação</a> •
+  <a href="#exemplo-de-uso">Exemplo de uso</a> •  
+  <a href="#configuração-para-desenvolvimento">Configuração para desenvolvimento</a> •
+  <a href="#histórico-de-lançamentos">Histórico de lançamentos</a> •
+  <a href="#licença">Licença</a> •
+  <a href="#referências">Referências</a> •
+</p>
+<br><br>
 
 ## Descrição
 
@@ -16,10 +28,6 @@
 <br><br>
 Meu projeto é um exemplo de como utilizar o github.
 <br><br>
-<p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
-</p>
 
 
 💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
@@ -29,7 +37,7 @@ Meu projeto ajuda estudantes inteli a configurarem seus githubs.
 May the force be with you!
 <br><br>
 
-## 🛠 Estrutura de pastas
+## Estrutura de pastas
 
 -Raiz<br>
 |<br>
@@ -58,7 +66,7 @@ Há também 4 pastas que seguem da seguinte forma:
 
 <b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
 
-## 🛠 Instalação
+## Instalação
 
 <b>Android:</b>
 
@@ -83,7 +91,7 @@ Coloque código do prompt de comnando se for necessário
 Não há instalação!
 Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
 
-## 📈 Exemplo de uso
+##  Exemplo de uso
 
 Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado.
 
@@ -93,7 +101,7 @@ Este modelo pode ser copiado e utilizado à vontade.
 
 Através da cópia/clone/ download do repositório, altere os dados do readme.md e carregue os arquivos de seu projeto.
 
-## 💻 Configuração para Desenvolvimento
+## Configuração para Desenvolvimento
 
 Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
 
@@ -107,7 +115,7 @@ npm test
 Coloque código do prompt de comnando se for necessário
 ```
 
-## 🗃 Histórico de lançamentos
+## Histórico de lançamentos
 
 A cada atualização os detalhes devem ser lançados aqui.
 
@@ -124,13 +132,13 @@ A cada atualização os detalhes devem ser lançados aqui.
 * 0.0.1 - 01/01/2022
     * Trabalho em andamento
 
-## 📋 Licença/License
+## Licença
 
 <!-- <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, VICTOR BRUNO ALEXANDER ROSETTI DE QUIROZ</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p> -->
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2022M1T3/Projeto1">Projeto Hamurabi</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/2022M1T3">Inteli, Alysson Cordeiro, Felipe Saadi, Felipe Sampaio, Giovana Thomé, Iago Tavares, Kathlyn Diwan, Pedro Silva</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
-## 🎓 Referências
+## Referências
 
 Aqui estão as referências usadas no projeto.
 
