@@ -24,7 +24,7 @@
 
 ## Descrição
 
-📜 Descrição curta sobre o que seu projeto faz.
+📜 Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
 <br><br>
 Meu projeto é um exemplo de como utilizar o github.
 <br><br>
