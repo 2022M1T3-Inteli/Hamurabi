@@ -6,6 +6,7 @@ var timer = 0
 func _ready():
 	$OpenSong.play()
 	
+# Função que inícia um processo a cada intervalo de tempo decorrido.
 func _process(delta):
 	timer += delta
 	

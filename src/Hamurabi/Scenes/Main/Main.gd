@@ -644,13 +644,6 @@ var scenes = [
 			},
 		},
 	},
-#	{
-#		"title": "Gregorio Proposta",
-#		"text": [
-#			"Você está perdendo poder, seus indicadores estão baixos e caso você os zere, será iniciado um processo de Impeachmeant contra você. E é isso o que nós, sua oposição, queremos!",
-#		],
-#		"characterName": "Gregório - Jogador opositor",
-#	},
 		{
 			"title": "Processo de Impeachment",
 			"text": [
@@ -692,7 +685,7 @@ var scenes = [
 			},
 		}
 	]
-
+# Função chamada para abrir o menu, quando o nó entra na árvore de cenas
 func _ready():
 	if Global.menuOpen:
 		openMenu()
@@ -717,7 +710,6 @@ func _ready():
 	$LawExplanation/LawExplanationText.text = actualScene.lawExplanation
 
 func _process(delta):
-#	print(loseGame)
 	# Guarda o tempo decorrido no jogo, usado tanto para as cenas quanto para as animações
 	time += delta
 	timeAnimation += delta
@@ -806,14 +798,7 @@ func _on_choice1_pressed():
 	if congressIndicator <= 0:
 		congressIndicator = 0
 	
-#	# Se algum dos indicadores é zerado, a cena de impeachment é chamada
-#	if  congressIndicator == 0 or socialEconomicIndicator == 0:
-#		actualText = 0
-#		charTextSize = len (scenes[-1].text[actualText])
-#		loseGameRun = true
-#		get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
-#		actualScene = scenes[-1]
-		
+	# Aplica o valor das variáveis nas labels apresentadas na tela
 	$CongressBar.value = congressIndicator
 	$SocialEconomicBar.value = socialEconomicIndicator
 	$CongressBar/CongressValue.text = String(congressIndicator) + "%"
@@ -840,6 +825,7 @@ func _on_choice2_pressed():
 	if congressIndicator <= 0:
 		congressIndicator = 0
 		
+	# Aplica o valor das variáveis nas labels apresentadas na tela
 	$CongressBar.value = congressIndicator
 	$SocialEconomicBar.value = socialEconomicIndicator
 	$CongressBar/CongressValue.text = String(congressIndicator) + "%"
@@ -853,7 +839,8 @@ func _on_choice2_pressed():
 # Função que chama a função de troca de dialogo quando clicar no dialogo
 func _on_Dialogue_pressed():
 	nextDialogue()
-
+	
+# Função para chamar o próximo diálogo com a animação da personagem Renata
 func nextDialogue():
 	currentAnimation = 0
 	$Background/Renata.texture = renataAnimation[currentAnimation]
@@ -899,11 +886,8 @@ func nextDialogue():
 				$Choice1.visible = true
 				$Choice2.visible = true
 	
+# Função para chamar o diálogo de explicação de cena e aplicar a estrutura de cada cena
 func showExplication(answer):
-#	if loseGameRun:
-#		loseGame = true
-#		actualText = 0
-
 		consequenceScene = true
 		$VBoxContainer/Dialogue/DialogueLabel.text = ""
 		time = 0
@@ -920,14 +904,12 @@ func showExplication(answer):
 		actualText = 0
 		charTextSize = len (actualScene.text[actualText])
 
-#func gregorioScene():
-	
+# Função utilizada para trocar de cena
 func nextScene():
 	if congressIndicator == 0 or socialEconomicIndicator == 0:
 		actualText = 0
 		charTextSize = len (scenes[-1].text[actualText])
 		loseGameRun = true
-	
 	currentAnimation = 0
 	if !loseGameRun:
 		actualScene = nextSceneIndex
@@ -940,6 +922,7 @@ func nextScene():
 		$Background/Renata.visible = false
 		$Background/Gregorio.visible = true
 		actualScene = scenes[-2]
+	# Caso os indicadores sejam mais que 20%, continua na cena da Renata até chegar na cena final e aparecer a cena de vitória 
 	else:
 		gregorioSceneRun = false
 		$Background/Renata.visible = true
@@ -954,21 +937,18 @@ func nextScene():
 		time = 0
 		startDialogue = false
 		nextDialogueReady = false
-#		var nextSceneIndex = actualScene.answers.answer1.next
-#		actualScene = scenes[nextSceneIndex - 1]
+		# Se o usuário perder o jogo, a última cena é chamada com a aparição do personagem Gregório
 		if loseGameRun:
 			actualScene = scenes[-1]
 			$Background/Renata.visible = false
 			$Background/Gregorio.visible = true
 			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
+		# Cena de Impeachemnt é chamada, após a aparição do personagem Gregório
 		if loseGame:
 			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
-#			actualScene = scenes[14]
 		$Choice1/Text.text = actualScene.answers.answer1.text
 		$Choice2/Text.text = actualScene.answers.answer2.text 
 		$LawExplanation/LawExplanationText.text = actualScene.lawExplanation
-#		$Choice1.visible = false
-#		$Choice2.visible = false
 		charActualIndex = 0
 		actualText = 0
 		charTextSize = len (actualScene.text[actualText])
@@ -1010,7 +990,7 @@ func closeMenu():
 	paused = false
 
 	
-# Função que chama a função de troca de dialogo ao clicar no botão do dialogo
+# Função que chama a função de troca de dialogo ao clicar no botão do diálogo
 func _on_DialogueButton_pressed():
 	nextDialogue()
 
@@ -1023,12 +1003,14 @@ func _on_BackToMenuButton_pressed():
 	Global.menuOpen = false
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
 
+# Função chamada para aparecer a explicação da lei do botão de informações na caixa de diálogo
 func _on_InfoButton_pressed():
 	$LawExplanation.visible = true
 	$CloseLawExplanationButton.visible = true
 	$PauseMask.visible = true
 	paused = true
 
+# Função chamada para fechar a explicação de lei do botão de informação
 func _on_CloseLawExplanationButton_pressed():
 	$LawExplanation.visible = false
 	$CloseLawExplanationButton.visible = false
