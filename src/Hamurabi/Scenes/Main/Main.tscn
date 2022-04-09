@@ -42,7 +42,7 @@ size = 24
 font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 38
+size = 44
 font_data = ExtResource( 11 )
 
 [node name="Main" type="Node2D"]
