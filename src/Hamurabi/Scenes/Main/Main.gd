@@ -412,7 +412,7 @@ var scenes = [
 			"Estamos gastando muito dinheiro em pneus por causa de todos os buracos das estradas! Se você é presidente do povo, faça algo para melhorar isso.",	
 			"De quem você, como presidente, deve cobrar resultados?"
 		],
-		"lawExplanation": "Cabe ao governo estadual reparar as estradas que ligam cidades dentro de um estado -- O governo estadual recolhe o IPVA (Imposto sobre a Propriedade de Veículos Automotores).",
+		"lawExplanation": "Cabe ao governo estadual reparar as estradas que ligam cidades dentro de um estado - O governo estadual recolhe o IPVA (Imposto sobre a Propriedade de Veículos Automotores).",
 		"answers": {
 			"answer1": {
 				"text": "Cobrar resultado de vereadores municipais",
@@ -657,8 +657,10 @@ var scenes = [
 					"text": "Ser contra a união",
 					"consequence": {
 						"text": [
-							"Presidente, suas escolhas até aqui abriram um pedido de Impeachment contra você, seus indicadores foram uma das maneiras para te alertar isso, porém o processo de Impeachment é algo bem amplo e a escolha da cena anterior iniciou o processo.",
-							"Após uma análise feita pelo Congresso, o procedimento de Impeachment foi efetivado e agora você terá que ficar inelegível por um período de 8 anos, mas mesmo assim espero que tenha sido uma experiência engrandecedora e que tenha aprendido mais sobre política nessa jornada."
+							"Presidente, suas escolhas até aqui abriram um pedido de Impeachment contra você, seus indicadores foram uma das maneiras para te alertar isso.",
+							"Porém o processo de Impeachment é algo bem amplo e a escolha da cena anterior iniciou o processo.",
+							"Após uma análise feita pelo Congresso, o procedimento de Impeachment foi efetivado e agora você terá que ficar inelegível por um período de 8 anos.",
+							"Mas mesmo assim espero que tenha sido uma experiência engrandecedora e que tenha aprendido mais sobre política nessa jornada."
 						],
 					},
 					"indicators": {
@@ -855,7 +857,8 @@ func nextDialogue():
 			$VBoxContainer/Dialogue/DialogueButton.visible = true
 		else:
 			if !consequenceScene:
-				$InfoButton.visible = true
+				if !gregorioSceneRun and !loseGameRun:
+					$InfoButton.visible = true
 				$Choice1.visible = true
 				$Choice2.visible = true
 			else:
