@@ -743,12 +743,13 @@ func _process(delta):
 	if time >= 0.5:
 		startDialogue = true
 		if lastFade:
-			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")			
-		
-	if fadeTime >= 0.8:
+			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+	
+	if fadeTime >= 0.8 and !loseGameFade:
 		$FadeBetweenScenes.visible = false
 		$FadeOut.visible = false
 		fadeTime = 0
+		
 	# Verifica se o dialogo já foi iniciado
 	if startDialogue:
 		# Verifica se já não está no próximo dialogo, se o tempo passou 0.01 segundos, se caractere atual é menor que tamanho do texto e se o jogo não está pausado
@@ -803,14 +804,19 @@ func _process(delta):
 					nextDialogueReady = true
 					
 	# Verifica se a seta direita foi apertada
-	if Input.is_action_just_pressed("ui_right"):
-		# Chama a função do próximo dialogo e zera o tempo decorrido
-		nextDialogue()
-		time = 0
+	if !lastFade:
+		if Input.is_action_just_pressed("ui_right"):
+			# Chama a função do próximo dialogo e zera o tempo decorrido
+			nextDialogue()
+			time = 0
 	# Verifica se a tecla ESC foi apertada
 	if Input.is_action_just_pressed("ui_cancel"):
 		# Chama a função para abrir o menu in-game
 		openMenu()
+	
+func fadeIn():
+	$FadeIn.visible = true
+	$FadeIn/FadeAnimation.play("Fade")	
 	
 func fadeBetweenScenes():
 	$FadeBetweenScenes.visible = true
@@ -886,46 +892,47 @@ func nextDialogue():
 	time = 0
 	$VBoxContainer/Dialogue/DialogueButton.visible = false
 	
-	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
-	if !nextDialogueReady:
-#		fadeTime = 5
-		$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
-		nextDialogueReady = true
-		if actualText != len(actualScene.text) - 1:
-			$VBoxContainer/Dialogue/DialogueButton.visible = true
-		else:
-			if !consequenceScene:
-				if !gregorioSceneRun and !loseGameRun:
-					$InfoButton.visible = true
-				$Choice1.visible = true
-				$Choice2.visible = true
-			else:
+	if !lastFade:
+		# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
+		if !nextDialogueReady:
+	#		fadeTime = 5
+			$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
+			nextDialogueReady = true
+			if actualText != len(actualScene.text) - 1:
 				$VBoxContainer/Dialogue/DialogueButton.visible = true
-	# Caso não, verifica se ainda não é a última cena, se sim tira o botão de dialogo pois há mais cenas.
-	else:
-		if loseGameRun:
-			$Background/Renata.visible = true
-			$Background/Gregorio.visible = false
-			$VBoxContainer/Dialogue/CharacterName.text = "Renata - Conselheira"
-		if actualText < len(actualScene.text) - 1:
-			$VBoxContainer/Dialogue/DialogueLabel.text = ""
-			# Define o próximo texto do Array.
-			actualText += 1
-			charTextSize = len(actualScene.text[actualText])
-			charActualIndex = 0
-			time = 0
-			nextDialogueReady = false
-		# Caso tenha chegado no final, mostra os botões de escolha.
+			else:
+				if !consequenceScene:
+					if !gregorioSceneRun and !loseGameRun:
+						$InfoButton.visible = true
+					$Choice1.visible = true
+					$Choice2.visible = true
+				else:
+					$VBoxContainer/Dialogue/DialogueButton.visible = true
+		# Caso não, verifica se ainda não é a última cena, se sim tira o botão de dialogo pois há mais cenas.
 		else:
 			if loseGameRun:
-				loseGame = true
-			if consequenceScene:
-				nextScene()
+				$Background/Renata.visible = true
+				$Background/Gregorio.visible = false
+				$VBoxContainer/Dialogue/CharacterName.text = "Renata - Conselheira"
+			if actualText < len(actualScene.text) - 1:
+				$VBoxContainer/Dialogue/DialogueLabel.text = ""
+				# Define o próximo texto do Array.
+				actualText += 1
+				charTextSize = len(actualScene.text[actualText])
+				charActualIndex = 0
+				time = 0
+				nextDialogueReady = false
+			# Caso tenha chegado no final, mostra os botões de escolha.
 			else:
-				if !gregorioSceneRun:
-					$InfoButton.visible = true
-				$Choice1.visible = true
-				$Choice2.visible = true
+				if loseGameRun:
+					loseGame = true
+				if consequenceScene:
+					nextScene()
+				else:
+					if !gregorioSceneRun:
+						$InfoButton.visible = true
+					$Choice1.visible = true
+					$Choice2.visible = true
 	
 # Função para chamar o diálogo de explicação de cena e aplicar a estrutura de cada cena
 func showExplication(answer):
@@ -951,50 +958,51 @@ func nextScene():
 		actualText = 0
 		charTextSize = len (scenes[-1].text[actualText])
 		loseGameRun = true
-		
 	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
 	elif congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
 		gregorioSceneRun = true
 		gregorioScene = false
 		actualScene = scenes[-2]
-	currentAnimation = 0
-	if !loseGameRun:
-		actualScene = nextSceneIndex
-		actualScene = scenes[nextSceneIndex - 1]
-		$Background.texture = background[actualScene.background]
-
+		print("entrou")
 	# Caso os indicadores sejam mais que 20%, continua na cena da Renata até chegar na cena final e aparecer a cena de vitória 
 	else:
 		gregorioSceneRun = false
+	currentAnimation = 0
+	if !loseGameRun and !gregorioSceneRun:
+		actualScene = nextSceneIndex
+		actualScene = scenes[nextSceneIndex - 1]
+		$Background.texture = background[actualScene.background]
 		
 	consequenceScene = false
 	time = 0
 	startDialogue = false
-	fadeBetweenScenes()
+	if !lastFade:
+		fadeBetweenScenes()
 	fadeTime = 0
 	if scenesLeft == 0:
 		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
-	else: 
-		if !loseGame:
-			$VBoxContainer/Dialogue/DialogueLabel.text = ""
-		time = 0
-		startDialogue = false
-		nextDialogueReady = false
-		# Se o usuário perder o jogo, a última cena é chamada com a aparição do personagem Gregório
-		if loseGameRun:
-			actualScene = scenes[-1]
-			loseGameFade = true
-		# Cena de Impeachemnt é chamada, após a aparição do personagem Gregório
-		if loseGame:
+	else:
+		if !lastFade:
+			if !loseGame:
+				$VBoxContainer/Dialogue/DialogueLabel.text = ""
 			time = 0
-			lastFade = true
-			fadeBetweenScenes()
-		$Choice1/Text.text = actualScene.answers.answer1.text
-		$Choice2/Text.text = actualScene.answers.answer2.text 
-		$LawExplanation/LawExplanationText.text = actualScene.lawExplanation
-		charActualIndex = 0
-		actualText = 0
-		charTextSize = len (actualScene.text[actualText])
+			startDialogue = false
+			nextDialogueReady = false
+			# Se o usuário perder o jogo, a última cena é chamada com a aparição do personagem Gregório
+			if loseGameRun:
+				actualScene = scenes[-1]
+				loseGameFade = true
+			# Cena de Impeachemnt é chamada, após a aparição do personagem Gregório
+			if loseGame:
+				time = 0
+				lastFade = true
+				fadeIn()
+			$Choice1/Text.text = actualScene.answers.answer1.text
+			$Choice2/Text.text = actualScene.answers.answer2.text 
+			$LawExplanation/LawExplanationText.text = actualScene.lawExplanation
+			charActualIndex = 0
+			actualText = 0
+			charTextSize = len (actualScene.text[actualText])
 
 # Função para chamar a função de abrir o menu in-game
 func _on_ConfigurationButton_pressed():

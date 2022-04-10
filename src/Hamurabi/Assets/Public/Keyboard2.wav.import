@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Keyboard2.wav-7ed1daa1d9c533aae895e7eaff50cc02.sample"
+
+[deps]
+
+source_file="res://Assets/Public/Keyboard2.wav"
+dest_files=[ "res://.import/Keyboard2.wav-7ed1daa1d9c533aae895e7eaff50cc02.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

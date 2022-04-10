@@ -119,7 +119,7 @@ __meta__ = {
 
 [node name="FadeOut" type="ColorRect" parent="."]
 pause_mode = 2
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 1 )
 margin_right = 1440.0
 margin_bottom = 1027.0
 color = Color( 0, 0, 0, 1 )

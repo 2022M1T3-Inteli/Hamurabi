@@ -86,10 +86,11 @@ func _process(delta):
 			timeAnimation = 0 
 		
 		# Verifica se a seta direita foi apertada
-		if Input.is_action_just_pressed("ui_right"):
-			# Chama a função do próximo dialogo e zera o tempo decorrido
-			next_scene()
-			time = 0
+		if !end:
+			if Input.is_action_just_pressed("ui_right"):
+				# Chama a função do próximo dialogo e zera o tempo decorrido
+				next_scene()
+				time = 0
 		# Verifica se a tecla ESC foi apertada
 		if Input.is_action_just_pressed("ui_cancel"):
 			# Chama a função para abrir o menu in-game
