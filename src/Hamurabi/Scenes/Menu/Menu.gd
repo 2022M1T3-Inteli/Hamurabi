@@ -2,6 +2,9 @@ extends Control
 var iniciable = Global.iniciable
 var time = 0.5
 var tutorialArrowShow = false
+var startGame = false
+var howToPlay = false
+var credits = false
 
 
 func _ready():
@@ -28,17 +31,33 @@ func _process(delta):
 				time = 0
 	else:
 		$TutorialArrow.visible = false
+		$StartExplanation.visible = false
+	
+	if time >= 0.12:
+		if startGame:
+			get_tree().change_scene("res://Scenes/Intro/Intro.tscn")
+		elif howToPlay:
+			get_tree().change_scene("res://Scenes/HowToPlay/HowToPlay.tscn")
+		elif credits:
+			get_tree().change_scene("res://Scenes/Credits/Credits.tscn")
+			
+		
 # Começar o jogo ao clicar no botão
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://Scenes/Intro/Intro.tscn")
+	$FadeIn.visible = true
+	$FadeIn/FadeAnimation.play("Fade")
+	time = 0
+	startGame = true
 
 # Abrir tutorial quando clicar no botão
 func _on_HowToPlayButton_pressed():
-	get_tree().change_scene("res://Scenes/HowToPlay/HowToPlay.tscn")
+	time = 0
+	howToPlay = true
 
 # Abrir cena de créditos quando clicar no botão
 func _on_CreditsButton_pressed():
-	get_tree().change_scene("res://Scenes/Credits/Credits.tscn")
+	time = 0
+	credits = true
 
 # Função ativada ao pressionar o botão "Iniciar"
 func _on_StartButton_button_down():

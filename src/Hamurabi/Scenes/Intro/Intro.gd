@@ -39,6 +39,9 @@ var start = false
 var next = false
 var end = false
 
+func _ready():
+	$FadeOut/FadeAnimation.play("Fade")
+
 func _process(delta):
 	# Incrementa o tempo passado no jogo utilizando o valor de delta.
 	time += delta
@@ -48,6 +51,7 @@ func _process(delta):
 		start = true
 	
 	if start:
+		$FadeOut.visible = false
 		# Verifica se passou 0.01 seg e se o contador ainda é menor o tamanho do texto.
 		if !next and time >= 0.01 and charActualIndex < charTextSize and !paused:
 			# Adiciona ao texto do label o próximo caractere do texto.
@@ -81,10 +85,20 @@ func _process(delta):
 			$Background/Renata.texture = renataAnimation[currentAnimation]
 			timeAnimation = 0 
 		
+		# Verifica se a seta direita foi apertada
+		if Input.is_action_just_pressed("ui_right"):
+			# Chama a função do próximo dialogo e zera o tempo decorrido
+			next_scene()
+			time = 0
+		# Verifica se a tecla ESC foi apertada
 		if Input.is_action_just_pressed("ui_cancel"):
+			# Chama a função para abrir o menu in-game
 			openMenu()
 		
 		if end:
+			if time >= 1:
+				$FadeIn.visible = true
+				$FadeIn/FadeAnimation.play("Fade")
 			if time >= 1.5:
 				get_tree().change_scene("res://Scenes/Main/Main.tscn")
 
@@ -133,6 +147,7 @@ func _on_choice1_pressed():
 	$Choice1.visible = false
 	$Choice2.visible = false
 	end = true
+	time = 0
 	next_scene()
 
 # Botão para escolher a segunda resposta

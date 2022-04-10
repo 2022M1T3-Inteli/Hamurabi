@@ -47,6 +47,8 @@ var charActualIndex = 0
 
 # Define o tempo atual
 var time = 0
+# Define a variável que guardará o tempo decorrido para o fade
+var fadeTime = 0
 # Variavel que servirá para controlar se já é possível iniciar o dialogo
 var startDialogue = false
 # Variavel que servirá para controlar se já é possível ir para o próximo dialogo
@@ -59,7 +61,9 @@ var endDialogue = false
 var paused = false
 # Variavel que servirá para controlar se o jogador perdeu o game ou não
 var loseGameRun = false
+var loseGameFade = false
 var loseGame = false
+var lastFade = false
 
 #variável que define se o gregório precisa aparecer
 var gregorioScene = true
@@ -691,7 +695,9 @@ var scenes = [
 func _ready():
 	if Global.menuOpen:
 		openMenu()
-		
+	
+	fadeOut()
+	
 	# Iniciar os indicadores em 50%
 	$CongressBar.value = 50
 	$CongressBar/CongressValue.text = String(50) + "%"
@@ -715,12 +721,34 @@ func _process(delta):
 	# Guarda o tempo decorrido no jogo, usado tanto para as cenas quanto para as animações
 	time += delta
 	timeAnimation += delta
+	fadeTime += delta
 	
 	# Verifica se já passou meio segundo, inicia o dialogo
+	if gregorioSceneRun:
+		if fadeTime >= 0.4 and fadeTime <= 0.5:
+			$Background/Renata.visible = false
+			$Background/Gregorio.visible = true
+	elif !loseGameRun and !loseGame:
+		if fadeTime >= 0.4 and fadeTime <= 0.5:
+			$Background/Renata.visible = true
+			$Background/Gregorio.visible = false
+	else:
+		if fadeTime >= 0.4 and fadeTime <= 0.5 and loseGameFade and !loseGame:
+			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
+			$Background/Renata.visible = false
+			$Background/Gregorio.visible = true
+			
+			loseGameFade = false
+			
 	if time >= 0.5:
 		startDialogue = true
-	
+		if lastFade:
+			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")			
 		
+	if fadeTime >= 0.8:
+		$FadeBetweenScenes.visible = false
+		$FadeOut.visible = false
+		fadeTime = 0
 	# Verifica se o dialogo já foi iniciado
 	if startDialogue:
 		# Verifica se já não está no próximo dialogo, se o tempo passou 0.01 segundos, se caractere atual é menor que tamanho do texto e se o jogo não está pausado
@@ -773,6 +801,7 @@ func _process(delta):
 					# Deixa visível o botão de próximo dialogo e permite pular para a próxima cena
 					$VBoxContainer/Dialogue/DialogueButton.visible = true
 					nextDialogueReady = true
+					
 	# Verifica se a seta direita foi apertada
 	if Input.is_action_just_pressed("ui_right"):
 		# Chama a função do próximo dialogo e zera o tempo decorrido
@@ -782,6 +811,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		# Chama a função para abrir o menu in-game
 		openMenu()
+	
+func fadeBetweenScenes():
+	$FadeBetweenScenes.visible = true
+	$FadeBetweenScenes/FadeAnimation.play("Fade")	
+
+func fadeOut():
+	$FadeOut.visible = true
+	$FadeOut/FadeAnimation.play("Fade")
 	
 # Função que chama a primera escolha ao clicar no botão
 func _on_choice1_pressed():
@@ -851,6 +888,7 @@ func nextDialogue():
 	
 	# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
 	if !nextDialogueReady:
+#		fadeTime = 5
 		$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
 		nextDialogueReady = true
 		if actualText != len(actualScene.text) - 1:
@@ -913,42 +951,44 @@ func nextScene():
 		actualText = 0
 		charTextSize = len (scenes[-1].text[actualText])
 		loseGameRun = true
+		
+	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
+	elif congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
+		gregorioSceneRun = true
+		gregorioScene = false
+		actualScene = scenes[-2]
 	currentAnimation = 0
 	if !loseGameRun:
 		actualScene = nextSceneIndex
 		actualScene = scenes[nextSceneIndex - 1]
 		$Background.texture = background[actualScene.background]
-	# Se algum dos indicadores forem menor ou igual a 20, o personagem Gregório irá aparecer
-	if congressIndicator <= 20 and gregorioScene or socialEconomicIndicator <= 20 and gregorioScene:
-		gregorioSceneRun = true
-		gregorioScene = false
-		$Background/Renata.visible = false
-		$Background/Gregorio.visible = true
-		actualScene = scenes[-2]
+
 	# Caso os indicadores sejam mais que 20%, continua na cena da Renata até chegar na cena final e aparecer a cena de vitória 
 	else:
 		gregorioSceneRun = false
-		$Background/Renata.visible = true
-		$Background/Gregorio.visible = false
+		
 	consequenceScene = false
 	time = 0
 	startDialogue = false
+	fadeBetweenScenes()
+	fadeTime = 0
 	if scenesLeft == 0:
 		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
 	else: 
-		$VBoxContainer/Dialogue/DialogueLabel.text = ""
+		if !loseGame:
+			$VBoxContainer/Dialogue/DialogueLabel.text = ""
 		time = 0
 		startDialogue = false
 		nextDialogueReady = false
 		# Se o usuário perder o jogo, a última cena é chamada com a aparição do personagem Gregório
 		if loseGameRun:
 			actualScene = scenes[-1]
-			$Background/Renata.visible = false
-			$Background/Gregorio.visible = true
-			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
+			loseGameFade = true
 		# Cena de Impeachemnt é chamada, após a aparição do personagem Gregório
 		if loseGame:
-			get_tree().change_scene("res://Scenes/Impeachment/Impeachment.tscn")
+			time = 0
+			lastFade = true
+			fadeBetweenScenes()
 		$Choice1/Text.text = actualScene.answers.answer1.text
 		$Choice2/Text.text = actualScene.answers.answer2.text 
 		$LawExplanation/LawExplanationText.text = actualScene.lawExplanation

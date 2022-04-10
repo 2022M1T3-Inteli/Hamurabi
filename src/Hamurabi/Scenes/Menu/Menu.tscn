@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/Start Game Hover.png" type="Texture" id=2]
@@ -10,10 +10,58 @@
 [ext_resource path="res://Assets/Menu/Credits Hover.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Menu/How To Play.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Menu/Right Arrow.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Fonts/Quicksand-Medium.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Assets/Menu/How To Play Hover.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Public/Character.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Public/Background Section.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Public/Logo.png" type="Texture" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="Menu" type="Control"]
 anchor_left = 0.001
@@ -42,10 +90,9 @@ __meta__ = {
 stream = ExtResource( 5 )
 
 [node name="Characters" type="TextureRect" parent="."]
-margin_left = -4.16
-margin_top = -117.0
-margin_right = 1435.84
-margin_bottom = 907.0
+margin_top = -115.0
+margin_right = 1440.0
+margin_bottom = 909.0
 texture = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -139,6 +186,37 @@ texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StartExplanation" type="Label" parent="."]
+margin_left = 27.0
+margin_top = 823.0
+margin_right = 844.0
+margin_bottom = 910.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Clique em \"Como Jogar\" e faça o tutorial para poder jogar"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" type="ColorRect" parent="."]
+pause_mode = 2
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -1.16
+margin_top = -112.0
+margin_right = 1438.84
+margin_bottom = 915.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="FadeIn"]
+reset_on_save = false
+anims/Fade = SubResource( 2 )
+anims/RESET = SubResource( 3 )
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
