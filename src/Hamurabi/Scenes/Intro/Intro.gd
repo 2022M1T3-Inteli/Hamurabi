@@ -56,7 +56,7 @@ func _process(delta):
 		if !next and time >= 0.01 and charActualIndex < charTextSize and !paused:
 			# Adiciona ao texto do label o próximo caractere do texto.
 			$VBoxContainer/Dialogue/DialogueLabel.text += text[actualText][charActualIndex]
-			$Typing_song.play()
+			$Keyboard.play()
 			if timeAnimation >= 0.15:
 				if currentAnimation < len(renataAnimation):
 					$Background/Renata.texture = renataAnimation[currentAnimation]
