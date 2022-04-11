@@ -113,22 +113,21 @@ Projetos: <br>
 
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://creativecommons.org/share-your-work/>
-4. <https://freesound.org/>
+
 
 Som e fonte:<br>
 
-5.  <https://freesound.org/>
-6.  <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a>
-7.  <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> 
-8.  Ben Sound: <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
-9.  Google Fonts: <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
+
+3.  https://freesound.org/people/DaveJf/sounds/616544/
+4.  https://freesound.org/people/DRFX/sounds/338986/ 
+5.  Ben Sound: <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
+6.  Google Fonts: <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
 
 Conteúdo:<br>
 
-10. Papers, please: <https://www.youtube.com/watch?v=_QP5X6fcukM>. Jogabilidade que usa majoritariamente mouse e teclado é opcional, sem movimentos para os lados
-11. Ace attorney, como modelo de inspiração para estrutura do jogo, baseado em narrativas textuais e escolhas
-12. Black Mirror: Bandersnatch – filme com diferentes finais que podem ser alcançados com base nas escolhas do telespectador que é, nesse caso, usuário 
-13. Site Politize: Principal fonte de consulta para criação dos enredos de cenário.
-14. Reigns: <https://www.youtube.com/watch?v=O2HnvpXqII4>. A cada escolha, os marcadores são afetados positiva ou negativamente
+7. Papers, please: <https://www.youtube.com/watch?v=_QP5X6fcukM>. Jogabilidade que usa majoritariamente mouse e teclado é opcional, sem movimentos para os lados
+8. Ace attorney, como modelo de inspiração para estrutura do jogo, baseado em narrativas textuais e escolhas
+9. Black Mirror: Bandersnatch – filme com diferentes finais que podem ser alcançados com base nas escolhas do telespectador que é, nesse caso, usuário 
+10. Site Politize: Principal fonte de consulta para criação dos enredos de cenário.
+11. Reigns: <https://www.youtube.com/watch?v=O2HnvpXqII4>. A cada escolha, os marcadores são afetados positiva ou negativamente
 
