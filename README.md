@@ -8,8 +8,16 @@
 
 ## Grupo 42
 
-## Integrantes: <a href="" target="_blank">Alysson Cordeiro</a>, <a href="https://www.linkedin.com/in/felipe-saadi/" target="_blank">Felipe Saadi</a>, <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/" target="_blank">Felipe Sampaio</a>, <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/" target="_blank">Giovana Thomé</a>, <a href="www.linkedin.com/in/iago-tavares-b10244149" target="_blank">Iago Tavares</a>, <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/" target="_blank">Kathlyn Diwan</a>, <a href="https://www.linkedin.com/in/pedro-silva-14343022a/" target="_blank">Pedro Silva</a>
+### Integrantes: 
+- <a href="" target="_blank">Alysson Cordeiro</a>
+- <a href="https://www.linkedin.com/in/felipe-saadi/" target="_blank">Felipe Saadi</a>
+- <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/" target="_blank">Felipe Sampaio</a>
+- <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/" target="_blank">Giovana Thomé</a>
+- <a href="www.linkedin.com/in/iago-tavares-b10244149" target="_blank">Iago Tavares</a>
+- <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/" target="_blank">Kathlyn Diwan</a>
+- <a href="https://www.linkedin.com/in/pedro-silva-14343022a/" target="_blank">Pedro Silva</a>
 <br><br>
+
 <p align="center">
   <a href="#descrição">Descrição</a> •
   <a href="#estrutura-de-pastas">Estrutura de pastas</a> •
@@ -24,12 +32,12 @@
 
 ## Descrição
 
-📜 Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. 
+📜   Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. 
 <br><br>
 
+<img src="https://i.imgur.com/KCdkhvs.png" alt="Hamurabi" height="802" width="1125">
 
-
-💡 O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
+💡   O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
 <br><br>
 
 ## Estrutura de pastas
@@ -51,52 +59,25 @@
     &emsp;|-->Scenes<br>
     &emsp;|-->android<br>
 
-|readme.md<br>
+|README.md<br>
 
-A pasta raiz contem dois arquivos que devem ser alterados:
-
-<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
-
-Há também 4 pastas que seguem da seguinte forma:
-
-<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>. Há uma pasta <b>antigos</b> onde estarão todas as versões antigas da documentação.
-
-<b>executáveis</b>: Aqui estarão todos os executáveis do jogo, prontos para rodar. Há no mínimo 3 pastas, uma para binários <b>Windows</b>, uma para binários <b>android</b> e uma para a <b>Web/HTML</b>
-
-<b>imagens</b>: Algumas imagens do jogo/sistema e logos prontos para serem utilizados e visualizados.
-
-<b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
 
 ## Instalação
 
-<b>HTML:</b>
+Não há instalação. Para acessar o game, clique no link abaixo: 
 
-Não há instalação!
-Acesse o link https://felipe-saadi.itch.io/hamurabi ou execute-o como uma página WEB (através de algum browser).
+<a href="https://felipe-saadi.itch.io/hamurabi" target="_blank">Hamurabi</a>
 
 ##  Exemplo de uso
 
-Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado.
-
-Adicione blocos de códigos e, se necessário, screenshots.
-
-Este modelo pode ser copiado e utilizado à vontade.
-
-Através da cópia/clone/ download do repositório, altere os dados do readme.md e carregue os arquivos de seu projeto.
+O game pode ser utilizado em instituições de ensino para ensinar estudantes sobre os conceitos da constituição. 
 
 ## Configuração para Desenvolvimento
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
-Para abrir este projeto você necessita da seguinte ferramenta:
+Para abrir este projeto você necessita da ferramenta GODOT, dísponivel no link abaixo:
 
 -<a href="https://godotengine.org/download">GODOT</a>
 
-```sh
-make install
-npm test
-Coloque código do prompt de comnando se for necessário
-```
 
 ## Histórico de lançamentos
 
@@ -128,17 +109,26 @@ Coloque código do prompt de comnando se for necessário
 
 Aqui estão as referências usadas no projeto.
 
+Projetos: <br>
+
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
 3. <https://creativecommons.org/share-your-work/>
 4. <https://freesound.org/>
-5. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
-6. Reigns: <https://www.youtube.com/watch?v=O2HnvpXqII4>. A cada escolha, os marcadores são afetados positiva ou negativamente
-7. Papers, please: <https://www.youtube.com/watch?v=_QP5X6fcukM>. Jogabilidade que usa majoritariamente mouse e teclado é opcional, sem movimentos para os lados
-8. Ace attorney, como modelo de inspiração para estrutura do jogo, baseado em narrativas textuais e escolhas
-9. Black Mirror: Bandersnatch – filme com diferentes finais que podem ser alcançados com base nas escolhas do telespectador que é, nesse caso, usuário 
-10. Site Politize: Principal fonte de consulta para criação dos enredos de cenário.
-11. Ben Sound: <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
-12. Google Fonts: <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
 
+Som e fonte:<br>
+
+5.  <https://freesound.org/>
+6.  <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a>
+7.  <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> 
+8.  Ben Sound: <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
+9.  Google Fonts: <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
+
+Conteúdo:<br>
+
+10. Papers, please: <https://www.youtube.com/watch?v=_QP5X6fcukM>. Jogabilidade que usa majoritariamente mouse e teclado é opcional, sem movimentos para os lados
+11. Ace attorney, como modelo de inspiração para estrutura do jogo, baseado em narrativas textuais e escolhas
+12. Black Mirror: Bandersnatch – filme com diferentes finais que podem ser alcançados com base nas escolhas do telespectador que é, nesse caso, usuário 
+13. Site Politize: Principal fonte de consulta para criação dos enredos de cenário.
+14. Reigns: <https://www.youtube.com/watch?v=O2HnvpXqII4>. A cada escolha, os marcadores são afetados positiva ou negativamente
 
