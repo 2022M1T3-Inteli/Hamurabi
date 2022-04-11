@@ -24,17 +24,12 @@
 
 ## Descrição
 
-📜 Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
-<br><br>
-Meu projeto é um exemplo de como utilizar o github.
+📜 Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. 
 <br><br>
 
 
-💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
-<br><br>
-Meu projeto ajuda estudantes inteli a configurarem seus githubs.
-<br><br>
-May the force be with you!
+
+💡 O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
 <br><br>
 
 ## Estrutura de pastas
@@ -119,18 +114,22 @@ Coloque código do prompt de comnando se for necessário
 
 A cada atualização os detalhes devem ser lançados aqui.
 
-* 0.2.1 - 25/01/2022
-    * MUDANÇA: Atualização de docs (código do módulo permanece inalterado)
-* 0.2.0 - 15/01/2022
-    * MUDANÇA: Remove `setDefaultXYZ()`
-    * ADD: Adiciona `init()`
-* 0.1.1 - 11/01/2022
-    * CONSERTADO: Crash quando chama `baz()` (Obrigado @NomeDoContribuidorGeneroso!)
-* 0.1.0 - 10/01/2022
-    * O primeiro lançamento adequado
-    * MUDANÇA: Renomeia `foo()` para `bar()`
-* 0.0.1 - 01/01/2022
-    * Trabalho em andamento
+* 0.1.1 - 11/02/2022
+    * Início do GDD, preenchimento das sessões 1.1 a 1.5
+* 0.1.2 - 18/02/2022
+    * Preenchimento da sessão 1.7
+* 0.2.1 - 25/02/2022
+    * Atualização da sessão 1.6 e preenchimento das sessões 2, 3 e 4
+* 0.2.2 - 04/03/2022
+    * Atualização das gamer stories e adição da  Matemática no game
+* 0.3.1 - 09/03/2022
+    * Atualização das gamer stories e suas referentes divisões
+* 0.4.1 - 30/03/2022
+    * Revisão geral sobre o conteúdo presente no gdd em relação ao game
+* 0.4.2 - 02/04/2022
+    * Implementação dos playtest
+* 0.5.1 - 08/04/2022
+    * Aprimoramento do playtest e da mecânica
 
 ## Licença
 
