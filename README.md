@@ -19,14 +19,14 @@
 <br><br>
 
 <p align="center">
-  <a href="#descrição">Descrição</a> •
-  <a href="#estrutura-de-pastas">Estrutura de pastas</a> •
-  <a href="#instalação">Instalação</a> •
-  <a href="#exemplo-de-uso">Exemplo de uso</a> •  
-  <a href="#configuração-para-desenvolvimento">Configuração para desenvolvimento</a> •
-  <a href="#histórico-de-lançamentos">Histórico de lançamentos</a> •
-  <a href="#licença">Licença</a> •
-  <a href="#referências">Referências</a> •
+  • <a href="#descrição">Descrição</a> •<br>
+  • <a href="#estrutura-de-pastas">Estrutura de pastas</a> •<br>
+  • <a href="#instalação">Instalação</a> •<br>
+  • <a href="#exemplo-de-uso">Exemplo de uso</a> •  <br>
+  • <a href="#configuração-para-desenvolvimento">Configuração para desenvolvimento</a> •<br>
+  • <a href="#histórico-de-lançamentos">Histórico de lançamentos</a> •<br>
+  • <a href="#licença">Licença</a> •<br>
+  • <a href="#referências">Referências</a> •<br>
 </p>
 <br><br>
 
@@ -76,7 +76,7 @@ O game pode ser utilizado em instituições de ensino para ensinar estudantes so
 
 Para abrir este projeto você necessita da ferramenta GODOT, dísponivel no link abaixo:
 
--<a href="https://godotengine.org/download">GODOT</a>
+<a href="https://godotengine.org/download">GODOT</a>
 
 
 ## Histórico de lançamentos
