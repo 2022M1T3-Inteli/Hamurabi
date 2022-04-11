@@ -45,6 +45,12 @@
   &emsp;|-->HTML<br>
 |-->imagens<br>
 |-->src<br>
+  &emsp;|-->Hamurabi<br>
+    &emsp;|-->.import<br>
+    &emsp;|-->Assets<br>
+    &emsp;|-->Scenes<br>
+    &emsp;|-->android<br>
+
 |readme.md<br>
 
 A pasta raiz contem dois arquivos que devem ser alterados:
@@ -63,28 +69,10 @@ Há também 4 pastas que seguem da seguinte forma:
 
 ## Instalação
 
-<b>Android:</b>
-
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
-<b>Windows:</b>
-
-Não há instalação! Apenas executável!
-Encontre o JOGO.exe na pasta executáveis e execute-o como qualquer outro programa.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
 <b>HTML:</b>
 
 Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
+Acesse o link https://felipe-saadi.itch.io/hamurabi ou execute-o como uma página WEB (através de algum browser).
 
 ##  Exemplo de uso
 
@@ -100,7 +88,7 @@ Através da cópia/clone/ download do repositório, altere os dados do readme.md
 
 Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
 
-Para abrir este projeto você necessita das seguintes ferramentas:
+Para abrir este projeto você necessita da seguinte ferramenta:
 
 -<a href="https://godotengine.org/download">GODOT</a>
 
@@ -112,7 +100,6 @@ Coloque código do prompt de comnando se for necessário
 
 ## Histórico de lançamentos
 
-A cada atualização os detalhes devem ser lançados aqui.
 
 * 0.1.1 - 11/02/2022
     * Início do GDD, preenchimento das sessões 1.1 a 1.5
@@ -146,3 +133,12 @@ Aqui estão as referências usadas no projeto.
 3. <https://creativecommons.org/share-your-work/>
 4. <https://freesound.org/>
 5. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
+6. Reigns: <https://www.youtube.com/watch?v=O2HnvpXqII4>. A cada escolha, os marcadores são afetados positiva ou negativamente
+7. Papers, please: <https://www.youtube.com/watch?v=_QP5X6fcukM>. Jogabilidade que usa majoritariamente mouse e teclado é opcional, sem movimentos para os lados
+8. Ace attorney, como modelo de inspiração para estrutura do jogo, baseado em narrativas textuais e escolhas
+9. Black Mirror: Bandersnatch – filme com diferentes finais que podem ser alcançados com base nas escolhas do telespectador que é, nesse caso, usuário 
+10. Site Politize: Principal fonte de consulta para criação dos enredos de cenário.
+11. Ben Sound: <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
+12. Google Fonts: <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
+
+
