@@ -32,12 +32,12 @@
 
 ## Descrição
 
-📜   Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. 
+📜    Observando o cenário atual no ensino brasileiro para anos de eleição, foi proposto pela ONG Projeto Constituição na Escola para o Instituto de Tecnologia e Liderança - INTELI, a elaboração de um jogo para a facilitação do aprendizado das leis e, em geral, da estrutura política brasileira. 
 <br><br>
 
 <img src="https://i.imgur.com/KCdkhvs.png" alt="Hamurabi" height="802" width="1125">
 
-💡   O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
+💡    O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
 <br><br>
 
 ## Estrutura de pastas
@@ -109,6 +109,7 @@ Para abrir este projeto você necessita da ferramenta GODOT, dísponivel no link
 
 Aqui estão as referências usadas no projeto.
 
+
 Projetos: <br>
 
 1. <https://github.com/iuricode/readme-template>
@@ -117,11 +118,11 @@ Projetos: <br>
 
 Som e fonte:<br>
 
-
 3.  https://freesound.org/people/DaveJf/sounds/616544/
 4.  https://freesound.org/people/DRFX/sounds/338986/ 
-5.  Ben Sound: <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
-6.  Google Fonts: <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
+5.  <https://bensound.com> The Jazz Piano(música de fundo da tela inicial.)
+6.  <https://fonts.google.com/> . Utilizamos o Fonts, para encontrar um tipo de letra mais limpo e próximo do estilo de jogo.
+
 
 Conteúdo:<br>
 
