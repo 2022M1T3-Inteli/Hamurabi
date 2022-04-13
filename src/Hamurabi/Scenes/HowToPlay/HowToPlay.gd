@@ -1,7 +1,7 @@
 extends Node2D
 
 # Lista de nome de arquivos
-var guide = ["Scene1", "Scene2", "Scene3", "Scene4", "Scene5", "Scene6", "Scene7", "Scene8", "Scene9"]
+var guide = ["Scene1", "Scene2", "Scene3", "Scene4", "Scene5", "Scene6", "Scene7", "Scene8", "Scene9", "Scene10", "Scene11"]
 var index = 0
 # Define a textura atual do guia
 var texture = load("res://Assets/HowToPlay/Scene1.png")
