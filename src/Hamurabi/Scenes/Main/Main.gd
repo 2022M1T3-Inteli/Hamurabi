@@ -41,8 +41,8 @@ var currentAnimation = 0
 var gregorioCurrentAnimation = 0
 
 # Variáveis dos indicadores que variam de acordo com as escolhas 
-var congressIndicator = 10
-var socialEconomicIndicator = 10
+var congressIndicator = 50
+var socialEconomicIndicator = 50
 
 # Variáveis do tempo decorrido do mandato
 var numScenes = 13
