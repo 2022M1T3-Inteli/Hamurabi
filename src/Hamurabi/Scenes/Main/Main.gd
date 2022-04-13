@@ -18,15 +18,31 @@ onready var background = [
 	load("res://Assets/Public/Park Day.jpg"),
 	load("res://Assets/Public/Park Night.jpg"),
 ] 
+onready var gregorioBackground = [
+	[
+		load("res://Assets/Public/Gregorio First Scene.png"),
+	],
+	[
+		load("res://Assets/Public/Gregorio Seated 1.png"),
+		load("res://Assets/Public/Gregorio Seated 2.png"),
+		load("res://Assets/Public/Gregorio Seated 3.png"),
+	],
+	[
+		load("res://Assets/Public/Gregorio Second Part 1.png"),
+		load("res://Assets/Public/Gregorio Second Part 2.png"),
+		load("res://Assets/Public/Gregorio Second Part 3.png"),
+	]
+]
 
 # Define o tempo de animação percorrido
 var timeAnimation = 0
 # Define a animação atual
 var currentAnimation = 0
+var gregorioCurrentAnimation = 0
 
 # Variáveis dos indicadores que variam de acordo com as escolhas 
-var congressIndicator = 50
-var socialEconomicIndicator = 50
+var congressIndicator = 10
+var socialEconomicIndicator = 10
 
 # Variáveis do tempo decorrido do mandato
 var numScenes = 13
@@ -613,7 +629,7 @@ var scenes = [
 		"title": "Proposta do Gregorio",
 		"text": [
 			"Sabemos que as coisas estão indo de mau a pior. Faça o que deveria ter feito desde o início...",
-			"Eu tenho uma proposta para você.",
+			"Espero que dessa vez você tome a decisão correta... Eu tenho uma proposta para você. E essa é a sua última chance.",
 			"Deixe que eu tome as decisões a partir de agora, farei com que as coisas mudem para melhor."
 		],
 		"lawExplanation": "",
@@ -695,7 +711,7 @@ var scenes = [
 func _ready():
 	if Global.menuOpen:
 		openMenu()
-	
+
 	fadeOut()
 	
 	# Iniciar os indicadores em 50%
@@ -727,11 +743,9 @@ func _process(delta):
 	if gregorioSceneRun:
 		if fadeTime >= 0.4 and fadeTime <= 0.5:
 			$Background/Renata.visible = false
-			$Background/Gregorio.visible = true
 	elif !loseGameRun and !loseGame:
 		if fadeTime >= 0.4 and fadeTime <= 0.5:
 			$Background/Renata.visible = true
-			$Background/Gregorio.visible = false
 	else:
 		if fadeTime >= 0.4 and fadeTime <= 0.5 and loseGameFade and !loseGame:
 			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
@@ -767,19 +781,40 @@ func _process(delta):
 			# Verifica se já passou 0.15 segundos
 			if timeAnimation >= 0.15:
 				# Verifica se a animção atual ainda é menor que o número de animações do personagem
-				if currentAnimation < len(renataAnimation):
-					# Define a animação atual
-					$Background/Renata.texture = renataAnimation[currentAnimation]
-					# Define a próxima animação e zera o tempo decorrido
-					currentAnimation += 1
-					timeAnimation = 0
+				if !gregorioSceneRun:
+					if currentAnimation < len(renataAnimation):
+						# Define a animação atual
+						$Background/Renata.texture = renataAnimation[currentAnimation]
+						# Define a próxima animação e zera o tempo decorrido
+						currentAnimation += 1
+						timeAnimation = 0
+					else:
+						# Define a animação atual como a primeira novamente e zera o tempo decorrido
+						currentAnimation = 0
+						timeAnimation = 0
 				else:
-					# Define a animação atual como a primeira novamente e zera o tempo decorrido
-					currentAnimation = 0
-					timeAnimation = 0
+					if actualText == 0:
+						$Background.texture = gregorioBackground[0][0]
+					elif actualText == 1:
+						if gregorioCurrentAnimation >= len(gregorioBackground[1]):
+							gregorioCurrentAnimation = 0
+						$Background.texture = gregorioBackground[1][gregorioCurrentAnimation]
+						gregorioCurrentAnimation += 1
+						timeAnimation = 0
+					elif actualText == 2:
+						if gregorioCurrentAnimation >= len(gregorioBackground[2]):
+							gregorioCurrentAnimation = 0
+						$Background.texture = gregorioBackground[2][gregorioCurrentAnimation]
+						gregorioCurrentAnimation += 1
+						timeAnimation = 0
+					else:
+						gregorioCurrentAnimation = 0
+					
 	
 		# Verifica se caractere atual já é o último do texto atual, caso sim quer dizer que já escreveu todo o texto
 		if charActualIndex == charTextSize:
+			if gregorioSceneRun:
+				$Background.texture = gregorioBackground[actualText][0]
 			# Define a animação inicial do personagem, muda a textura e zera o tempo decorrido
 			currentAnimation = 0
 			$Background/Renata.texture = renataAnimation[currentAnimation]
@@ -895,6 +930,8 @@ func nextDialogue():
 	if !lastFade:
 		# Verifica se ainda não chegou no último texto, caso sim preenche todo o texto e exibe o botão para pular de cena.
 		if !nextDialogueReady:
+			if gregorioSceneRun:
+				$Background.texture = gregorioBackground[actualText][0]
 	#		fadeTime = 5
 			$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
 			nextDialogueReady = true
@@ -963,7 +1000,6 @@ func nextScene():
 		gregorioSceneRun = true
 		gregorioScene = false
 		actualScene = scenes[-2]
-		print("entrou")
 	# Caso os indicadores sejam mais que 20%, continua na cena da Renata até chegar na cena final e aparecer a cena de vitória 
 	else:
 		gregorioSceneRun = false

@@ -203,9 +203,9 @@ __meta__ = {
 [node name="Gregorio" type="TextureRect" parent="Background"]
 visible = false
 margin_left = 937.0
-margin_top = 286.0
+margin_top = 161.0
 margin_right = 1486.0
-margin_bottom = 1209.0
+margin_bottom = 1241.0
 rect_scale = Vector2( 1, 0.8 )
 texture = ExtResource( 30 )
 stretch_mode = 5

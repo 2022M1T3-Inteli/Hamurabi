@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gabinete.png-1590710b733e68216fce153e4fd6f9c3.stex"
+path="res://.import/Gregório Segunda Parte.png-314782e366b62cde00221d706f871f84.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Public/Gabinete.png"
-dest_files=[ "res://.import/Gabinete.png-1590710b733e68216fce153e4fd6f9c3.stex" ]
+source_file="res://Assets/Gregório Segunda Parte.png"
+dest_files=[ "res://.import/Gregório Segunda Parte.png-314782e366b62cde00221d706f871f84.stex" ]
 
 [params]
 
