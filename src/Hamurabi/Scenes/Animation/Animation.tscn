@@ -52,7 +52,6 @@ extents = Vector2( 38, 67.5 )
 
 [node name="Animation" type="Node2D"]
 self_modulate = Color( 0.329412, 0.0156863, 0.0156863, 1 )
-position = Vector2( 0, 2 )
 script = ExtResource( 10 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

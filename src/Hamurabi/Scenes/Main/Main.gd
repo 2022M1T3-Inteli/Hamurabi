@@ -160,7 +160,7 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 5,
-					"socialEconomic": -15
+					"socialEconomic": 10
 				},
 				"next": 3
 			},
@@ -253,7 +253,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -5,
+					"congress": -15,
 					"socialEconomic": 10
 				},
 				"next": 5
@@ -280,7 +280,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": 0,
+					"congress": -15,
 					"socialEconomic": 10
 				},
 				"next": 6
@@ -373,7 +373,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": 0,
+					"congress": -10,
 					"socialEconomic": -15
 				},
 				"next": 8
@@ -402,8 +402,8 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": 0,
-					"socialEconomic": 5
+					"congress": -15,
+					"socialEconomic": -20
 				},
 				"next": 9
 			},
@@ -417,7 +417,7 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": -10,
-					"socialEconomic": 10
+					"socialEconomic": 0
 				},
 				"next": 9
 			},
@@ -443,7 +443,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": 0,
+					"congress": -15,
 					"socialEconomic": 5
 				},
 				"next": 10
@@ -457,7 +457,7 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -10,
+					"congress": -5,
 					"socialEconomic": 10
 				},
 				"next": 10
@@ -483,8 +483,8 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -15,
-					"socialEconomic": 10
+					"congress": -10,
+					"socialEconomic": -5
 				},
 				"next": 11
 			},
@@ -524,8 +524,8 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -15,
-					"socialEconomic": 5
+					"congress": -10,
+					"socialEconomic": -10
 				},
 				"next": 12
 			},
@@ -539,7 +539,7 @@ var scenes = [
 				},
 				"indicators": {
 					"congress": 10,
-					"socialEconomic": -10
+					"socialEconomic": 0
 				},
 				"next": 12
 			},
@@ -581,8 +581,8 @@ var scenes = [
 					],
 				},
 				"indicators": {
-					"congress": -15,
-					"socialEconomic": 0
+					"congress": 0,
+					"socialEconomic": -10
 				},
 				"next": 13
 			},
@@ -639,7 +639,7 @@ var scenes = [
 				"consequence": {
 					"text": [
 						"Você será um grande ativo!",
-						"Se veremos novamente."
+						"Nos veremos novamente."
 					],
 				},
 				"indicators": {
@@ -743,9 +743,11 @@ func _process(delta):
 	if gregorioSceneRun:
 		if fadeTime >= 0.4 and fadeTime <= 0.5:
 			$Background/Renata.visible = false
+			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
 	elif !loseGameRun and !loseGame:
 		if fadeTime >= 0.4 and fadeTime <= 0.5:
 			$Background/Renata.visible = true
+			$VBoxContainer/Dialogue/CharacterName.text = "Renata - Conselheira"
 	else:
 		if fadeTime >= 0.4 and fadeTime <= 0.5 and loseGameFade and !loseGame:
 			$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
@@ -932,6 +934,7 @@ func nextDialogue():
 		if !nextDialogueReady:
 			if gregorioSceneRun:
 				$Background.texture = gregorioBackground[actualText][0]
+				$VBoxContainer/Dialogue/CharacterName.text = "Gregório"
 	#		fadeTime = 5
 			$VBoxContainer/Dialogue/DialogueLabel.text = actualScene.text[actualText]
 			nextDialogueReady = true
