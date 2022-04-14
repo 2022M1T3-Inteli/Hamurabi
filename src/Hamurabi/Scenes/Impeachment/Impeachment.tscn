@@ -72,7 +72,7 @@ __meta__ = {
 
 [node name="RedMask" type="ColorRect" parent="."]
 margin_right = 1451.0
-margin_bottom = 1023.0
+margin_bottom = 1031.0
 color = Color( 0.667969, 0, 0, 0.8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -119,6 +119,7 @@ __meta__ = {
 
 [node name="FadeOut" type="ColorRect" parent="."]
 pause_mode = 2
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 1440.0
 margin_bottom = 1027.0

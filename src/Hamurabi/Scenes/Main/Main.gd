@@ -693,7 +693,10 @@ var scenes = [
 					"text": "Cometer crime de responsabilidade",
 					"consequence": {
 						"text": [
-							"Ser contra a segurança",
+							"Presidente, suas escolhas até aqui abriram um pedido de Impeachment contra você, seus indicadores foram uma das maneiras para te alertar isso.",
+							"Porém o processo de Impeachment é algo bem amplo e a escolha da cena anterior iniciou o processo.",
+							"Após uma análise feita pelo Congresso, o procedimento de Impeachment foi efetivado e agora você terá que ficar inelegível por um período de 8 anos.",
+							"Mas mesmo assim espero que tenha sido uma experiência engrandecedora e que tenha aprendido mais sobre política nessa jornada."
 						],
 					},
 				"indicators": {
@@ -1018,7 +1021,7 @@ func nextScene():
 	if !lastFade:
 		fadeBetweenScenes()
 	fadeTime = 0
-	if scenesLeft == 0:
+	if scenesLeft == 0 and !loseGameRun:
 		get_tree().change_scene("res://Scenes/Victory/Victory.tscn")
 	else:
 		if !lastFade:
