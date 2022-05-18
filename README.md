@@ -1,5 +1,4 @@
 # Inteli - Instituto de Tecnologia e Liderança 
-
 <p align="center">
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
@@ -8,26 +7,14 @@
 
 ## Grupo 42
 
-### Integrantes: 
-- <a href="" target="_blank">Alysson Cordeiro</a>
-- <a href="https://www.linkedin.com/in/felipe-saadi/" target="_blank">Felipe Saadi</a>
-- <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/" target="_blank">Felipe Sampaio</a>
-- <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/" target="_blank">Giovana Thomé</a>
-- <a href="www.linkedin.com/in/iago-tavares-b10244149" target="_blank">Iago Tavares</a>
-- <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/" target="_blank">Kathlyn Diwan</a>
+### Integrantes:
+- <a href="" target="_blank">Alysson Cordeiro</a><br>
+- <a href="https://www.linkedin.com/in/felipe-saadi/" target="_blank">Felipe Saadi</a><br>
+- <a href="https://www.linkedin.com/in/felipe-sampaio-64bb48212/" target="_blank">Felipe Sampaio</a><br>
+- <a href="https://www.linkedin.com/in/giovana-lisb%C3%B4a-thom%C3%A9-012a881a8/" target="_blank">Giovana Thomé</a><br>
+- <a href="www.linkedin.com/in/iago-tavares-b10244149" target="_blank">Iago Tavares</a><br>
+- <a href="https://www.linkedin.com/in/kathlyn-diwan-0a0189232/" target="_blank">Kathlyn Diwan</a><br>
 - <a href="https://www.linkedin.com/in/pedro-silva-14343022a/" target="_blank">Pedro Silva</a>
-<br><br>
-
-<p align="center">
-  • <a href="#descrição">Descrição</a> •<br>
-  • <a href="#estrutura-de-pastas">Estrutura de pastas</a> •<br>
-  • <a href="#instalação">Instalação</a> •<br>
-  • <a href="#exemplo-de-uso">Exemplo de uso</a> •  <br>
-  • <a href="#configuração-para-desenvolvimento">Configuração para desenvolvimento</a> •<br>
-  • <a href="#histórico-de-lançamentos">Histórico de lançamentos</a> •<br>
-  • <a href="#licença">Licença</a> •<br>
-  • <a href="#referências">Referências</a> •<br>
-</p>
 <br><br>
 
 ## Descrição
@@ -42,29 +29,57 @@
 
 ## Estrutura de pastas
 
--Raiz<br>
+📦Projeto 1<br>
 |<br>
-|-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|GDD.docx ou Documentação.docx<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
-|-->imagens<br>
-|-->src<br>
-  &emsp;|-->Hamurabi<br>
-    &emsp;|-->.import<br>
-    &emsp;|-->Assets<br>
-    &emsp;|-->Scenes<br>
-    &emsp;|-->android<br>
+|--> documentos<br>
+      &emsp;&emsp;|--> antigos<br>
+      &emsp;&emsp;| GDD.docx ou Documentação.docx<br>
+💻 executáveis<br>
+      &emsp;&emsp;📁|--> windows<br>
+      &emsp;&emsp;📁|--> HTML<br>
+📷| --> imagens<br>
+💾| --> src<br>
+  &emsp;| -->Hamurabi<br>
+        &emsp;&emsp;| --> .import<br>
+        &emsp;&emsp;| --> Assets<br>
+        &emsp;&emsp;| --> Scenes<br>
+        &emsp;&emsp;| --> android<br>
 
-|README.md<br>
+| README.md<br>
 
+A pasta raiz contém um arquivo principal:
+
+- <b>readme.md</b>, que consiste em um guia geral sobre o projeto.
+
+E, também, 4 subpastas que se organizam da seguinte forma:
+
+- <b>documentos</b>, ondem encontram-se todos os documentos relacionados ao projeto, sobretudo o Game Design Document (GDD), com uma subpasta <b>antigos</b> que armazena versões anteriores dos mesmos.
+
+- <b>executáveis</b>, ondem encontram-se todos os executáveis do jogo, prontos para rodar, com 2 pastas: uma para binários windows e uma para a web.
+
+- <b>imagens</b>, ondem encontram-se algumas imagens relacionadas ao jogo, sistema e logos, prontos para serem utilizados e visualizados.
+
+- <b>src</b>, onde encontra-se todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
 
 ## Instalação
+<b>Windows:</b>
+Não há instalação, apenas executável. Baixe os arquivos disponíveis em https://github.com/2022M1T3/Projeto1/tree/main/execut%C3%A1veis/Windows/Sprint%205 e execute "Hamurabi - Versão Sprint 5.exe" como qualquer outro programa.
 
-Não há instalação. Para acessar o game, clique no link abaixo: 
+```
+Observe que é necessário que o arquivo "Hamurabi - Versão Sprint 5.pck" esteja
+no mesmo diretório que "Hamurabi - Versão Sprint 5.exe" para que o jogo inicie
+corretamente.
+```
+
+<b>HTML:</b>
+
+Não há instalação! Baixe os arquivos disponíveis em https://github.com/2022M1T3/Projeto1/tree/main/execut%C3%A1veis/HTML/Sprint%205 e execute-o como uma página da web (através de algum navegador).
+
+```sh
+Dependendo de suas configurações de firewall, talvez seja necessário instaurar um web service como xampp ou wampp para que o jogo rode localmente.
+```
+
+Para acessar o game diretamente na WEB, utilize o itch.io, clique no link abaixo: 
 
 <a href="https://felipe-saadi.itch.io/hamurabi" target="_blank">Hamurabi</a>
 
@@ -73,12 +88,19 @@ Não há instalação. Para acessar o game, clique no link abaixo:
 O game pode ser utilizado em instituições de ensino para ensinar estudantes sobre os conceitos da constituição. 
 
 ## Configuração para Desenvolvimento
+Para abrir este projeto você necessita das seguintes ferramentas:
 
-Para abrir este projeto você necessita da ferramenta GODOT, dísponivel no link abaixo:
+-<a href="https://godotengine.org/download"> GODOT</a>
 
-<a href="https://godotengine.org/download">GODOT</a>
-
-
+Instruções para a configuração do ambiente de desenvolvimento:
+```
+1) Clone o repositório.
+2) Abra a engine de desenvolvimento (godot).
+3) No gerenciador de projetos inicial, clique no botão "importar" e, em seguida, no botão "navegar".
+4) Navegue até o repositório clonado e abra a pasta "src", e após a pasta "Hamurabi".
+5) Selecione o arquivo "project.godot" e em seguida clique no botão "abrir".
+6) Pronto. O seu ambiente de desenvolvimento está configurado.
+```
 ## Histórico de lançamentos
 
 
