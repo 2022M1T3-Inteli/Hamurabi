@@ -63,7 +63,7 @@ E, também, 4 subpastas que se organizam da seguinte forma:
 
 ## Instalação
 <b>Windows:</b>
-Não há instalação, apenas executável. Baixe os arquivos disponíveis em https://github.com/2022M1T3/Projeto1/tree/main/execut%C3%A1veis/Windows/Sprint%205 e execute "Hamurabi - Versão Sprint 5.exe" como qualquer outro programa.
+Não há instalação, apenas executável. Baixe os arquivos disponíveis em https://github.com/2022M1T3/Projeto1/tree/main/execut%C3%A1veis/Windows e execute "Hamurabi - Versão Sprint 5.exe" como qualquer outro programa.
 
 ```
 Observe que é necessário que o arquivo "Hamurabi - Versão Sprint 5.pck" esteja
@@ -73,7 +73,7 @@ corretamente.
 
 <b>HTML:</b>
 
-Não há instalação! Baixe os arquivos disponíveis em https://github.com/2022M1T3/Projeto1/tree/main/execut%C3%A1veis/HTML/Sprint%205 e execute-o como uma página da web (através de algum navegador).
+Não há instalação! Baixe os arquivos disponíveis em https://github.com/2022M1T3/Projeto1/tree/main/execut%C3%A1veis/HTML/ e execute-o como uma página da web (através de algum navegador).
 
 ```sh
 Dependendo de suas configurações de firewall, talvez seja necessário instaurar um web service como xampp ou wampp para que o jogo rode localmente.
