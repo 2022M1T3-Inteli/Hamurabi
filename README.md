@@ -27,25 +27,20 @@
 💡    O objetivo do jogo é incentivar e proporcionar aos jovens e adultos uma compreensão da estrutura política brasileira de forma divertida. E tem como finalidade gerar um impacto social, ensinando sobre as leis, organização política, Direitos e Deveres do Cidadão e do Governo no Brasil, uma vez que, atualmente, esse não é um componente curricular abordado nos ensinos fundamental e médio.
 <br><br>
 
-## Estrutura de pastas
 
-📦Projeto 1<br>
-|<br>
-|--> documentos<br>
-      &emsp;&emsp;|--> antigos<br>
-      &emsp;&emsp;| GDD.docx ou Documentação.docx<br>
-💻 executáveis<br>
-      &emsp;&emsp;📁|--> windows<br>
-      &emsp;&emsp;📁|--> HTML<br>
-📷| --> imagens<br>
-💾| --> src<br>
-  &emsp;| -->Hamurabi<br>
-        &emsp;&emsp;| --> .import<br>
-        &emsp;&emsp;| --> Assets<br>
-        &emsp;&emsp;| --> Scenes<br>
-        &emsp;&emsp;| --> android<br>
-
-| README.md<br>
+## 🛠 Estrutura de pastas
+    
+- Raiz<br><br>
+| --> documentos<br>
+  &emsp;| --> antigos<br>
+  &emsp;|  Modelo GDD - Grupo 42 - 0.5.2.pdf<br>
+| --> executáveis<br>
+  &emsp;| --> windows<br>
+  &emsp;| --> html<br>
+| --> imagens<br>
+| --> src<br>
+    &emsp;| --> Hamurabi<br>
+| readme.md<br>
 
 A pasta raiz contém um arquivo principal:
 
